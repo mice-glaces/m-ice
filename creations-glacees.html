@@ -48,7 +48,7 @@
     }
 
     /* =========================
-       NAVBAR NOIRE + SOULIGNÉ DORÉ
+       NAVBAR (BURGER IDENTIQUE À ACCUEIL)
        ========================= */
     header{
       position:sticky;top:0;z-index:50;
@@ -106,40 +106,52 @@
       border-color:#fff;
     }
 
+    /* ✅ Burger button (mobile) — EXACT Accueil (style + X) */
     .nav-burger{
       display:none;
-      width:26px;height:18px;
-      flex-direction:column;
-      justify-content:space-between;
+      width:44px;height:44px;
+      border-radius:999px;
+      border:1px solid rgba(200,155,60,.35);
+      background:rgba(200,155,60,.10);
       cursor:pointer;
-      border:none;background:transparent;padding:0;
+      align-items:center;
+      justify-content:center;
+      gap:5px;
+      padding:0;
     }
     .nav-burger span{
-      height:2px;border-radius:999px;background:rgba(255,255,255,.92);
-      width:100%;
+      display:block;
+      width:18px;height:2px;
+      border-radius:999px;
+      background:rgba(255,255,255,.92);
+      transition:transform .2s ease, opacity .2s ease;
     }
+    .nav-burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-burger.is-open span:nth-child(2){opacity:0}
+    .nav-burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-    .mobile-menu{
+    /* ✅ Mobile drawer — EXACT Accueil (même logique) */
+    .mobile-drawer{
       display:none;
-      border-top:1px solid rgba(255,255,255,.10);
+      border-top:1px solid rgba(200,155,60,.18);
       background:rgba(0,0,0,.96);
       backdrop-filter:blur(10px);
     }
-    .mobile-menu.is-open{display:block}
+    .mobile-drawer.is-open{display:block}
     .mobile-links{
       display:flex;
       flex-direction:column;
-      padding:10px 0 14px;
-      gap:8px;
+      gap:10px;
+      padding:12px 0 16px;
     }
     .mobile-links a{
-      padding:12px 10px;
+      padding:12px 12px;
       border-radius:14px;
-      font-weight:900;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(200,155,60,.14);
+      font-weight:800;
       color:#fff;
       opacity:.92;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
     }
     .mobile-links a:hover{
       opacity:1;
@@ -147,8 +159,19 @@
       background:rgba(255,255,255,.06);
     }
     .mobile-links a.is-active{
-      border-color:rgba(200,155,60,.60);
-      box-shadow:0 0 0 1px rgba(200,155,60,.15) inset;
+      opacity:1;
+      border-color:rgba(200,155,60,.55);
+      box-shadow:0 0 0 1px rgba(200,155,60,.12) inset;
+    }
+    .mobile-cta{
+      margin-top:4px;
+      padding:12px 12px;
+      border-radius:14px;
+      background:rgba(200,155,60,.14);
+      border:1px solid rgba(200,155,60,.45);
+      font-weight:900;
+      color:#fff7eb;
+      text-align:center;
     }
 
     /* =========================
@@ -435,7 +458,7 @@
 
     .cake-lightbox-inner{
       position:relative;
-      overflow:visible; /* ✅ important pour les boutons */
+      overflow:visible;
       width:min(920px, 96vw);
       max-height:92vh;
       background:rgba(10,10,12,.92);
@@ -451,7 +474,7 @@
       border-radius:18px;
       border:1px solid rgba(200,155,60,.25);
       background:#000;
-      z-index:1; /* ✅ l'image en dessous des boutons */
+      z-index:1;
     }
     .cake-lightbox-imgwrap img{
       width:100%;
@@ -461,11 +484,10 @@
       background:#000;
     }
 
-    /* ✅ CROIX AU DESSUS (FIX) */
     .cake-close{
       position:absolute;
       top:12px; right:12px;
-      z-index:50; /* ✅ au-dessus de l'image */
+      z-index:50;
       background:rgba(0,0,0,.55);
       border:1px solid rgba(200,155,60,.55);
       color:#fff;
@@ -491,7 +513,7 @@
       cursor:pointer;
       display:flex;align-items:center;justify-content:center;
       user-select:none;
-      z-index:40; /* ✅ au-dessus aussi */
+      z-index:40;
     }
     .cake-nav:hover{border-color:rgba(200,155,60,.85)}
     .cake-nav.prev{ left:-58px; }
@@ -551,10 +573,14 @@
       .thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}
       .hero-inner{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
-      .nav-links{display:none}
-      .nav-burger{display:flex}
       .cake-nav.prev{ left:10px; }
       .cake-nav.next{ right:10px; }
+    }
+    /* ✅ Navbar breakpoint identique à Accueil */
+    @media (max-width: 840px){
+      .nav-links{display:none}
+      .nav-cta{display:none}
+      .nav-burger{display:flex}
     }
     @media (max-width: 560px){
       .thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -609,21 +635,32 @@
         <a href="professionnels.html">Professionnels</a>
       </nav>
 
-      <button class="nav-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+      <!-- CTA desktop -->
+      <a class="nav-cta" href="mailto:miceglaces@gmail.com?subject=Commande%20-%20Créations%20glacées%20M%27Ice">Nous contacter</a>
+
+      <!-- ✅ BURGER MOBILE (même que Accueil) -->
+      <button
+        class="nav-burger"
+        id="burgerBtn"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="mobileDrawer"
+      >
         <span></span><span></span><span></span>
       </button>
-
-      <a class="nav-cta" href="mailto:miceglaces@gmail.com?subject=Commande%20-%20Créations%20glacées%20M%27Ice">Nous contacter</a>
     </div>
 
-    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-      <div class="mobile-links">
-        <a href="index.html">Accueil</a>
+    <!-- ✅ MENU MOBILE (drawer, même que Accueil) -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <nav class="mobile-links" aria-label="Navigation mobile">
+        <a href="Acceuil.html">Accueil</a>
         <a href="buches.html">Nos bûches glacées</a>
         <a href="nosparfums.html">Nos parfums</a>
         <a href="creations-glacees.html" class="is-active">Créations glacées</a>
         <a href="professionnels.html">Professionnels</a>
-      </div>
+        <a class="mobile-cta" href="mailto:miceglaces@gmail.com?subject=Commande%20-%20Créations%20glacées%20M%27Ice">Nous contacter</a>
+      </nav>
     </div>
   </div>
 </header>
@@ -751,7 +788,7 @@
           </div>
         </div>
 
-        <!-- BÛCHETTES (SUR PLACE) : affichage uniquement, pas de mail -->
+        <!-- BÛCHETTES (SUR PLACE) -->
         <div class="group">
           <div class="group-head">
             <div class="group-title">Bûchettes glacées</div>
@@ -824,7 +861,7 @@
           </div>
         </div>
 
-        <!-- GÂTEAUX (SUR COMMANDE) : 1 SEUL BLOC + 1 CARTE => ouvre LIGHTBOX -->
+        <!-- GÂTEAUX (SUR COMMANDE) -->
         <div class="group">
           <div class="group-head">
             <div class="group-title">Gâteaux (sur commande)</div>
@@ -850,30 +887,29 @@
           </div>
         </div>
 
-       <!-- SERVICE TRAITEUR -->
-<div class="group">
-  <div class="group-head">
-    <div class="group-title">Service traiteur</div>
-    <div class="group-note">Sur-mesure • événements • entreprises</div>
-  </div>
+        <!-- SERVICE TRAITEUR -->
+        <div class="group">
+          <div class="group-head">
+            <div class="group-title">Service traiteur</div>
+            <div class="group-note">Sur-mesure • événements • entreprises</div>
+          </div>
 
-  <div class="thumbs">
-    <button class="thumb" type="button" data-mail="Service traiteur – Sur-mesure" data-type="traiteur">
-      <div class="thumb-img thumb-placeholder">
-        <div class="placeholder-content">
-          <span class="placeholder-dot" aria-hidden="true"></span>
-          <span>Photo à venir</span>
+          <div class="thumbs">
+            <button class="thumb" type="button" data-mail="Service traiteur – Sur-mesure" data-type="traiteur">
+              <div class="thumb-img thumb-placeholder">
+                <div class="placeholder-content">
+                  <span class="placeholder-dot" aria-hidden="true"></span>
+                  <span>Photo à venir</span>
+                </div>
+              </div>
+
+              <div class="thumb-cap">
+                <div class="thumb-name">Sur-mesure</div>
+                <div class="thumb-pill">Devis</div>
+              </div>
+            </button>
+          </div>
         </div>
-      </div>
-
-      <div class="thumb-cap">
-        <div class="thumb-name">Sur-mesure</div>
-        <div class="thumb-pill">Devis</div>
-      </div>
-    </button>
-  </div>
-</div>
-
 
       </div>
     </div>
@@ -905,10 +941,10 @@
         </div>
 
         <div class="info">
-          <h3>Pour les professionnels ou tout évènement </h3>
-          <p>Pour toute demande, merci de nous contacter directement ! 
-
-          Mail : miceglaces@gmail.com </p>
+          <h3>Pour les professionnels ou tout évènement</h3>
+          <p>Pour toute demande, merci de nous contacter directement !<br><br>
+            Mail : <strong>miceglaces@gmail.com</strong>
+          </p>
           <p style="color:rgba(255,255,255,.78);font-size:.92rem;">
             <a href="professionnels.html" style="text-decoration:underline;font-weight:900;color:#fff">Aller sur Professionnels</a>
           </p>
@@ -945,25 +981,37 @@
 </div>
 
 <script>
-  // Burger mobile
+  // ===== BURGER MENU (identique Accueil) =====
   (function(){
-    const burger = document.querySelector(".nav-burger");
-    const menu = document.getElementById("mobileMenu");
-    if(!burger || !menu) return;
+    const burger = document.getElementById("burgerBtn");
+    const drawer = document.getElementById("mobileDrawer");
+    if(!burger || !drawer) return;
 
     function setOpen(isOpen){
-      menu.classList.toggle("is-open", isOpen);
+      drawer.classList.toggle("is-open", isOpen);
+      burger.classList.toggle("is-open", isOpen);
       burger.setAttribute("aria-expanded", String(isOpen));
-      menu.setAttribute("aria-hidden", String(!isOpen));
+      drawer.setAttribute("aria-hidden", String(!isOpen));
     }
 
     burger.addEventListener("click", () => {
-      const isOpen = menu.classList.contains("is-open");
+      const isOpen = drawer.classList.contains("is-open");
       setOpen(!isOpen);
     });
 
+    // Ferme le menu quand on clique un lien
+    drawer.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => setOpen(false));
+    });
+
+    // Ferme avec Escape
     document.addEventListener("keydown", (e) => {
       if(e.key === "Escape") setOpen(false);
+    });
+
+    // Sécurise si on repasse en desktop
+    window.addEventListener("resize", () => {
+      if(window.innerWidth > 840) setOpen(false);
     });
   })();
 
@@ -1013,7 +1061,6 @@ Détails / préférences (parfums, allergènes, etc.) :
 
     let index = 0;
 
-    // dots lightbox (sync avec nombre d'images)
     lbDots.innerHTML = cakeImages.map((_, i) => `<span class="dot${i===0?' is-active':''}"></span>`).join("");
 
     function setDotsActive(wrapper, i){
@@ -1047,7 +1094,6 @@ Détails / préférences (parfums, allergènes, etc.) :
       lbImg.src = cakeImages[index];
       setDotsActive(lbDots, index);
 
-      // sync vignette aussi
       thumbImg.src = cakeImages[index];
       setDotsActive(thumbDotsWrap, index);
 
@@ -1093,7 +1139,6 @@ Détails / préférences (parfums, allergènes, etc.) :
     nextBtn.addEventListener("click", next);
     prevBtn.addEventListener("click", prev);
 
-    // clic sur overlay = fermer (mais pas si clic dans la modale)
     lightbox.addEventListener("click", (e) => {
       if(e.target === lightbox) closeLightbox();
     });
@@ -1105,7 +1150,7 @@ Détails / préférences (parfums, allergènes, etc.) :
       if(e.key === "ArrowLeft") prev();
     });
 
-    // Swipe mobile dans la lightbox (simple)
+    // Swipe mobile (simple)
     let startX = 0;
     let isDown = false;
 
@@ -1130,5 +1175,3 @@ Détails / préférences (parfums, allergènes, etc.) :
 
 </body>
 </html>
-
-
