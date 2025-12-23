@@ -407,37 +407,20 @@ header{
       .form-row{grid-template-columns:1fr}
     }
 
-    /* ✅ taille logo mobile : identique Accueil */
+    /* ✅ taille logo mobile : identique Accueil (⚠️ ENLEVÉ padding) */
     @media (max-width: 640px){
-      .logo-mark{width:44px;height:44px;flex:0 0 44px;padding:3px;}
+      .logo-mark{width:44px;height:44px;flex:0 0 44px;padding:0;}
       .hero-actions a{width:100%}
     }
-    /* ===== FIX LOGO NAV (évite les CSS qui écrasent le rendu sur certaines pages) ===== */
-header .logo-mark{
-  width:48px;
-  height:48px;
-  border-radius:999px;
-  overflow:hidden;
-  padding:0;
-  flex:0 0 48px;
-}
 
-header .logo-mark-img{
-  width:100% !important;
-  height:100% !important;
-  object-fit:cover !important;   /* <-- le plus important */
-  display:block;
-}
-
-/* Mobile */
-@media (max-width: 640px){
-  header .logo-mark{
-    width:44px;
-    height:44px;
-    flex:0 0 44px;
-  }
-}
-
+    /* ✅ FORCE-FIX (au cas où une règle écrase le logo) */
+    header .logo-mark{ overflow:hidden !important; }
+    header .logo-mark-img{
+      width:100% !important;
+      height:100% !important;
+      object-fit:cover !important;
+      display:block !important;
+    }
   </style>
 </head>
 
@@ -716,17 +699,14 @@ header .logo-mark-img{
         setOpen(!drawer.classList.contains("is-open"));
       });
 
-      // Ferme le menu quand on clique un lien (UX mobile)
       drawer.querySelectorAll("a").forEach(a => {
         a.addEventListener("click", () => setOpen(false));
       });
 
-      // Ferme avec Escape
       document.addEventListener("keydown", (e) => {
         if(e.key === "Escape") setOpen(false);
       });
 
-      // Sécurise si on repasse en desktop (resize)
       window.addEventListener("resize", () => {
         if(window.innerWidth > 900) setOpen(false);
       });
