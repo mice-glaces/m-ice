@@ -147,30 +147,29 @@
       box-shadow:0 14px 32px rgba(0,0,0,.45);
     }
 
-    /* Burger button (mobile) */
-.nav-burger{
-  display:none;
-  width:44px;height:44px;
-  border-radius:999px;
-  border:1px solid rgba(200,155,60,.35);
-  background:rgba(200,155,60,.10);
-  cursor:pointer;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
-  padding:0;
-}
-.nav-burger span{
-  display:block;
-  width:18px;height:2px;
-  border-radius:999px;
-  background:var(--text-main);
-  transition:transform .2s ease, opacity .2s ease;
-}
-.nav-burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-burger.is-open span:nth-child(2){opacity:0}
-.nav-burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    /* ✅ BURGER SIMPLE (3 barres fixes, lisible) */
+    .nav-burger{
+      display:none;
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(200,155,60,.35);
+      background:rgba(0,0,0,.55);
+      cursor:pointer;
 
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:6px;
+      padding:0;
+    }
+    .nav-burger span{
+      display:block;
+      width:22px;
+      height:2px;
+      background:#fff;
+      border-radius:999px;
+    }
 
     /* Mobile drawer */
     .mobile-drawer{
@@ -227,25 +226,18 @@
       gap: 24px;
       align-items: center;
       border: 1px solid rgba(200,155,60,.18);
+      overflow:hidden;
     }
-/* ✅ FIX overflow texte dans le hero (mobile + desktop) */
-.hero-inner > *{
-  min-width: 0; /* IMPORTANT : empêche le débordement en grid */
-}
 
-.hero-title,
-.hero-subtitle{
-  max-width: 100%;
-  overflow-wrap: anywhere;   /* coupe si besoin */
-  word-break: break-word;    /* fallback */
-  hyphens: auto;             /* césure propre si possible */
-}
-
-/* optionnel : si tu veux être sûr que rien ne sort du cadre */
-.hero-inner{
-  overflow: hidden;
-}
-
+    /* ✅ FIX overflow texte dans le hero (mobile + desktop) */
+    .hero-inner > *{ min-width: 0; }
+    .hero-title,
+    .hero-subtitle{
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+    }
 
     .hero-text-eyebrow {
       font-size: 0.78rem;
@@ -685,7 +677,7 @@
   </footer>
 
   <script>
-    // ===== BURGER MENU =====
+    // ===== BURGER MENU (✅ 3 barres fixes) =====
     (function(){
       const burger = document.getElementById("burgerBtn");
       const drawer = document.getElementById("mobileDrawer");
@@ -693,7 +685,6 @@
 
       function setOpen(isOpen){
         drawer.classList.toggle("is-open", isOpen);
-        burger.classList.toggle("is-open", isOpen);
         burger.setAttribute("aria-expanded", String(isOpen));
         drawer.setAttribute("aria-hidden", String(!isOpen));
       }
@@ -803,4 +794,5 @@
 
 </body>
 </html>
+
 
