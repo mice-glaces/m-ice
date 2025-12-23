@@ -25,6 +25,7 @@
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;}
     body{
       font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       background:var(--bg-main);
@@ -35,9 +36,15 @@
     img{max-width:100%;display:block}
     .container{max-width:1200px;margin:0 auto;padding:0 16px}
 
+    :focus-visible{
+      outline:2px solid rgba(200,155,60,.85);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
     /* ===== NAVBAR (noir premium) ===== */
     header{
-      position:sticky;top:0;z-index:10;
+      position:sticky;top:0;z-index:100;
       background:rgba(14,14,16,.75);
       backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(200,155,60,.25);
@@ -50,6 +57,7 @@
       display:flex;align-items:center;gap:12px;
       font-family:"Playfair Display",serif;font-weight:700;font-size:1.2rem;
       letter-spacing:.04em;white-space:nowrap;line-height:1;
+      color:var(--text-main);
     }
     .logo-mark{
       width:44px;height:44px;border-radius:999px;overflow:hidden;
@@ -80,6 +88,72 @@
       background:rgba(200,155,60,.25);
       transform:translateY(-1px);
       box-shadow:0 16px 34px rgba(0,0,0,.55);
+    }
+
+    /* ✅ Burger button (identique Accueil) */
+    .nav-burger{
+      display:none;
+      width:44px;height:44px;
+      border-radius:999px;
+      border:1px solid rgba(200,155,60,.35);
+      background:rgba(200,155,60,.10);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      gap:5px;
+      padding:0;
+    }
+    .nav-burger span{
+      display:block;
+      width:18px;height:2px;
+      border-radius:999px;
+      background:var(--text-main);
+      transition:transform .2s ease, opacity .2s ease;
+    }
+    /* animate to X */
+    .nav-burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-burger.is-open span:nth-child(2){opacity:0}
+    .nav-burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    /* ✅ Mobile drawer (identique Accueil) */
+    .mobile-drawer{
+      display:none;
+      border-top:1px solid rgba(200,155,60,.18);
+      background:rgba(14,14,16,.95);
+      backdrop-filter:blur(14px);
+    }
+    .mobile-drawer.is-open{display:block}
+    .mobile-links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:12px 0 16px;
+    }
+    .mobile-links a{
+      padding:12px 12px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(200,155,60,.14);
+      font-weight:800;
+      color:var(--text-main);
+    }
+    .mobile-links a:hover{
+      border-color:rgba(200,155,60,.35);
+      background:rgba(255,255,255,.06);
+    }
+    .mobile-links a.is-active{
+      border-color:rgba(200,155,60,.55);
+      box-shadow:0 0 0 1px rgba(200,155,60,.12) inset;
+    }
+    .mobile-cta{
+      margin-top:4px;
+      padding:12px 12px;
+      border-radius:14px;
+      background:rgba(200,155,60,.14);
+      border:1px solid rgba(200,155,60,.45);
+      font-weight:900;
+      color:#fff7eb;
+      text-align:center;
     }
 
     /* ===== HERO ===== */
@@ -121,28 +195,50 @@
       background:linear-gradient(135deg,#e3c58f,#c89b3c);
       color:#18130d;font-size:.95rem;font-weight:950;cursor:pointer;
       box-shadow:0 14px 32px rgba(0,0,0,.45);
+      transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
+      display:inline-flex;align-items:center;justify-content:center;
     }
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 16px 38px rgba(0,0,0,.55);filter:brightness(1.02)}
     .btn-ghost{
       padding:10px 18px;border-radius:999px;border:1px dashed rgba(255,255,255,.18);
       background:transparent;color:var(--text-muted);font-weight:800;
+      display:inline-flex;align-items:center;justify-content:center;
     }
 
-    /* ✅ RENDU DARK POUR CARD */
-    .hero-card{
+    /* ===== HERO MEDIA (image vitrine) ===== */
+    .hero-media{
       background:linear-gradient(180deg,#18181c,#121214);
-      border:1px solid rgba(200,155,60,.18);
-      border-radius:22px;
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-soft);
       padding:18px;
-      box-shadow:0 16px 38px rgba(0,0,0,.55);
+      border:1px solid rgba(200,155,60,.18);
     }
-    .hero-card h3{
-      font-family:"Playfair Display",serif;
-      font-size:1.15rem;margin-bottom:8px;
-      color:var(--text-main);
+    .hero-image-main{
+      border-radius:calc(var(--radius-xl) - 6px);
+      overflow:hidden;
+      position:relative;
+      aspect-ratio:4/3;
+      background-size:cover;
+      background-position:center;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.60)),
+        var(--img, none);
+      border:1px solid rgba(255,255,255,.06);
     }
-    .hero-card p{color:var(--text-muted);font-size:.92rem;margin-bottom:10px}
-    .hero-card ul{margin-left:18px;color:#d4cfc9;font-size:.92rem}
-    .hero-card li{margin:6px 0}
+    .hero-label{
+      position:absolute;
+      bottom:14px;
+      left:14px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(200,155,60,.18);
+      border:1px solid rgba(200,155,60,.45);
+      color:#fff7eb;
+      font-size:.8rem;
+      font-weight:900;
+      letter-spacing:.06em;
+      backdrop-filter: blur(10px);
+    }
 
     /* ===== SECTIONS ===== */
     section{padding:46px 0}
@@ -208,6 +304,33 @@
       white-space:nowrap;
     }
 
+    /* ===== LIST (infos utiles) ===== */
+    .list{
+      list-style:none;
+      margin:12px 0 0;
+      padding:0;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:rgba(255,255,255,.86);
+      font-size:.92rem;
+    }
+    .list li::before{
+      content:"";
+      width:10px;height:10px;
+      border-radius:999px;
+      margin-top:6px;
+      background:rgba(200,155,60,.32);
+      border:1px solid rgba(200,155,60,.55);
+      box-shadow:0 0 12px rgba(200,155,60,.14);
+      flex:0 0 10px;
+    }
+
     /* ===== FAQ ===== */
     .faq{display:grid;gap:10px}
     details{
@@ -226,81 +349,83 @@
     summary::-webkit-details-marker{display:none}
     details p{color:var(--text-muted);font-size:.92rem;margin-top:10px}
 
-    footer{padding:24px 0;text-align:center;color:#8f8a84;font-size:.8rem}
+    footer{
+      padding:24px 0;
+      text-align:center;
+      color:#8f8a84;
+      font-size:.8rem;
+      border-top:1px solid rgba(200,155,60,.18);
+      margin-top:10px;
+    }
 
-    /* ===== RESPONSIVE ===== */
+    /* ===== RESPONSIVE (identique logique Accueil) ===== */
     @media (max-width: 900px){
       .hero-inner{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
       .nav-links{display:none}
+      .nav-cta{display:none}
+      .nav-burger{display:flex}
       .form-row{grid-template-columns:1fr}
-    }
-
-    /* ===== HERO MEDIA (image vitrine) ===== */
-    .hero-media{
-      background:linear-gradient(180deg,#18181c,#121214);
-      border-radius:var(--radius-xl);
-      box-shadow:var(--shadow-soft);
-      padding:18px;
-      border:1px solid rgba(200,155,60,.18);
-    }
-
-    .hero-image-main{
-      border-radius:calc(var(--radius-xl) - 6px);
-      overflow:hidden;
-      position:relative;
-      aspect-ratio:4/3;
-      background-size:cover;
-      background-position:center;
-      /* ✅ voile noir pour rendre l’image plus premium */
-      background-image:
-        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.60)),
-        var(--img, none);
-      border:1px solid rgba(255,255,255,.06);
-    }
-
-    .hero-label{
-      position:absolute;
-      bottom:14px;
-      left:14px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(200,155,60,.18);
-      border:1px solid rgba(200,155,60,.45);
-      color:#fff7eb;
-      font-size:.8rem;
-      font-weight:900;
-      letter-spacing:.06em;
-      backdrop-filter: blur(10px);
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container">
-    <div class="nav">
-      <a class="logo" href="Acceuil.html">
-        <span class="logo-mark">
-          <img src="images/logo%20mice.jpg" alt="Logo M'Ice">
-        </span>
-        <span>M'ice</span>
-      </a>
+  <!-- NAVBAR (même burger que Accueil) -->
+  <header>
+    <div class="container">
+      <div class="nav">
 
-      <nav class="nav-links" aria-label="Navigation principale">
-        <a href="index.html">Accueil</a>
-        <a href="buches.html">Nos bûches glacées</a>
-        <a href="nosparfums.html">Nos parfums</a>
-        <a href="creations-glacees.html">Créations glacées</a>
-        <a href="professionnels.html" class="is-active">Professionnels</a>
-      </nav>
+        <!-- LOGO -->
+        <a class="logo" href="Acceuil.html">
+          <span class="logo-mark">
+            <img src="images/logo%20mice.jpg" alt="Logo M'Ice">
+          </span>
+          <span>M'ice</span>
+        </a>
 
-      <a class="nav-cta" href="#contact-pro">Nous contacter</a>
+        <!-- NAVIGATION (desktop) -->
+        <nav class="nav-links" aria-label="Navigation principale">
+          <a href="Acceuil.html">Accueil</a>
+          <a href="buches.html">Nos bûches glacées</a>
+          <a href="nosparfums.html">Nos parfums</a>
+          <a href="creations-glacees.html">Créations glacées</a>
+          <a href="professionnels.html" class="is-active">Professionnels</a>
+        </nav>
+
+        <!-- CTA (desktop) -->
+        <a class="nav-cta" href="#contact-pro">Nous contacter</a>
+
+        <!-- BURGER MOBILE -->
+        <button
+          class="nav-burger"
+          id="burgerBtn"
+          type="button"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
+
+      <!-- MENU MOBILE -->
+      <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+        <nav class="mobile-links" aria-label="Navigation mobile">
+          <a href="Acceuil.html">Accueil</a>
+          <a href="buches.html">Nos bûches glacées</a>
+          <a href="nosparfums.html">Nos parfums</a>
+          <a href="creations-glacees.html">Créations glacées</a>
+          <a href="professionnels.html" class="is-active">Professionnels</a>
+          <a class="mobile-cta" href="#contact-pro">Nous contacter</a>
+        </nav>
+      </div>
+
     </div>
-  </div>
-</header>
+  </header>
 
 <main>
 
@@ -328,9 +453,7 @@
         </div>
 
         <div class="hero-media">
-          <div
-            class="hero-image-main"
-            style="--img:url('images/creations/hero-creations.jpg');">
+          <div class="hero-image-main" style="--img:url('images/creations/hero-creations.jpg');">
             <span class="hero-label">Charette événementielle M’ice</span>
           </div>
         </div>
@@ -388,8 +511,7 @@
         <!-- FORM -->
         <div class="form">
           <div class="form-title">Formulaire professionnels</div>
-          <div class="form-subtitle">
-          </div>
+          <div class="form-subtitle"></div>
 
           <form id="proForm">
             <div class="form-row">
@@ -446,24 +568,27 @@
           </form>
         </div>
 
-     <!-- INFOS -->
-<div class="card">
-  <h3>Infos utiles</h3>
+        <!-- INFOS -->
+        <div class="card">
+          <h3>Infos utiles</h3>
 
-  <p style="margin-bottom:10px;">
-    Nous sommes basés à <strong>Saint-Jean-Saint-Nicolas</strong>.
-  </p>
+          <p style="margin-bottom:10px;">
+            Nous sommes basés à <strong>Saint-Jean-Saint-Nicolas</strong>.
+          </p>
 
-  <ul class="list">
-    <li>Créations glacées artisanales dédiées aux professionnels</li>
-    <li>Commandes sur devis et entièrement sur-mesure</li>
-    <li>Formats, volumes et parfums adaptés à chaque événement</li>
-    <li>Délais variables selon la période et la quantité demandée</li>
-    <li>Chaîne du froid strictement respectée</li>
-    <li>Livraison possible selon conditions</li>
-  </ul>
-</div>
+          <ul class="list">
+            <li>Créations glacées artisanales dédiées aux professionnels</li>
+            <li>Commandes sur devis et entièrement sur-mesure</li>
+            <li>Formats, volumes et parfums adaptés à chaque événement</li>
+            <li>Délais variables selon la période et la quantité demandée</li>
+            <li>Chaîne du froid strictement respectée</li>
+            <li>Livraison possible selon conditions</li>
+          </ul>
+        </div>
 
+      </div>
+    </div>
+  </section>
 
   <!-- FAQ -->
   <section>
@@ -504,7 +629,40 @@
 </footer>
 
 <script>
-  // Formulaire -> ouvre un mail pré-rempli (sans serveur)
+  /* ===== BURGER (identique Accueil) ===== */
+  (function(){
+    const burger = document.getElementById("burgerBtn");
+    const drawer = document.getElementById("mobileDrawer");
+    if(!burger || !drawer) return;
+
+    function setOpen(isOpen){
+      drawer.classList.toggle("is-open", isOpen);
+      burger.classList.toggle("is-open", isOpen);
+      burger.setAttribute("aria-expanded", String(isOpen));
+      drawer.setAttribute("aria-hidden", String(!isOpen));
+    }
+
+    burger.addEventListener("click", () => {
+      setOpen(!drawer.classList.contains("is-open"));
+    });
+
+    // Ferme le menu quand on clique un lien (UX mobile)
+    drawer.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => setOpen(false));
+    });
+
+    // Ferme avec Escape
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") setOpen(false);
+    });
+
+    // Sécurise si on repasse en desktop (resize)
+    window.addEventListener("resize", () => {
+      if(window.innerWidth > 900) setOpen(false);
+    });
+  })();
+
+  /* ===== FORM PRO -> ouvre un mail pré-rempli (sans serveur) ===== */
   const form = document.getElementById("proForm");
 
   form.addEventListener("submit", (e) => {
@@ -543,4 +701,6 @@ ${name}`;
 
 </body>
 </html>
+
+
 
