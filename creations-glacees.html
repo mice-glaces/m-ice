@@ -93,6 +93,29 @@
       width:0;height:2px;
       background:var(--accent);
       transition:width .25s ease;
+      /* ✅ CTA desktop — style “bouton doré” (comme Accueil) */
+.nav-cta{
+  padding:10px 18px;
+  border-radius:999px;
+  border:1px solid rgba(200,155,60,.75);
+  font-size:.95rem;
+  font-weight:800;
+  background:rgba(200,155,60,.15);
+  cursor:pointer;
+  transition:background .25s ease,transform .15s ease,box-shadow .2s ease;
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
+  white-space:nowrap;
+  color:var(--text-main);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.nav-cta:hover{
+  background:rgba(200,155,60,.25);
+  transform:translateY(-1px);
+  box-shadow:0 14px 32px rgba(0,0,0,.45);
+}
+
     }
     .nav-links a:hover::after{width:100%}
     .nav-links a.is-active::after{width:100%}
