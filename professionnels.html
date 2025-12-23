@@ -91,6 +91,31 @@
     }
     .nav-links a:hover::after{width:100%}
     .nav-links a.is-active::after{width:100%}
+
+    /* ✅ CTA desktop (identique Accueil) */
+    .nav-cta{
+      padding:10px 18px;
+      border-radius:999px;
+      border:1px solid rgba(200,155,60,.75);
+      font-size:.95rem;
+      font-weight:800;
+      background:rgba(200,155,60,.15);
+      cursor:pointer;
+      transition:background .25s ease,transform .15s ease,box-shadow .2s ease;
+      box-shadow:0 8px 20px rgba(0,0,0,.35);
+      white-space:nowrap;
+      color:var(--text-main);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .nav-cta:hover{
+      background:rgba(200,155,60,.25);
+      transform:translateY(-1px);
+      box-shadow:0 14px 32px rgba(0,0,0,.45);
+    }
+
     /* ✅ Burger button (identique Accueil) */
     .nav-burger{
       display:none;
@@ -104,29 +129,6 @@
       gap:5px;
       padding:0;
     }
-    /* ✅ CTA desktop (identique Accueil) */
-.nav-cta{
-  padding:10px 18px;
-  border-radius:999px;
-  border:1px solid rgba(200,155,60,.75);
-  font-size:.95rem;
-  font-weight:800;
-  background:rgba(200,155,60,.15);
-  cursor:pointer;
-  transition:background .25s ease,transform .15s ease,box-shadow .2s ease;
-  box-shadow:0 8px 20px rgba(0,0,0,.35);
-  white-space:nowrap;
-  color:var(--text-main);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-}
-.nav-cta:hover{
-  background:rgba(200,155,60,.25);
-  transform:translateY(-1px);
-  box-shadow:0 14px 32px rgba(0,0,0,.45);
-}
-
     .nav-burger span{
       display:block;
       width:18px;height:2px;
@@ -214,6 +216,7 @@
       color:var(--accent);font-weight:800;
     }
     .hero-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
     .btn-primary{
       padding:10px 20px;border-radius:999px;border:none;
       background:linear-gradient(135deg,#e3c58f,#c89b3c);
@@ -221,21 +224,23 @@
       box-shadow:0 14px 32px rgba(0,0,0,.45);
       transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
       display:inline-flex;align-items:center;justify-content:center;
+      text-align:center;
     }
     .btn-primary:hover{transform:translateY(-1px);box-shadow:0 16px 38px rgba(0,0,0,.55);filter:brightness(1.02)}
-.btn-ghost{
-  padding:10px 18px;border-radius:999px;
-  border:1px dashed rgba(200,155,60,.45);
-  background:transparent;
-  cursor:pointer;
-  font-size:.9rem;
-  color:var(--text-main);
-  display:inline-flex;align-items:center;justify-content:center;
-  opacity:.95;
-  text-align:center;
-}
-.btn-ghost:hover{opacity:1}
 
+    /* ✅ btn-ghost identique Accueil */
+    .btn-ghost{
+      padding:10px 18px;border-radius:999px;
+      border:1px dashed rgba(200,155,60,.45);
+      background:transparent;
+      cursor:pointer;
+      font-size:.9rem;
+      color:var(--text-main);
+      display:inline-flex;align-items:center;justify-content:center;
+      opacity:.95;
+      text-align:center;
+    }
+    .btn-ghost:hover{opacity:1}
 
     /* ===== HERO MEDIA (image vitrine) ===== */
     .hero-media{
@@ -404,13 +409,14 @@
     /* ✅ taille logo mobile : identique Accueil */
     @media (max-width: 640px){
       .logo-mark{width:44px;height:44px;flex:0 0 44px;padding:3px;}
+      .hero-actions a{width:100%}
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR (même burger que Accueil) -->
+  <!-- NAVBAR -->
   <header>
     <div class="container">
       <div class="nav">
@@ -464,257 +470,257 @@
     </div>
   </header>
 
-<main>
+  <main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-eyebrow">B2B / événements / restauration</div>
-          <h1 class="hero-title">Offres pour les professionnels</h1>
-          <p class="hero-subtitle">
-            Restaurants, hôtels, événements, entreprises, collectivités : M’ice vous accompagne
-            avec des glaces artisanales et des desserts glacés, fabriqués à la main à
-            Saint-Jean-Saint-Nicolas.
-          </p>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-eyebrow">B2B / événements / restauration</div>
+            <h1 class="hero-title">Offres pour les professionnels</h1>
+            <p class="hero-subtitle">
+              Restaurants, hôtels, événements, entreprises, collectivités : M’ice vous accompagne
+              avec des glaces artisanales et des desserts glacés, fabriqués à la main à
+              Saint-Jean-Saint-Nicolas.
+            </p>
 
-          <div class="hero-tags">
-            <span class="hero-tag">Desserts sur commande</span>
+            <div class="hero-tags">
+              <span class="hero-tag">Desserts sur commande</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn-primary" href="#contact-pro">Demander un devis</a>
+              <a class="btn-ghost" href="mailto:miceglaces@gmail.com?subject=Demande%20pro%20-%20M%27Ice">Écrire un mail</a>
+            </div>
           </div>
 
-          <div class="hero-actions">
-            <a class="btn-primary" href="#contact-pro">Demander un devis</a>
-            <a class="btn-ghost" href="mailto:miceglaces@gmail.com?subject=Demande%20pro%20-%20M%27Ice">Écrire un mail</a>
+          <div class="hero-media">
+            <div class="hero-image-main" style="--img:url('images/creations/hero-creations.jpg');">
+              <span class="hero-label">Charette événementielle M’ice</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- POURQUOI NOUS -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Pourquoi travailler avec M’ice ?</h2>
+          <p class="section-subtitle">
+            Une approche artisanale, fiable et simple à mettre en place pour vos équipes.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Artisanal & régulier</h3>
+            <p>
+              Recettes maison et fabrication maison. On privilégie la qualité
+              et la satisfaction sur le long terme.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Adapté aux professionnels</h3>
+            <p>
+              Formats adaptés (bacs), conseils de service, et organisation simple :
+              retrait atelier ou livraison locale selon créneaux (à définir ensemble).
+            </p>
+          </div>
+          <div class="card">
+            <h3>Production locale</h3>
+            <p>
+              Production locale et artisanale, réalisée dans notre propre laboratoire à Saint-Jean-Saint-Nicolas dans le Champsaur.
+            </p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-media">
-          <div class="hero-image-main" style="--img:url('images/creations/hero-creations.jpg');">
-            <span class="hero-label">Charette événementielle M’ice</span>
+    <!-- CONTACT PRO + INFOS -->
+    <section id="contact-pro">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Demande pro / devis</h2>
+          <p class="section-subtitle">
+            Réponse rapide par mail. Plus votre demande est précise, plus on peut vous proposer une solution adaptée.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <!-- FORM -->
+          <div class="form">
+            <div class="form-title">Formulaire professionnels</div>
+            <div class="form-subtitle"></div>
+
+            <form id="proForm">
+              <div class="form-row">
+                <div class="field">
+                  <label for="company">Entreprise</label>
+                  <input id="company" name="company" type="text" placeholder="Nom de l’établissement" required>
+                </div>
+
+                <div class="field">
+                  <label for="name">Nom</label>
+                  <input id="name" name="name" type="text" placeholder="Votre nom" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="contact@..." required>
+                </div>
+
+                <div class="field">
+                  <label for="phone">Téléphone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="06..." required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="type">Type de demande</label>
+                  <select id="type" name="type" required>
+                    <option value="Événement / entreprise">Événement / entreprise</option>
+                    <option value="Restaurant / hôtel">Restaurant / hôtel</option>
+                    <option value="Dessert sur mesure">Dessert sur mesure</option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="date">Date souhaitée</label>
+                  <input id="date" name="date" type="text" placeholder="Ex : 12/01/2026">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="message">Votre demande</label>
+                <textarea id="message" name="message" placeholder="Ex : 2 bacs 5L vanille + 2 bacs 2,5L pistache, retrait le jeudi..." required></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn-primary" type="submit">Envoyer la demande</button>
+                <span class="pill">📩 miceglaces@gmail.com</span>
+                <span class="hint">* Le mail s’ouvre automatiquement sur votre appareil.</span>
+              </div>
+            </form>
           </div>
-        </div>
 
-      </div>
-    </div>
-  </section>
+          <!-- INFOS -->
+          <div class="card">
+            <h3>Infos utiles</h3>
 
-  <!-- POURQUOI NOUS -->
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Pourquoi travailler avec M’ice ?</h2>
-        <p class="section-subtitle">
-          Une approche artisanale, fiable et simple à mettre en place pour vos équipes.
-        </p>
-      </div>
+            <p style="margin-bottom:10px;">
+              Nous sommes basés à <strong>Saint-Jean-Saint-Nicolas</strong>.
+            </p>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>Artisanal & régulier</h3>
-          <p>
-            Recettes maison et fabrication maison. On privilégie la qualité
-            et la satisfaction sur le long terme.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Adapté aux professionnels</h3>
-          <p>
-            Formats adaptés (bacs), conseils de service, et organisation simple :
-            retrait atelier ou livraison locale selon créneaux (à définir ensemble).
-          </p>
-        </div>
-        <div class="card">
-          <h3>Production locale</h3>
-          <p>
-            Production locale et artisanale, réalisée dans notre propre laboratoire à Saint-Jean-Saint-Nicolas dans le Champsaur.
-          </p>
+            <ul class="list">
+              <li>Créations glacées artisanales dédiées aux professionnels</li>
+              <li>Commandes sur devis et entièrement sur-mesure</li>
+              <li>Formats, volumes et parfums adaptés à chaque événement</li>
+              <li>Délais variables selon la période et la quantité demandée</li>
+              <li>Chaîne du froid strictement respectée</li>
+              <li>Livraison possible selon conditions</li>
+            </ul>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT PRO + INFOS -->
-  <section id="contact-pro">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Demande pro / devis</h2>
-        <p class="section-subtitle">
-          Réponse rapide par mail. Plus votre demande est précise, plus on peut vous proposer une solution adaptée.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <!-- FORM -->
-        <div class="form">
-          <div class="form-title">Formulaire professionnels</div>
-          <div class="form-subtitle"></div>
-
-          <form id="proForm">
-            <div class="form-row">
-              <div class="field">
-                <label for="company">Entreprise</label>
-                <input id="company" name="company" type="text" placeholder="Nom de l’établissement" required>
-              </div>
-
-              <div class="field">
-                <label for="name">Nom</label>
-                <input id="name" name="name" type="text" placeholder="Votre nom" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="contact@..." required>
-              </div>
-
-              <div class="field">
-                <label for="phone">Téléphone</label>
-                <input id="phone" name="phone" type="tel" placeholder="06..." required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="type">Type de demande</label>
-                <select id="type" name="type" required>
-                  <option value="Événement / entreprise">Événement / entreprise</option>
-                  <option value="Restaurant / hôtel">Restaurant / hôtel</option>
-                  <option value="Dessert sur mesure">Dessert sur mesure</option>
-                  <option value="Autre">Autre</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="date">Date souhaitée</label>
-                <input id="date" name="date" type="text" placeholder="Ex : 12/01/2026">
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="message">Votre demande</label>
-              <textarea id="message" name="message" placeholder="Ex : 2 bacs 5L vanille + 2 bacs 2,5L pistache, retrait le jeudi..." required></textarea>
-            </div>
-
-            <div class="form-actions">
-              <button class="btn-primary" type="submit">Envoyer la demande</button>
-              <span class="pill">📩 miceglaces@gmail.com</span>
-              <span class="hint">* Le mail s’ouvre automatiquement sur votre appareil.</span>
-            </div>
-          </form>
+    <!-- FAQ -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">FAQ Pro</h2>
+          <p class="section-subtitle">Les questions qu’on nous pose le plus souvent.</p>
         </div>
 
-        <!-- INFOS -->
-        <div class="card">
-          <h3>Infos utiles</h3>
+        <div class="faq">
+          <details>
+            <summary>Faites-vous des tarifs professionnels ?</summary>
+            <p>Oui. Les tarifs dépendent des formats, des quantités et de la fréquence. Envoyez une demande via le formulaire pour un devis adapté.</p>
+          </details>
 
-          <p style="margin-bottom:10px;">
-            Nous sommes basés à <strong>Saint-Jean-Saint-Nicolas</strong>.
-          </p>
+          <details>
+            <summary>Peut-on commander des parfums spécifiques ?</summary>
+            <p>Oui, selon la saison et notre planning de production. On confirme toujours la faisabilité avant validation.</p>
+          </details>
 
-          <ul class="list">
-            <li>Créations glacées artisanales dédiées aux professionnels</li>
-            <li>Commandes sur devis et entièrement sur-mesure</li>
-            <li>Formats, volumes et parfums adaptés à chaque événement</li>
-            <li>Délais variables selon la période et la quantité demandée</li>
-            <li>Chaîne du froid strictement respectée</li>
-            <li>Livraison possible selon conditions</li>
-          </ul>
+          <details>
+            <summary>Livrez-vous ?</summary>
+            <p>Livraison locale possible selon créneaux et volume. Sinon retrait à l’atelier-boutique.</p>
+          </details>
+
+          <details>
+            <summary>Proposez-vous du sur-mesure pour un dessert signature ?</summary>
+            <p>Oui. Pour un restaurant ou un événement, on peut créer une recette sur mesure (accord, insert, dressage). Dites-nous vos contraintes et votre style.</p>
+          </details>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">FAQ Pro</h2>
-        <p class="section-subtitle">Les questions qu’on nous pose le plus souvent.</p>
-      </div>
+  </main>
 
-      <div class="faq">
-        <details>
-          <summary>Faites-vous des tarifs professionnels ?</summary>
-          <p>Oui. Les tarifs dépendent des formats, des quantités et de la fréquence. Envoyez une demande via le formulaire pour un devis adapté.</p>
-        </details>
+  <footer>
+    © 2025 M'Ice – Atelier de glaces & bûches glacées. Tous droits réservés.
+  </footer>
 
-        <details>
-          <summary>Peut-on commander des parfums spécifiques ?</summary>
-          <p>Oui, selon la saison et notre planning de production. On confirme toujours la faisabilité avant validation.</p>
-        </details>
+  <script>
+    /* ===== BURGER (identique Accueil) ===== */
+    (function(){
+      const burger = document.getElementById("burgerBtn");
+      const drawer = document.getElementById("mobileDrawer");
+      if(!burger || !drawer) return;
 
-        <details>
-          <summary>Livrez-vous ?</summary>
-          <p>Livraison locale possible selon créneaux et volume. Sinon retrait à l’atelier-boutique.</p>
-        </details>
+      function setOpen(isOpen){
+        drawer.classList.toggle("is-open", isOpen);
+        burger.classList.toggle("is-open", isOpen);
+        burger.setAttribute("aria-expanded", String(isOpen));
+        drawer.setAttribute("aria-hidden", String(!isOpen));
+      }
 
-        <details>
-          <summary>Proposez-vous du sur-mesure pour un dessert signature ?</summary>
-          <p>Oui. Pour un restaurant ou un événement, on peut créer une recette sur mesure (accord, insert, dressage). Dites-nous vos contraintes et votre style.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+      burger.addEventListener("click", () => {
+        setOpen(!drawer.classList.contains("is-open"));
+      });
 
-</main>
+      // Ferme le menu quand on clique un lien (UX mobile)
+      drawer.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => setOpen(false));
+      });
 
-<footer>
-  © 2025 M'Ice – Atelier de glaces & bûches glacées. Tous droits réservés.
-</footer>
+      // Ferme avec Escape
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Escape") setOpen(false);
+      });
 
-<script>
-  /* ===== BURGER (identique Accueil) ===== */
-  (function(){
-    const burger = document.getElementById("burgerBtn");
-    const drawer = document.getElementById("mobileDrawer");
-    if(!burger || !drawer) return;
+      // Sécurise si on repasse en desktop (resize)
+      window.addEventListener("resize", () => {
+        if(window.innerWidth > 900) setOpen(false);
+      });
+    })();
 
-    function setOpen(isOpen){
-      drawer.classList.toggle("is-open", isOpen);
-      burger.classList.toggle("is-open", isOpen);
-      burger.setAttribute("aria-expanded", String(isOpen));
-      drawer.setAttribute("aria-hidden", String(!isOpen));
-    }
+    /* ===== FORM PRO -> ouvre un mail pré-rempli (sans serveur) ===== */
+    const form = document.getElementById("proForm");
 
-    burger.addEventListener("click", () => {
-      setOpen(!drawer.classList.contains("is-open"));
-    });
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-    // Ferme le menu quand on clique un lien (UX mobile)
-    drawer.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => setOpen(false));
-    });
+      const company = document.getElementById("company").value.trim();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const type = document.getElementById("type").value.trim();
+      const date = document.getElementById("date").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-    // Ferme avec Escape
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape") setOpen(false);
-    });
-
-    // Sécurise si on repasse en desktop (resize)
-    window.addEventListener("resize", () => {
-      if(window.innerWidth > 900) setOpen(false);
-    });
-  })();
-
-  /* ===== FORM PRO -> ouvre un mail pré-rempli (sans serveur) ===== */
-  const form = document.getElementById("proForm");
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const company = document.getElementById("company").value.trim();
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const type = document.getElementById("type").value.trim();
-    const date = document.getElementById("date").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    const subject = `Demande PRO M'Ice - ${company} (${type})`;
-    const body =
+      const subject = `Demande PRO M'Ice - ${company} (${type})`;
+      const body =
 `Bonjour M'Ice,
 
 Je suis ${name} (${company}).
@@ -731,10 +737,10 @@ ${message}
 Merci,
 ${name}`;
 
-    const mailto = `mailto:miceglaces@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-  });
-</script>
+      const mailto = `mailto:miceglaces@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+  </script>
 
 </body>
 </html>
