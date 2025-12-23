@@ -62,33 +62,20 @@
     }
     .logo{
       display:flex;align-items:center;gap:12px;
-      font-family:"Playfair Display",serif;font-weight:700;font-size:1.2rem;
+      font-family:"Playfair Display",serif;font-weight:700;font-size:1.25rem;
       letter-spacing:.04em;white-space:nowrap;line-height:1;color:#fff;
     }
 
-    /* ✅ LOGO IDENTIQUE À L’ACCUEIL (anneau doré visible) */
+    /* ✅ LOGO IDENTIQUE À ACCUEIL (taille + dégradé + bordure) */
     .logo-mark{
-      width:48px;height:48px;
-      padding:4px; /* ✅ crée l’anneau */
-      border-radius:999px;
-      background:radial-gradient(circle at 30% 20%, #ffffff, #f0e2cf 45%, #b88a3c 100%);
+      width:48px;height:48px;border-radius:999px;
+      background:radial-gradient(circle at 30% 20%, #ffffff, #f0e2cf 50%, #b88a3c 100%);
       box-shadow:0 10px 26px rgba(0,0,0,.35);
-      border:2px solid rgba(255,255,255,.18);
-      overflow:hidden;
+      display:grid;place-items:center;overflow:hidden;
       flex:0 0 48px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      border:2px solid rgba(255,255,255,.18);
     }
-    .logo-mark-img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius:999px;
-      display:block;
-      background:#000;
-      border:1px solid rgba(255,255,255,.10);
-    }
+    .logo-mark-img{width:100%;height:100%;object-fit:cover;display:block}
 
     .nav-links{
       display:flex;align-items:center;gap:18px;font-size:.95rem;flex-wrap:wrap
@@ -593,24 +580,22 @@
       .cake-nav.prev{ left:10px; }
       .cake-nav.next{ right:10px; }
     }
+
     /* ✅ Navbar breakpoint identique à Accueil */
     @media (max-width: 840px){
       .nav-links{display:none}
       .nav-cta{display:none}
       .nav-burger{display:flex}
     }
+
+    /* ✅ Taille logo mobile identique à Accueil */
+    @media (max-width: 640px){
+      .logo-mark{width:44px;height:44px;flex:0 0 44px;}
+    }
+
     @media (max-width: 560px){
       .thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}
       .vitrine{padding:14px}
-    }
-
-    /* ✅ taille logo mobile : identique Accueil */
-    @media (max-width: 640px){
-      .logo-mark{
-        width:44px;height:44px;
-        flex:0 0 44px;
-        padding:3px;
-      }
     }
 
     /* ✅ PLACEHOLDER PHOTO */
@@ -650,7 +635,7 @@
         <span class="logo-mark">
           <img src="images/logo%20mice.jpg" alt="Logo M'Ice" class="logo-mark-img">
         </span>
-        <span>M'ice</span>
+        <span class="logo-text">M'ice</span>
       </a>
 
       <nav class="nav-links" aria-label="Navigation principale">
@@ -664,7 +649,7 @@
       <!-- CTA desktop -->
       <a class="nav-cta" href="mailto:miceglaces@gmail.com?subject=Commande%20-%20Créations%20glacées%20M%27Ice">Nous contacter</a>
 
-      <!-- ✅ BURGER MOBILE (même que Accueil) -->
+      <!-- ✅ BURGER MOBILE -->
       <button
         class="nav-burger"
         id="burgerBtn"
@@ -677,7 +662,7 @@
       </button>
     </div>
 
-    <!-- ✅ MENU MOBILE (drawer, même que Accueil) -->
+    <!-- ✅ MENU MOBILE -->
     <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
       <nav class="mobile-links" aria-label="Navigation mobile">
         <a href="/index.html">Accueil</a>
@@ -716,8 +701,6 @@
           </div>
         </div>
 
-        <!-- IMPORTANT: si ton fichier contient un accent, ça peut casser en ligne.
-             Idéal: renommer images/nougat-glace.jpg et mettre ce src. -->
         <div class="hero-media">
           <div class="hero-image-main" style="background-image:url('images/nougat-glace.jpg');">
             <span class="hero-label"><span class="hero-dot"></span>Créations glacées artisanales</span>
@@ -1027,24 +1010,20 @@
       setOpen(!isOpen);
     });
 
-    // Ferme le menu quand on clique un lien
     drawer.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => setOpen(false));
     });
 
-    // Ferme avec Escape
     document.addEventListener("keydown", (e) => {
       if(e.key === "Escape") setOpen(false);
     });
 
-    // Sécurise si on repasse en desktop
     window.addEventListener("resize", () => {
       if(window.innerWidth > 840) setOpen(false);
     });
   })();
 
-  // ✅ Mail: toutes les vignettes OUI, sauf la carte gâteau (lightbox)
-  // ✅ et sauf les produits "sur place" (data-no-mail="true")
+  // Mail vignettes (sauf gâteau + sur place)
   document.querySelectorAll(".thumb:not(.cake-card)").forEach(card => {
     card.addEventListener("click", () => {
       if(card.dataset.noMail === "true") return;
@@ -1070,9 +1049,8 @@ Détails / préférences (parfums, allergènes, etc.) :
     });
   });
 
-  // ===== LIGHTBOX + SLIDER GÂTEAUX (corrigé) =====
+  // Lightbox gâteaux
   (function(){
-    // ✅ Ajout gateaux-3 + cohérence thumb
     const cakeImages = [
       "images/gateaux-1.jpg",
       "images/gateaux-2.jpg",
@@ -1155,7 +1133,6 @@ Détails / préférences (parfums, allergènes, etc.) :
       syncThumb();
     }
 
-    // ✅ Thumb cohérent dès le départ
     syncThumb();
 
     cakeCard.addEventListener("click", (e) => {
@@ -1182,7 +1159,6 @@ Détails / préférences (parfums, allergènes, etc.) :
       if(e.key === "ArrowLeft") prev();
     });
 
-    // Swipe mobile (simple)
     let startX = 0;
     let isDown = false;
 
