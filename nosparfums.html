@@ -147,29 +147,30 @@
       box-shadow:0 14px 32px rgba(0,0,0,.45);
     }
 
-    /* ✅ BURGER SIMPLE (3 barres fixes, lisible) */
+    /* Burger button (mobile) */
 .nav-burger{
   display:none;
-  width:44px;
-  height:44px;
-  border-radius:12px;
+  width:44px;height:44px;
+  border-radius:999px;
   border:1px solid rgba(200,155,60,.35);
-  background:rgba(0,0,0,.55);
+  background:rgba(200,155,60,.10);
   cursor:pointer;
-
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
-  gap:6px;
+  justify-content:center;
+  gap:5px;
   padding:0;
 }
 .nav-burger span{
   display:block;
-  width:22px;
-  height:2px;
-  background:#fff;
+  width:18px;height:2px;
   border-radius:999px;
+  background:var(--text-main);
+  transition:transform .2s ease, opacity .2s ease;
 }
+.nav-burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.is-open span:nth-child(2){opacity:0}
+.nav-burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
 
     /* Mobile drawer */
     .mobile-drawer{
