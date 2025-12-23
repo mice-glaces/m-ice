@@ -12,10 +12,10 @@
 
   <style>
     :root{
-      /* ✅ STYLE PREMIUM NOIR (comme ton exemple Nos Parfums) */
+      /* ✅ STYLE PREMIUM NOIR */
       --bg-main:#0e0e10;
-      --bg-section:#151518;         /* vignettes / rectangles en noir */
-      --accent:#c89b3c;             /* doré */
+      --bg-section:#151518;
+      --accent:#c89b3c;
       --accent-dark:#8a6a24;
 
       --text-main:#f5f2ee;
@@ -38,10 +38,16 @@
     a{text-decoration:none;color:inherit}
     .container{width:100%;max-width:1200px;margin:0 auto;padding:0 16px}
 
-    /* ===== NAVBAR (noir + souligné doré) ===== */
+    :focus-visible{
+      outline:2px solid rgba(200,155,60,.85);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
+    /* ===== NAVBAR ===== */
     header{
-      position:sticky;top:0;z-index:10;
-      background:rgba(14,14,16,.75);
+      position:sticky;top:0;z-index:100;
+      background:rgba(14,14,16,.78);
       backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(200,155,60,.25);
     }
@@ -88,6 +94,7 @@
     .nav-links a:hover::after{width:100%}
     .nav-links a.is-active::after{width:100%}
 
+    /* CTA desktop */
     .nav-cta{
       padding:10px 18px;border-radius:999px;
       border:1px solid rgba(200,155,60,.75);
@@ -105,23 +112,77 @@
       box-shadow:0 14px 32px rgba(0,0,0,.45);
     }
 
+    /* Burger button (mobile) */
     .nav-burger{
-      display:none;width:26px;height:18px;
-      flex-direction:column;justify-content:space-between;
+      display:none;
+      width:44px;height:44px;
+      border-radius:999px;
+      border:1px solid rgba(200,155,60,.35);
+      background:rgba(200,155,60,.10);
       cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      gap:5px;
+      padding:0;
     }
     .nav-burger span{
-      height:2px;border-radius:999px;
+      display:block;
+      width:18px;height:2px;
+      border-radius:999px;
       background:var(--text-main);
-      width:100%;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+    /* animate to X */
+    .nav-burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-burger.is-open span:nth-child(2){opacity:0}
+    .nav-burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    /* Mobile drawer */
+    .mobile-drawer{
+      display:none;
+      border-top:1px solid rgba(200,155,60,.18);
+      background:rgba(14,14,16,.95);
+      backdrop-filter:blur(14px);
+    }
+    .mobile-drawer.is-open{display:block}
+    .mobile-links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:12px 0 16px;
+    }
+    .mobile-links a{
+      padding:12px 12px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(200,155,60,.14);
+      font-weight:800;
+      color:var(--text-main);
+    }
+    .mobile-links a:hover{
+      border-color:rgba(200,155,60,.35);
+      background:rgba(255,255,255,.06);
+    }
+    .mobile-links a.is-active{
+      border-color:rgba(200,155,60,.55);
+      box-shadow:0 0 0 1px rgba(200,155,60,.12) inset;
+    }
+    .mobile-cta{
+      margin-top:4px;
+      padding:12px 12px;
+      border-radius:14px;
+      background:rgba(200,155,60,.14);
+      border:1px solid rgba(200,155,60,.45);
+      font-weight:900;
+      color:#fff7eb;
+      text-align:center;
     }
 
-    /* ===== HERO (dégradé + bullets dorés transparents) ===== */
+    /* ===== HERO ===== */
     .hero{padding:32px 0 40px}
 
     .hero-inner{
-      background:
-        radial-gradient(circle at 10% 0%, #2a241c 0%, #141216 45%, #0e0e10 100%);
+      background: radial-gradient(circle at 10% 0%, #2a241c 0%, #141216 45%, #0e0e10 100%);
       border-radius:var(--radius-xl);
       box-shadow:var(--shadow-soft);
       padding:24px 22px;
@@ -174,6 +235,7 @@
       box-shadow:0 12px 30px rgba(0,0,0,.30);
       transition:transform .15s ease,box-shadow .15s ease,filter .15s ease;
       display:inline-flex;align-items:center;justify-content:center;
+      text-align:center;
     }
     .btn-primary:hover{transform:translateY(-1px);box-shadow:0 16px 40px rgba(0,0,0,.35);filter:brightness(1.02)}
     .btn-ghost{
@@ -185,15 +247,13 @@
       color:var(--text-main);
       display:inline-flex;align-items:center;justify-content:center;
       opacity:.95;
+      text-align:center;
     }
     .btn-ghost:hover{opacity:1}
 
     .hero-note{font-size:.82rem;color:#cfc9c2}
 
-    .hero-media{
-      display:flex;flex-direction:column;gap:10px;
-      align-items:stretch;
-    }
+    .hero-media{display:flex;flex-direction:column;gap:10px;align-items:stretch}
     .hero-image-main{
       border-radius:18px;
       overflow:hidden;
@@ -245,12 +305,12 @@
       padding-bottom:6px;
       scrollbar-width:thin;
       scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
     }
     .flavors-strip::-webkit-scrollbar{height:6px}
     .flavors-strip::-webkit-scrollbar-track{background:rgba(255,255,255,.10);border-radius:999px}
     .flavors-strip::-webkit-scrollbar-thumb{background:rgba(200,155,60,.65);border-radius:999px}
 
-    /* ✅ VIGNETTES EN NOIR */
     .flavor-card{
       min-width:190px;max-width:210px;
       background:linear-gradient(180deg,#18181c,#121214);
@@ -287,7 +347,6 @@
       gap:24px;
     }
 
-    /* ✅ RECTANGLES EN NOIR */
     .card{
       background:linear-gradient(180deg,#18181c,#121214);
       border-radius:var(--radius-xl);
@@ -313,7 +372,6 @@
     .contact-label{font-weight:900;margin-right:4px;color:var(--text-main)}
     .contact-highlight{font-weight:900;color:#fff7eb}
 
-    /* horaires (version dark premium) */
     .opening-hours{
       margin:12px 0 18px;
       padding:14px 16px;
@@ -325,6 +383,7 @@
     .opening-hours li{
       display:flex;justify-content:space-between;
       font-size:.9rem;color:var(--text-main);
+      gap:10px;
     }
     .opening-hours li span{color:var(--text-muted)}
     .opening-hours li strong{font-weight:800;color:#fff7eb}
@@ -338,7 +397,6 @@
     }
     .map-container iframe{width:100%;height:260px;border:0;display:block;filter:saturate(.9) contrast(1.05)}
 
-    /* contact */
     .contact-card{display:flex;flex-direction:column;}
     .contact-list{
       list-style:none;
@@ -380,7 +438,8 @@
     @media (max-width: 840px){
       .hero-inner{grid-template-columns:1fr}
       .nav-links{display:none}
-      .nav-burger{display:flex}
+      .nav-cta{display:none}              /* ✅ on cache le CTA dans la barre */
+      .nav-burger{display:flex}           /* ✅ burger visible */
       .grid-2{grid-template-columns:1fr}
       .hero-media{order:-1}
     }
@@ -389,6 +448,7 @@
       .card{padding:16px}
       .section-header{flex-direction:column;align-items:flex-start}
       .logo-mark{width:44px;height:44px;flex:0 0 44px;}
+      .hero-actions a{width:100%}         /* ✅ boutons full width */
     }
   </style>
 </head>
@@ -408,7 +468,7 @@
           <span class="logo-text">M'ice</span>
         </a>
 
-        <!-- NAVIGATION -->
+        <!-- NAVIGATION (desktop) -->
         <nav class="nav-links" aria-label="Navigation principale">
           <a href="#hero" class="is-active">Accueil</a>
           <a href="buches.html">Nos bûches glacées</a>
@@ -417,15 +477,35 @@
           <a href="professionnels.html">Professionnels</a>
         </nav>
 
-        <!-- CTA -->
+        <!-- CTA (desktop) -->
         <a class="nav-cta" href="mailto:miceglaces@gmail.com?subject=Précommande%20M'Ice">Nous contacter</a>
 
         <!-- BURGER MOBILE -->
-        <div class="nav-burger" aria-hidden="true">
+        <button
+          class="nav-burger"
+          id="burgerBtn"
+          type="button"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
           <span></span><span></span><span></span>
-        </div>
+        </button>
 
       </div>
+
+      <!-- MENU MOBILE -->
+      <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+        <nav class="mobile-links" aria-label="Navigation mobile">
+          <a href="#hero" class="is-active">Accueil</a>
+          <a href="buches.html">Nos bûches glacées</a>
+          <a href="nosparfums.html">Nos parfums</a>
+          <a href="creations-glacees.html">Créations glacées</a>
+          <a href="professionnels.html">Professionnels</a>
+          <a class="mobile-cta" href="mailto:miceglaces@gmail.com?subject=Précommande%20M'Ice">Nous contacter</a>
+        </nav>
+      </div>
+
     </div>
   </header>
 
@@ -443,7 +523,6 @@
               Une expérience gourmande pensée pour les tables de fête.
             </p>
 
-            <!-- ✅ bullet points dorés transparents -->
             <div class="hero-tags">
               <span class="hero-tag">Artisanal</span>
               <span class="hero-tag">Éditions limitées</span>
@@ -620,6 +699,40 @@
     © 2025 M'Ice – Atelier de glaces & bûches glacées. Tous droits réservés.
   </footer>
 
+  <script>
+    (function(){
+      const burger = document.getElementById("burgerBtn");
+      const drawer = document.getElementById("mobileDrawer");
+      if(!burger || !drawer) return;
+
+      function setOpen(isOpen){
+        drawer.classList.toggle("is-open", isOpen);
+        burger.classList.toggle("is-open", isOpen);
+        burger.setAttribute("aria-expanded", String(isOpen));
+        drawer.setAttribute("aria-hidden", String(!isOpen));
+      }
+
+      burger.addEventListener("click", () => {
+        const isOpen = drawer.classList.contains("is-open");
+        setOpen(!isOpen);
+      });
+
+      // Ferme le menu quand on clique un lien (UX mobile)
+      drawer.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => setOpen(false));
+      });
+
+      // Ferme avec Escape
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Escape") setOpen(false);
+      });
+
+      // Sécurise si on repasse en desktop (resize)
+      window.addEventListener("resize", () => {
+        if(window.innerWidth > 840) setOpen(false);
+      });
+    })();
+  </script>
+
 </body>
 </html>
-
