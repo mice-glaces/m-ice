@@ -1,0 +1,56 @@
+/* ===== POTS À EMPORTER ===== */
+
+.pots-prices {
+  padding: 32px 0 48px;
+}
+
+.pots-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.pots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.pot-card {
+  background: #fffdf9;
+  border: 1px solid rgba(225,216,207,.9);
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.pot-name {
+  font-weight: 600;
+}
+
+.pot-volume {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.pot-price {
+  font-weight: 800;
+}
+
+.pots-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pots-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

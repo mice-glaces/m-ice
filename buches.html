@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>M'ice – Nos bûches glacées</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS modale / carousel -->
+  <link rel="stylesheet" href="buches.css">
+
+  <style>
+    :root{
+      /* ✅ STYLE PREMIUM NOIR */
+      --bg-main:#0e0e10;
+      --bg-section:#151518;
+      --accent:#c89b3c;
+      --accent-dark:#8a6a24;
+
+      --text-main:#f5f2ee;
+      --text-muted:#b3ada7;
+
+      --border-subtle:#2a2a2f;
+      --radius-xl:24px;
+      --shadow-soft:0 18px 45px rgba(0,0,0,.60);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg-main);
+      color:var(--text-main);
+      line-height:1.5;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 16px}
+
+    :focus-visible{
+      outline:2px solid rgba(200,155,60,.85);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
+     /* ===== NAVBAR ===== */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(14,14,16,.78);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(200,155,60,.25);
+}
+
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;gap:14px;
+}
+
+.logo{
+  display:flex;align-items:center;gap:12px;
+  font-family:"Playfair Display",serif;
+  font-weight:700;font-size:1.25rem;
+  letter-spacing:.04em;white-space:nowrap;line-height:1;
+  color:var(--text-main);
+}
+
+.logo-mark{
+  width:48px;height:48px;border-radius:999px;
+  background:radial-gradient(circle at 30% 20%, #ffffff, #f0e2cf 50%, #b88a3c 100%);
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
+  display:grid;place-items:center;overflow:hidden;
+  flex:0 0 48px;
+  border:2px solid rgba(255,255,255,.18);
+}
+.logo-mark-img{width:100%;height:100%;object-fit:cover;display:block}
+
+.nav-links{
+  display:flex;align-items:center;gap:18px;
+  font-size:.95rem;flex-wrap:wrap;
+}
+.nav-links a{
+  position:relative;padding-bottom:4px;
+  font-weight:600;white-space:nowrap;
+  color:var(--text-main);
+}
+.nav-links a::after{
+  content:"";
+  position:absolute;left:0;bottom:0;
+  width:0;height:2px;
+  background:var(--accent);
+  transition:width .25s ease;
+}
+.nav-links a:hover::after{width:100%}
+.nav-links a.is-active::after{width:100%}
+
+/* ✅ CTA desktop (bouton doré) */
+.nav-cta{
+  padding:10px 18px;
+  border-radius:999px;
+  border:1px solid rgba(200,155,60,.75);
+  font-size:.95rem;
+  font-weight:800;
+  background:rgba(200,155,60,.15);
+  cursor:pointer;
+  transition:background .25s ease,transform .15s ease,box-shadow .2s ease;
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
+  white-space:nowrap;
+  color:var(--text-main);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.nav-cta:hover{
+  background:rgba(200,155,60,.25);
+  transform:translateY(-1px);
+  box-shadow:0 14px 32px rgba(0,0,0,.45);
+}
+
+/* ✅ BURGER SIMPLE (3 barres fixes, lisible) */
+.nav-burger{
+  display:none;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid rgba(200,155,60,.35);
+  background:rgba(0,0,0,.55);
+  cursor:pointer;
+
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+  padding:0;
+}
+.nav-burger span{
+  display:block;
+  width:22px;
+  height:2px;
+  background:#fff;
+  border-radius:999px;
+}
+
+/* ✅ Mobile drawer */
+.mobile-drawer{
+  display:none;
+  border-top:1px solid rgba(200,155,60,.18);
+  background:rgba(0,0,0,.96);
+  backdrop-filter:blur(10px);
+}
+.mobile-drawer.is-open{display:block}
+.mobile-links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:12px 0 16px;
+}
+.mobile-links a{
+  padding:12px 12px;
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(200,155,60,.14);
+  font-weight:800;
+  color:#fff;
+  opacity:.92;
+}
+.mobile-links a:hover{
+  opacity:1;
+  border-color:rgba(200,155,60,.35);
+  background:rgba(255,255,255,.06);
+}
+.mobile-links a.is-active{
+  opacity:1;
+  border-color:rgba(200,155,60,.55);
+  box-shadow:0 0 0 1px rgba(200,155,60,.12) inset;
+}
+.mobile-cta{
+  margin-top:4px;
+  padding:12px 12px;
+  border-radius:14px;
+  background:rgba(200,155,60,.14);
+  border:1px solid rgba(200,155,60,.45);
+  font-weight:900;
+  color:#fff7eb;
+  text-align:center;
+}
+
+
+    /* ===== HERO ===== */
+    .hero{padding:32px 0 24px}
+
+    .hero-inner{
+      background: radial-gradient(circle at 10% 0%, #2a241c 0%, #141216 45%, #0e0e10 100%);
+      border:1px solid rgba(200,155,60,.18);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-soft);
+      padding:24px 22px;
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1.1fr);
+      gap:24px;
+      align-items:center;
+      overflow:hidden;
+    }
+    /* ✅ FIX overflow texte dans grid */
+    .hero-inner > *{min-width:0;}
+    .hero-title,.hero-subtitle{
+      max-width:100%;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+      hyphens:auto;
+    }
+
+    .hero-eyebrow{
+      font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;
+      color:var(--accent);margin-bottom:10px;font-weight:700;
+    }
+    .hero-title{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(2rem,3.2vw,2.6rem);
+      line-height:1.1;margin-bottom:10px;
+      color:var(--text-main);
+    }
+    .hero-subtitle{
+      font-size:.95rem;
+      color:#d6d1ca;
+      max-width:460px;
+      margin-bottom:14px;
+    }
+    .hero-note{font-size:.82rem;color:#cfc9c2}
+
+    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+    .hero-tag{
+      padding:6px 12px;border-radius:999px;font-size:.78rem;
+      text-transform:uppercase;letter-spacing:.14em;
+      background:rgba(200,155,60,.12);
+      border:1px solid rgba(200,155,60,.40);
+      color:var(--accent);
+      font-weight:700;
+    }
+
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:4px}
+    .btn-primary{
+      padding:10px 22px;border-radius:999px;border:none;
+      background:linear-gradient(135deg,#e3c58f,#c89b3c);
+      color:#18130d;font-size:.95rem;font-weight:900;cursor:pointer;
+      box-shadow:0 12px 30px rgba(0,0,0,.30);
+      transition:transform .15s ease,box-shadow .15s ease,filter .15s ease;
+      display:inline-flex;align-items:center;justify-content:center;
+      text-align:center;
+    }
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 16px 40px rgba(0,0,0,.35);filter:brightness(1.02)}
+    .btn-ghost{
+      padding:10px 18px;border-radius:999px;
+      border:1px dashed rgba(200,155,60,.45);
+      background:transparent;cursor:pointer;font-size:.9rem;
+      color:var(--text-main);
+      display:inline-flex;align-items:center;justify-content:center;
+      opacity:.95;
+      text-align:center;
+    }
+    .btn-ghost:hover{opacity:1}
+
+    .hero-visual{
+      border-radius:20px;overflow:hidden;
+      background:linear-gradient(180deg,#18181c,#121214);
+      border:1px solid rgba(200,155,60,.18);
+      position:relative;
+      padding:16px;
+      display:grid;
+      grid-template-rows:minmax(0,1fr) auto;
+      gap:12px;
+      box-shadow:0 14px 34px rgba(0,0,0,.45);
+    }
+
+   .hero-buche-main{
+  border-radius:18px;
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.55)),
+    url("images/coquette-1.jpg");
+  background-size:cover;
+  background-position:center;
+  aspect-ratio:16/9;
+  position:relative;
+  border:1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+}
+
+    .hero-badge{
+      position:absolute;left:14px;bottom:14px;padding:8px 14px;border-radius:999px;
+      font-size:.78rem;
+      background:rgba(200,155,60,.18);
+      border:1px solid rgba(200,155,60,.45);
+      color:#fff7eb;
+      backdrop-filter:blur(8px);
+      display:inline-flex;align-items:center;gap:10px;
+      max-width:calc(100% - 28px);
+      font-weight:800;
+    }
+    .hero-dot{
+      width:8px;height:8px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 10px rgba(200,155,60,.55)
+    }
+
+    .hero-buche-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+    .hero-buche-strip::-webkit-scrollbar{height:6px}
+    .hero-buche-strip::-webkit-scrollbar-thumb{background:rgba(200,155,60,.65);border-radius:999px}
+
+    .mini-buche{
+      min-width:110px;height:70px;border-radius:14px;
+      background-size:cover;background-position:center;background-repeat:no-repeat;
+      border:2px solid rgba(255,255,255,.18);
+      box-shadow:0 8px 20px rgba(0,0,0,.35);
+    }
+
+    /* ===== LISTE ===== */
+    .section{padding:28px 0 36px}
+    .section-header{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-bottom:18px}
+    .section-title{font-family:"Playfair Display",serif;font-size:1.7rem;color:var(--text-main)}
+    .section-subtitle{font-size:.9rem;color:var(--text-muted);max-width:420px}
+
+    .tags-row{display:flex;flex-wrap:wrap;gap:8px}
+    .tag-chip{
+      font-size:.8rem;padding:5px 10px;border-radius:999px;
+      border:1px solid rgba(200,155,60,.25);
+      background:rgba(200,155,60,.10);
+      color:var(--accent);
+      font-weight:800;
+    }
+
+    .buches-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+
+    .buche-card{
+      background:linear-gradient(180deg,#18181c,#121214);
+      border-radius:20px;padding:14px 14px 16px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(200,155,60,.18);
+      display:flex;flex-direction:column;gap:10px;
+      position:relative;overflow:hidden;
+      color:var(--text-main);
+      cursor:pointer;
+    }
+
+    .buche-label{
+      position:absolute;top:10px;left:10px;padding:4px 8px;border-radius:999px;
+      font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;
+      background:rgba(200,155,60,.15);
+      border:1px solid rgba(200,155,60,.40);
+      color:var(--accent);
+      backdrop-filter: blur(10px);
+      font-weight:800;
+    }
+
+    .buche-image{
+      border-radius:16px;overflow:hidden;aspect-ratio:16/9;
+      background-size:cover;background-position:center;background-repeat:no-repeat;
+      box-shadow:0 10px 26px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .buche-title{font-weight:900;font-size:1rem;margin-top:4px;color:var(--text-main)}
+    .buche-notes{font-size:.86rem;color:var(--text-muted)}
+
+    .buche-meta{
+      display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;
+      font-size:.78rem;color:#d4cfc9;
+    }
+    .buche-meta span{
+      padding:3px 8px;border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .buche-footer{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-top:8px;font-size:.82rem;color:#d4cfc9
+    }
+    .buche-price{font-weight:900;color:#fff7eb}
+
+    .buche-cta{
+      font-size:.78rem;padding:6px 10px;border-radius:999px;
+      border:1px dashed rgba(200,155,60,.45);
+      background:rgba(200,155,60,.12);
+      color:var(--text-main);
+      cursor:pointer;
+      font-weight:800;
+    }
+    .buche-cta:hover{background:rgba(200,155,60,.18)}
+
+    footer{
+      padding:20px 0 28px;
+      font-size:.8rem;
+      color:#8f8a84;
+      text-align:center;
+      border-top:1px solid rgba(200,155,60,.18);
+      margin-top:8px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px){.buches-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media (max-width: 840px){
+      .hero-inner{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .nav-cta{display:none}
+      .nav-burger{display:flex}
+      .buches-grid{grid-template-columns:1fr}
+      .section-header{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width: 640px){
+      .logo-mark{width:44px;height:44px;flex:0 0 44px;}
+    }
+    @media (max-width: 540px){.hero-inner{padding:18px 16px}}
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container">
+      <div class="nav">
+
+        <!-- LOGO -->
+        <a class="logo" href="/index.html">
+          <span class="logo-mark">
+            <img src="images/logo%20mice.jpg" alt="Logo M'Ice" class="logo-mark-img">
+          </span>
+          <span class="logo-text">M'ice</span>
+        </a>
+
+        <!-- NAVIGATION (desktop) -->
+        <nav class="nav-links" aria-label="Navigation principale">
+          <a href="/index.html">Accueil</a>
+          <a href="buches.html" class="is-active">Nos bûches glacées</a>
+          <a href="nosparfums.html">Nos parfums</a>
+          <a href="creations-glacees.html">Créations glacées</a>
+          <a href="professionnels.html">Professionnels</a>
+        </nav>
+
+        <!-- CTA (desktop) -->
+        <a class="nav-cta" href="mailto:miceglaces@gmail.com?subject=Précommande%20M'Ice">Nous contacter</a>
+
+        <!-- BURGER MOBILE (EXACT Accueil) -->
+        <button
+          class="nav-burger"
+          id="burgerBtn"
+          type="button"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
+
+      <!-- MENU MOBILE (EXACT Accueil) -->
+      <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+        <nav class="mobile-links" aria-label="Navigation mobile">
+          <a href="/index.chabottes.html">Accueil</a>
+          <a href="buches.html" class="is-active">Nos bûches glacées</a>
+          <a href="nosparfums.html">Nos parfums</a>
+          <a href="creations-glacees.html">Créations glacées</a>
+          <a href="professionnels.html">Professionnels</a>
+          <a class="mobile-cta" href="mailto:miceglaces@gmail.com?subject=Précommande%20M'Ice">Nous contacter</a>
+        </nav>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-eyebrow">Collection fêtes</div>
+            <h1 class="hero-title">Nos bûches glacées artisanales</h1>
+            <p class="hero-subtitle">
+              Des créations pensées pour les fêtes :
+              textures contrastées, inserts gourmands et finitions soignées pour
+              sublimer vos repas de fêtes.
+            </p>
+
+            <div class="hero-tags">
+              <span class="hero-tag">4 ou 6 personnes</span>
+              <span class="hero-tag">Quantités limitées</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn-primary" href="mailto:miceglaces@gmail.com?subject=Précommande%20M'Ice">Précommander</a>
+              <a href="nosparfums.html" class="btn-ghost">Voir la carte des parfums</a>
+            </div>
+
+            <p class="hero-note">
+              Précommandes uniquement par mail • Retrait boutique à Saint-Jean-Saint-Nicolas.
+            </p>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-buche-main">
+              <div class="hero-badge">
+                <span class="hero-dot"></span>
+                <span>Bûche Signature – Fleur de lait & myrtille</span>
+              </div>
+            </div>
+            <div class="hero-buche-strip">
+              <div class="mini-buche" style="background-image:url('images/gourmande-1.jpg');"></div>
+              <div class="mini-buche" style="background-image:url('images/chocolatee-1.jpg');"></div>
+              <div class="mini-buche" style="background-image:url('images/exotique-1.jpg');"></div>
+              <div class="mini-buche" style="background-image:url('images/fruitee-1.jpg');"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTE -->
+    <section class="section">
+      <div class="container">
+
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Sélection 2025</h2>
+            <p class="section-subtitle">
+              Chaque bûche est réalisée à la main, à la commande, en quantité limitée.
+              Cliquez sur une bûche pour voir les détails et les photos. * Les visuels sont susceptibles d’évoluer.
+            </p>
+          </div>
+          <div class="tags-row">
+            <span class="tag-chip">4 personnes</span>
+            <span class="tag-chip">6 personnes</span>
+            <span class="tag-chip">Fait maison</span>
+          </div>
+        </div>
+
+        <div class="buches-grid">
+
+          <!-- La Fruitée -->
+          <article class="buche-card"
+            data-name="La Fruitée 🫐✨"
+            data-description="Bûche glacée Framboise / Cassis, entièrement réalisée à la main dans notre laboratoire à Saint-Jean-Saint-Nicolas."
+            data-price4="19,60 €"
+            data-price6="29,40 €"
+            data-inside="Sorbet framboise|Sorbet cassis|Biscuit cacao"
+            data-top="Mousse cassis|Mousse framboise|Pistole de chocolat au lait|Fruits"
+            data-images="images/fruitee-1.jpg,images/fruitee-2.jpg,images/fruitee-3.jpg,images/fruitee-4.jpg"
+          >
+            <div class="buche-label">La Fruitée</div>
+            <div class="buche-image" style="background-image:url('images/fruitee-1.jpg');"></div>
+            <h3 class="buche-title">La Fruitée – Framboise & cassis</h3>
+            <p class="buche-notes">Sorbets framboise & cassis, biscuit cacao et finitions fruitées.</p>
+            <div class="buche-meta"><span>4 pers : 19,60 €</span><span>6 pers : 29,40 €</span></div>
+            <div class="buche-footer">
+              <span class="buche-price">Précommande par mail</span>
+              <button class="buche-cta" onclick="event.stopPropagation(); location.href='mailto:miceglaces@gmail.com?subject=Précommande%20M%27Ice%20-%20La%20Fruitee%20(Framboise%20Cassis)';">Précommander</button>
+            </div>
+          </article>
+
+          <!-- La Gourmande -->
+          <article class="buche-card"
+            data-name="La Gourmande 🍯✨"
+            data-description="Bûche glacée Vanille / Caramel, entièrement réalisée à la main dans notre laboratoire à Saint-Jean-Saint-Nicolas."
+            data-inside="Biscuit moelleux vanille|Croustillant praliné / noisette|Glace vanille|Glace caramel"
+            data-top="Ganache vanille|Coulis caramel|Chocolat noir|Noix de pécan"
+            data-price4="19,60 €"
+            data-price6="29,40 €"
+            data-images="images/gourmande-1.jpg,images/gourmande-2.jpg,images/gourmande-3.jpg,images/gourmande-4.jpg"
+          >
+            <div class="buche-label">La gourmande</div>
+            <div class="buche-image" style="background-image:url('images/gourmande-1.jpg');"></div>
+            <h3 class="buche-title">La gourmande – Vanille & caramel</h3>
+            <p class="buche-notes">Biscuit vanille, praliné/noisette, glace vanille & caramel.</p>
+            <div class="buche-meta"><span>4 pers : 19,60 €</span><span>6 pers : 29,40 €</span></div>
+            <div class="buche-footer">
+              <span class="buche-price">Précommande par mail</span>
+              <button class="buche-cta" onclick="event.stopPropagation(); location.href='mailto:miceglaces@gmail.com?subject=Précommande%20M%27Ice%20-%20La%20Gourmande%20(Vanille%20Caramel)';">Précommander</button>
+            </div>
+          </article>
+
+          <!-- La Chocolatée -->
+          <article class="buche-card"
+            data-name="La Chocolatée 🍐✨"
+            data-description="Bûche glacée Chocolat / Poire, entièrement réalisée à la main dans notre laboratoire à Saint-Jean-Saint-Nicolas."
+            data-inside="Glace chocolat|Marmelade de poire|Sorbet poire|Croustillant chocolat au lait|Biscuit au cacao"
+            data-top="Mousse de poire|Copeaux de chocolat|Embout chocolat au lait"
+            data-price4="19,60 €"
+            data-price6="29,40 €"
+            data-images="images/chocolatee-1.jpg,images/chocolatee-2.jpg,images/chocolatee-3.jpg,images/chocolatee-4.jpg"
+          >
+            <div class="buche-label">La chocolatée</div>
+            <div class="buche-image" style="background-image:url('images/chocolatee-1.jpg');"></div>
+            <h3 class="buche-title">La Chocolatée – Chocolat & poire</h3>
+            <p class="buche-notes">Chocolat, poire fondante, croustillant & biscuit cacao.</p>
+            <div class="buche-meta"><span>4 pers : 19,60 €</span><span>6 pers : 29,40 €</span></div>
+            <div class="buche-footer">
+              <span class="buche-price">Précommande par mail</span>
+              <button class="buche-cta" onclick="event.stopPropagation(); location.href='mailto:miceglaces@gmail.com?subject=Précommande%20M%27Ice%20-%20La%20Chocolatee%20(Chocolat%20Poire)';">Précommander</button>
+            </div>
+          </article>
+
+          <!-- L’Exotique -->
+          <article class="buche-card"
+            data-name="L’Exotique 🥭🥥"
+            data-description="Bûche glacée Noix de coco / Mangue, entièrement réalisée à la main dans notre laboratoire à Saint-Jean-Saint-Nicolas."
+            data-inside="Glace Noix de Coco|Sorbet Mangue|Croustillant Noix de Coco|Dacquoise Noix de Coco"
+            data-top="Crémeux Mangue Passion|Bavaroise Noix de Coco|Pistole de chocolat au lait|Embout chocolat noir"
+            data-price4="19,60 €"
+            data-price6="29,40 €"
+            data-images="images/exotique-1.jpg,images/exotique-2.jpg,images/exotique-3.jpg,images/exotique-4.jpg"
+          >
+            <div class="buche-label">L'Exotique</div>
+            <div class="buche-image" style="background-image:url('images/exotique-1.jpg');"></div>
+            <h3 class="buche-title">L’Exotique – Noix de coco & mangue</h3>
+            <p class="buche-notes">Coco, mangue, textures gourmandes.</p>
+            <div class="buche-meta"><span>4 pers : 19,60 €</span><span>6 pers : 29,40 €</span></div>
+            <div class="buche-footer">
+              <span class="buche-price">Précommande par mail</span>
+              <button class="buche-cta" onclick="event.stopPropagation(); location.href='mailto:miceglaces@gmail.com?subject=Précommande%20M%27Ice%20-%20L%27Exotique%20(Coco%20Mangue)';">Précommander</button>
+            </div>
+          </article>
+
+          <!-- La Coquette -->
+          <article class="buche-card"
+            data-name="La Coquette 🌸✨"
+            data-description="Bûche glacée Fleur de lait / Myrtille, entièrement réalisée à la main dans notre laboratoire à Saint-Jean-Saint-Nicolas."
+            data-inside="Glace fleur de lait|Sorbet myrtille|Confit de fruits rouges (note de violette)|Financier aux amandes"
+            data-top="Mousse myrtille|Pistole de chocolat blanc|Fruits rouges"
+            data-price4="19,60 €"
+            data-price6="29,40 €"
+            data-images="images/coquette-1.jpg,images/coquette-2.jpg,images/coquette-3.jpg,images/coquette-4.jpg"
+          >
+            <div class="buche-label">La Coquette</div>
+            <div class="buche-image" style="background-image:url('images/coquette-1.jpg');"></div>
+            <h3 class="buche-title">La Coquette – Fleur de lait & myrtille</h3>
+            <p class="buche-notes">Fleur de lait délicate, myrtille fruitée, touche florale.</p>
+            <div class="buche-meta"><span>4 pers : 19,60 €</span><span>6 pers : 29,40 €</span></div>
+            <div class="buche-footer">
+              <span class="buche-price">Précommande par mail</span>
+              <button class="buche-cta" onclick="event.stopPropagation(); location.href='mailto:miceglaces@gmail.com?subject=Précommande%20M%27Ice%20-%20La%20Coquette%20(Fleur%20de%20lait%20Myrtille)';">Précommander</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 M'Ice – Atelier de glaces & bûches glacées. Tous droits réservés.
+  </footer>
+
+  <!-- MODALE -->
+  <div class="modal" id="buche-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Détails de la bûche">
+      <button class="modal-close" type="button" aria-label="Fermer">✕</button>
+
+      <div class="modal-top">
+        <div class="carousel">
+          <img id="modal-image" class="is-active" alt="Photo de la bûche">
+          <div class="carousel-controls">
+            <button class="carousel-btn prev" type="button" aria-label="Photo précédente">‹</button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+            <button class="carousel-btn next" type="button" aria-label="Photo suivante">›</button>
+          </div>
+        </div>
+
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <p id="modal-description"></p>
+
+          <h4>À l’intérieur</h4>
+          <ul id="modal-inside"></ul>
+
+          <h4>Sur le dessus</h4>
+          <ul id="modal-top"></ul>
+
+          <p><strong>4 pers :</strong> <span id="modal-price4"></span></p>
+          <p><strong>6 pers :</strong> <span id="modal-price6"></span></p>
+
+          <a id="modal-mail" href="mailto:miceglaces@gmail.com" class="btn-primary">Précommander par mail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===== BURGER MENU (copié EXACT depuis Accueil) =====
+    (function(){
+      const burger = document.getElementById("burgerBtn");
+      const drawer = document.getElementById("mobileDrawer");
+      if(!burger || !drawer) return;
+
+      function setOpen(isOpen){
+        drawer.classList.toggle("is-open", isOpen);
+        burger.classList.toggle("is-open", isOpen);
+        burger.setAttribute("aria-expanded", String(isOpen));
+        drawer.setAttribute("aria-hidden", String(!isOpen));
+      }
+
+      burger.addEventListener("click", () => {
+        const isOpen = drawer.classList.contains("is-open");
+        setOpen(!isOpen);
+      });
+
+      // Ferme le menu quand on clique un lien (UX mobile)
+      drawer.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => setOpen(false));
+      });
+
+      // Ferme avec Escape
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Escape") setOpen(false);
+      });
+
+      // Sécurise si on repasse en desktop (resize)
+      window.addEventListener("resize", () => {
+        if(window.innerWidth > 840) setOpen(false);
+      });
+    })();
+
+    // ===== MODALE + CAROUSEL =====
+    const modal = document.getElementById("buche-modal");
+    const modalCard = modal.querySelector(".modal-card");
+    const img = document.getElementById("modal-image");
+    const title = document.getElementById("modal-title");
+    const desc = document.getElementById("modal-description");
+    const inside = document.getElementById("modal-inside");
+    const topList = document.getElementById("modal-top");
+    const price4 = document.getElementById("modal-price4");
+    const price6 = document.getElementById("modal-price6");
+    const dotsWrap = document.getElementById("carousel-dots");
+    const mailBtn = document.getElementById("modal-mail");
+
+    let images = [];
+    let index = 0;
+
+    const openModal = () => {
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeModal = () => {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    const renderDots = () => {
+      dotsWrap.innerHTML = "";
+      images.forEach((_, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "carousel-dot" + (i === index ? " is-active" : "");
+        b.setAttribute("aria-label", "Aller à la photo " + (i + 1));
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          index = i;
+          updateImage();
+        });
+        dotsWrap.appendChild(b);
+      });
+    };
+
+    const updateImage = () => {
+      img.src = images[index] || "";
+      [...dotsWrap.querySelectorAll(".carousel-dot")].forEach((d, i) => {
+        d.classList.toggle("is-active", i === index);
+      });
+    };
+
+    document.querySelectorAll(".buche-card").forEach(card => {
+      card.addEventListener("click", () => {
+        title.textContent = card.dataset.name || "";
+        desc.textContent = card.dataset.description || "";
+        price4.textContent = card.dataset.price4 || "";
+        price6.textContent = card.dataset.price6 || "";
+
+        inside.innerHTML = "";
+        (card.dataset.inside || "").split("|").filter(Boolean).forEach(i => {
+          const li = document.createElement("li");
+          li.textContent = i;
+          inside.appendChild(li);
+        });
+
+        topList.innerHTML = "";
+        (card.dataset.top || "").split("|").filter(Boolean).forEach(t => {
+          const li = document.createElement("li");
+          li.textContent = t;
+          topList.appendChild(li);
+        });
+
+        images = (card.dataset.images || "").split(",").map(s => s.trim()).filter(Boolean);
+        index = 0;
+
+        renderDots();
+        updateImage();
+
+        const subject = encodeURIComponent("Précommande M'Ice - " + (card.dataset.name || "Bûche"));
+        mailBtn.href = "mailto:miceglaces@gmail.com?subject=" + subject;
+
+        openModal();
+      });
+    });
+
+    document.querySelector(".next").addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (!images.length) return;
+      index = (index + 1) % images.length;
+      updateImage();
+    });
+
+    document.querySelector(".prev").addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (!images.length) return;
+      index = (index - 1 + images.length) % images.length;
+      updateImage();
+    });
+
+    modal.querySelector(".modal-close").addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    modalCard.addEventListener("click", (e) => e.stopPropagation());
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+    });
+  </script>
+
+</body>
+</html>
