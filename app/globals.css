@@ -1,0 +1,329 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 20px rgba(200, 155, 60, 0.15);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0
+    }
+
+    to {
+      height: var(--radix-accordion-content-height)
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height)
+    }
+
+    to {
+      height: 0
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(10px);
+      opacity: 0
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1
+    }
+  }
+}
+
+:root {
+  /* THEME: NOIR & GOLD LUXE */
+
+  /* Core Colors */
+  --gold-1: #f3ddad;
+  /* Lightest Gold - Highlights */
+  --gold-2: #d6b46a;
+  /* Main Gold - Text/Borders */
+  --gold-3: #c89b3c;
+  /* Deep Gold - Primary Elements */
+  --gold-4: #8a6a24;
+  /* Dark Gold - Hover/Active states */
+  --black-1: #0c0c0c;
+  /* Deepest Black - Main Background */
+  --black-2: #151518;
+  /* Soft Black - Surface/Cards */
+  --black-3: #1c1c21;
+  /* Lighter Black - Hover states */
+  --black-4: #2a2a2f;
+  /* Dark Grey - Secondary Elements */
+
+  /* Semantic Map */
+  --background: var(--black-1);
+  --foreground: var(--gold-1);
+
+  --surface: var(--black-2);
+  --surface-hover: var(--black-3);
+
+  --primary: var(--gold-3);
+  --primary-foreground: #18130d;
+  --primary-dark: var(--gold-4);
+  --primary-light: var(--gold-1);
+
+  --secondary: var(--black-4);
+  --secondary-foreground: var(--gold-1);
+
+  --muted: rgba(214, 180, 106, 0.2);
+  --muted-foreground: rgba(214, 180, 106, 0.7);
+
+  --border: rgba(214, 180, 106, 0.15);
+  --input: rgba(214, 180, 106, 0.1);
+  --ring: var(--gold-3);
+
+  /* New: Glassmorphism & Effects */
+  --glass-bg: rgba(21, 21, 24, 0.7);
+  --glass-border: rgba(214, 180, 106, 0.1);
+  --glass-blur: blur(12px);
+
+  /* Typography */
+  --font-playfair: 'Playfair Display', serif;
+  --font-inter: 'Inter', sans-serif;
+
+  /* Radii */
+  --radius: 0.75rem;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-playfair);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* UTILITIES */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(to bottom, var(--gold-1) 0%, var(--gold-3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(200, 155, 60, 0.15);
+}
+
+/* RIBBON & GIFT ANIMATIONS */
+.ribbon-vert,
+.ribbon-horiz {
+  position: absolute;
+  z-index: 3;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2) 35%, var(--gold-3));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.18),
+    0 18px 35px rgba(0, 0, 0, 0.35);
+}
+
+.ribbon-vert {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 22px;
+  transform: translateX(-50%);
+}
+
+.ribbon-horiz {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 18px;
+  transform: translateY(-50%);
+}
+
+.ribbon-vert::before,
+.ribbon-vert::after,
+.ribbon-horiz::before,
+.ribbon-horiz::after {
+  content: "";
+  position: absolute;
+  opacity: 0.75;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+}
+
+.ribbon-vert::before {
+  left: 2px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gold-edge);
+}
+
+.ribbon-vert::after {
+  right: 2px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gold-edge);
+}
+
+.ribbon-horiz::before {
+  top: 2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold-edge);
+}
+
+.ribbon-horiz::after {
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold-edge);
+}
+
+.bow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 90px;
+  z-index: 4;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, .55));
+  pointer-events: none;
+}
+
+.bow .knot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 22px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2) 45%, var(--gold-3));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), inset 0 -8px 14px rgba(0, 0, 0, 0.18);
+}
+
+.bow .loop {
+  position: absolute;
+  top: 18px;
+  width: 54px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2) 45%, var(--gold-3));
+  border-radius: 18px 28px 28px 18px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16), inset 0 -10px 16px rgba(0, 0, 0, 0.18);
+}
+
+.bow .loop.left {
+  left: 6px;
+  transform: rotate(-18deg);
+  border-radius: 28px 18px 28px 18px;
+}
+
+.bow .loop.right {
+  right: 6px;
+  transform: rotate(18deg) scaleX(-1);
+  border-radius: 28px 18px 28px 18px;
+}
+
+.bow .loop::after {
+  content: "";
+  position: absolute;
+  inset: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.14);
+  filter: blur(0.2px);
+  opacity: 0.55;
+}
+
+.bow .tail {
+  position: absolute;
+  top: 48px;
+  width: 26px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2) 45%, var(--gold-3));
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), inset 0 -10px 16px rgba(0, 0, 0, 0.20);
+  clip-path: polygon(0 0, 100% 0, 100% 86%, 50% 100%, 0 86%);
+  opacity: 0.98;
+}
+
+.bow .tail.left {
+  left: 42px;
+  transform: rotate(10deg);
+}
+
+.bow .tail.right {
+  right: 42px;
+  transform: rotate(-10deg);
+}
+
+.gift-paper {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.12), transparent 55%),
+    radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.10), transparent 62%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(0, 0, 0, 0.18)),
+    repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 7px,
+      rgba(0, 0, 0, 0.00) 7px,
+      rgba(0, 0, 0, 0.00) 16px),
+    linear-gradient(135deg, #b1121f 0%, #7b0f18 45%, #5b0b12 100%);
+  filter: saturate(1.02) contrast(1.05);
+}
