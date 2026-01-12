@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <title>M'ice – Créations glacées</title>
@@ -8,1061 +9,1390 @@
   <!-- Polices -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 
   <style>
-    :root{
-      --bg-main:#000000;
+    :root {
+      --bg-main: #000000;
 
-      --accent:#c89b3c;
-      --accent-soft:rgba(200,155,60,.32);
-      --accent-glow:rgba(200,155,60,.55);
+      --accent: #c89b3c;
+      --accent-soft: rgba(200, 155, 60, .32);
+      --accent-glow: rgba(200, 155, 60, .55);
 
-      --text-main:#ffffff;
-      --text-muted:rgba(255,255,255,.78);
+      --text-main: #ffffff;
+      --text-muted: rgba(255, 255, 255, .78);
 
-      --card-bg: rgba(255,255,255,.06);
-      --card-bg-2: rgba(255,255,255,.04);
-      --card-border: rgba(255,255,255,.10);
+      --card-bg: rgba(255, 255, 255, .06);
+      --card-bg-2: rgba(255, 255, 255, .04);
+      --card-border: rgba(255, 255, 255, .10);
 
-      --radius-xl:24px;
-      --shadow-soft:0 18px 45px rgba(0,0,0,.45);
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, .45);
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;}
-    body{
-      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:var(--bg-main);
-      color:var(--text-main);
-      line-height:1.6;
-    }
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .container{max-width:1200px;margin:0 auto;padding:0 16px}
-
-    :focus-visible{
-      outline:2px solid rgba(200,155,60,.85);
-      outline-offset:3px;
-      border-radius:12px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
     }
 
- /* ===== NAVBAR ===== */
-header{
-  position:sticky;top:0;z-index:100;
-  background:rgba(14,14,16,.78);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(200,155,60,.25);
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 0;gap:14px;
-}
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-.logo{
-  display:flex;align-items:center;gap:12px;
-  font-family:"Playfair Display",serif;
-  font-weight:700;font-size:1.25rem;
-  letter-spacing:.04em;white-space:nowrap;line-height:1;
-  color:var(--text-main);
-}
+    a {
+      text-decoration: none;
+      color: inherit
+    }
 
-.logo-mark{
-  width:48px;height:48px;border-radius:999px;
-  background:radial-gradient(circle at 30% 20%, #ffffff, #f0e2cf 50%, #b88a3c 100%);
-  box-shadow:0 10px 26px rgba(0,0,0,.35);
-  display:grid;place-items:center;overflow:hidden;
-  flex:0 0 48px;
-  border:2px solid rgba(255,255,255,.18);
-}
-.logo-mark-img{width:100%;height:100%;object-fit:cover;display:block}
+    img {
+      max-width: 100%;
+      display: block
+    }
 
-.nav-links{
-  display:flex;align-items:center;gap:18px;
-  font-size:.95rem;flex-wrap:wrap;
-}
-.nav-links a{
-  position:relative;padding-bottom:4px;
-  font-weight:600;white-space:nowrap;
-  color:var(--text-main);
-}
-.nav-links a::after{
-  content:"";
-  position:absolute;left:0;bottom:0;
-  width:0;height:2px;
-  background:var(--accent);
-  transition:width .25s ease;
-}
-.nav-links a:hover::after{width:100%}
-.nav-links a.is-active::after{width:100%}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px
+    }
 
-/* ✅ CTA desktop (bouton doré) */
-.nav-cta{
-  padding:10px 18px;
-  border-radius:999px;
-  border:1px solid rgba(200,155,60,.75);
-  font-size:.95rem;
-  font-weight:800;
-  background:rgba(200,155,60,.15);
-  cursor:pointer;
-  transition:background .25s ease,transform .15s ease,box-shadow .2s ease;
-  box-shadow:0 8px 20px rgba(0,0,0,.35);
-  white-space:nowrap;
-  color:var(--text-main);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-.nav-cta:hover{
-  background:rgba(200,155,60,.25);
-  transform:translateY(-1px);
-  box-shadow:0 14px 32px rgba(0,0,0,.45);
-}
+    :focus-visible {
+      outline: 2px solid rgba(200, 155, 60, .85);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
 
-/* ✅ BURGER SIMPLE (3 barres fixes, lisible) */
-.nav-burger{
-  display:none;
-  width:44px;
-  height:44px;
-  border-radius:12px;
-  border:1px solid rgba(200,155,60,.35);
-  background:rgba(0,0,0,.55);
-  cursor:pointer;
+    /* ===== NAVBAR ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(14, 14, 16, .78);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(200, 155, 60, .25);
+    }
 
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
-  padding:0;
-}
-.nav-burger span{
-  display:block;
-  width:22px;
-  height:2px;
-  background:#fff;
-  border-radius:999px;
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
 
-/* ✅ Mobile drawer */
-.mobile-drawer{
-  display:none;
-  border-top:1px solid rgba(200,155,60,.18);
-  background:rgba(0,0,0,.96);
-  backdrop-filter:blur(10px);
-}
-.mobile-drawer.is-open{display:block}
-.mobile-links{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  padding:12px 0 16px;
-}
-.mobile-links a{
-  padding:12px 12px;
-  border-radius:14px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(200,155,60,.14);
-  font-weight:800;
-  color:#fff;
-  opacity:.92;
-}
-.mobile-links a:hover{
-  opacity:1;
-  border-color:rgba(200,155,60,.35);
-  background:rgba(255,255,255,.06);
-}
-.mobile-links a.is-active{
-  opacity:1;
-  border-color:rgba(200,155,60,.55);
-  box-shadow:0 0 0 1px rgba(200,155,60,.12) inset;
-}
-.mobile-cta{
-  margin-top:4px;
-  padding:12px 12px;
-  border-radius:14px;
-  background:rgba(200,155,60,.14);
-  border:1px solid rgba(200,155,60,.45);
-  font-weight:900;
-  color:#fff7eb;
-  text-align:center;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: .04em;
+      white-space: nowrap;
+      line-height: 1;
+      color: var(--text-main);
+    }
+
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #f0e2cf 50%, #b88a3c 100%);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .35);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      flex: 0 0 48px;
+      border: 2px solid rgba(255, 255, 255, .18);
+    }
+
+    .logo-mark-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: .95rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+      font-weight: 600;
+      white-space: nowrap;
+      color: var(--text-main);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width .25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%
+    }
+
+    .nav-links a.is-active::after {
+      width: 100%
+    }
+
+    /* ✅ CTA desktop (bouton doré) */
+    .nav-cta {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(200, 155, 60, .75);
+      font-size: .95rem;
+      font-weight: 800;
+      background: rgba(200, 155, 60, .15);
+      cursor: pointer;
+      transition: background .25s ease, transform .15s ease, box-shadow .2s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+      white-space: nowrap;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .nav-cta:hover {
+      background: rgba(200, 155, 60, .25);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .45);
+    }
+
+    /* ✅ BURGER SIMPLE (3 barres fixes, lisible) */
+    .nav-burger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(200, 155, 60, .35);
+      background: rgba(0, 0, 0, .55);
+      cursor: pointer;
+
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 999px;
+    }
+
+    /* ✅ Mobile drawer */
+    .mobile-drawer {
+      display: none;
+      border-top: 1px solid rgba(200, 155, 60, .18);
+      background: rgba(0, 0, 0, .96);
+      backdrop-filter: blur(10px);
+    }
+
+    .mobile-drawer.is-open {
+      display: block
+    }
+
+    .mobile-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px 0 16px;
+    }
+
+    .mobile-links a {
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(200, 155, 60, .14);
+      font-weight: 800;
+      color: #fff;
+      opacity: .92;
+    }
+
+    .mobile-links a:hover {
+      opacity: 1;
+      border-color: rgba(200, 155, 60, .35);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .mobile-links a.is-active {
+      opacity: 1;
+      border-color: rgba(200, 155, 60, .55);
+      box-shadow: 0 0 0 1px rgba(200, 155, 60, .12) inset;
+    }
+
+    .mobile-cta {
+      margin-top: 4px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(200, 155, 60, .14);
+      border: 1px solid rgba(200, 155, 60, .45);
+      font-weight: 900;
+      color: #fff7eb;
+      text-align: center;
+    }
 
 
     /* =========================
        HERO (dégradé + glow doré)
        ========================= */
-    .hero{padding:46px 0 22px}
+    .hero {
+      padding: 46px 0 22px
+    }
 
-    .hero-inner{
-      position:relative;
-      border-radius:var(--radius-xl);
-      box-shadow:var(--shadow-soft);
-      padding:28px 24px;
-      display:grid;
-      grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
-      gap:24px;
-      align-items:center;
+    .hero-inner {
+      position: relative;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
 
       background:
         radial-gradient(circle at 18% 0%,
-          rgba(200,155,60,.35) 0%,
-          rgba(200,155,60,.12) 28%,
-          rgba(0,0,0,0) 55%),
+          rgba(200, 155, 60, .35) 0%,
+          rgba(200, 155, 60, .12) 28%,
+          rgba(0, 0, 0, 0) 55%),
         radial-gradient(circle at 95% 110%,
-          rgba(200,155,60,.26) 0%,
-          rgba(200,155,60,.08) 30%,
-          rgba(0,0,0,0) 58%),
+          rgba(200, 155, 60, .26) 0%,
+          rgba(200, 155, 60, .08) 30%,
+          rgba(0, 0, 0, 0) 58%),
         linear-gradient(135deg,
-          rgba(255,255,255,.07) 0%,
-          rgba(255,255,255,.02) 45%,
-          rgba(0,0,0,.55) 100%),
+          rgba(255, 255, 255, .07) 0%,
+          rgba(255, 255, 255, .02) 45%,
+          rgba(0, 0, 0, .55) 100%),
         radial-gradient(circle at 10% 0%,
           #221b12 0%,
           #131116 40%,
           #0b0b0d 100%);
-      border:1px solid rgba(200,155,60,.26);
+      border: 1px solid rgba(200, 155, 60, .26);
     }
-    .hero-inner::after{
-      content:"";
-      position:absolute;inset:0;
-      border-radius:var(--radius-xl);
-      pointer-events:none;
+
+    .hero-inner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-xl);
+      pointer-events: none;
       box-shadow:
-        0 0 0 1px rgba(200,155,60,.22) inset,
-        0 0 24px rgba(200,155,60,.08);
+        0 0 0 1px rgba(200, 155, 60, .22) inset,
+        0 0 24px rgba(200, 155, 60, .08);
     }
 
-    .hero-eyebrow{
-      font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;
-      color:rgba(255,255,255,.80);font-weight:900;margin-bottom:10px;
-    }
-    .hero-title{
-      font-family:"Playfair Display",serif;
-      font-size:clamp(2rem,4vw,2.7rem);
-      line-height:1.1;margin-bottom:12px;color:#fff;
-    }
-    .hero-subtitle{
-      color:var(--text-muted);
-      max-width:640px;font-size:1rem;margin-bottom:16px;
+    .hero-eyebrow {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: rgba(255, 255, 255, .80);
+      font-weight: 900;
+      margin-bottom: 10px;
     }
 
-    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-    .hero-tag{
-      padding:6px 12px;border-radius:999px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.18);
-      font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;
-      color:rgba(255,255,255,.92);font-weight:900;
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: #fff;
     }
 
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-    .btn-primary{
-      padding:10px 20px;border-radius:999px;border:none;
-      background:linear-gradient(135deg,#f3ddad 0%, #d9b15f 30%, #c89b3c 100%);
-      color:#18130d;font-size:.95rem;font-weight:900;cursor:pointer;
-      box-shadow:0 14px 34px rgba(0,0,0,.35);
-      display:inline-flex;align-items:center;justify-content:center;
-      transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
-      text-align:center;
+    .hero-subtitle {
+      color: var(--text-muted);
+      max-width: 640px;
+      font-size: 1rem;
+      margin-bottom: 16px;
     }
-    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 18px 46px rgba(0,0,0,.42);filter:brightness(1.03)}
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px
+    }
+
+    .hero-tag {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .18);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: rgba(255, 255, 255, .92);
+      font-weight: 900;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center
+    }
+
+    .btn-primary {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #f3ddad 0%, #d9b15f 30%, #c89b3c 100%);
+      color: #18130d;
+      font-size: .95rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, .35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, .42);
+      filter: brightness(1.03)
+    }
 
     /* ✅ btn-ghost identique Accueil */
-    .btn-ghost{
-      padding:10px 18px;border-radius:999px;
-      border:1px dashed rgba(200,155,60,.45);
-      background:transparent;
-      cursor:pointer;
-      font-size:.9rem;
-      color:var(--text-main);
-      display:inline-flex;align-items:center;justify-content:center;
-      opacity:.95;
-      text-align:center;
+    .btn-ghost {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px dashed rgba(200, 155, 60, .45);
+      background: transparent;
+      cursor: pointer;
+      font-size: .9rem;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: .95;
+      text-align: center;
     }
-    .btn-ghost:hover{opacity:1}
 
-    .hero-media{
-      background:rgba(255,255,255,.03);
-      border-radius:var(--radius-xl);
-      box-shadow:var(--shadow-soft);
-      padding:16px;
-      border:1px solid rgba(200,155,60,.22);
+    .btn-ghost:hover {
+      opacity: 1
     }
-    .hero-image-main{
-      border-radius:calc(var(--radius-xl) - 10px);
-      overflow:hidden;
-      position:relative;
-      aspect-ratio:4/3;
-      background-size:cover;
-      background-position:center;
-      border:1px solid rgba(200,155,60,.20);
+
+    .hero-media {
+      background: rgba(255, 255, 255, .03);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      padding: 16px;
+      border: 1px solid rgba(200, 155, 60, .22);
     }
-    .hero-label{
-      position:absolute;bottom:14px;left:14px;
-      padding:8px 14px;border-radius:999px;
-      background:rgba(0,0,0,.72);
-      border:1px solid rgba(200,155,60,.55);
-      color:#fff;font-size:.8rem;font-weight:900;
-      letter-spacing:.06em;
+
+    .hero-image-main {
+      border-radius: calc(var(--radius-xl) - 10px);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(200, 155, 60, .20);
+    }
+
+    .hero-label {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .72);
+      border: 1px solid rgba(200, 155, 60, .55);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .06em;
       backdrop-filter: blur(10px);
-      display:inline-flex;align-items:center;gap:8px;
-      max-width:calc(100% - 28px);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: calc(100% - 28px);
     }
-    .hero-dot{
-      width:9px;height:9px;border-radius:999px;
-      background:rgba(200,155,60,.45);
-      box-shadow:0 0 12px rgba(200,155,60,.26);
-      border:1px solid rgba(200,155,60,.55);
-      flex:0 0 9px;
+
+    .hero-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(200, 155, 60, .45);
+      box-shadow: 0 0 12px rgba(200, 155, 60, .26);
+      border: 1px solid rgba(200, 155, 60, .55);
+      flex: 0 0 9px;
     }
 
     /* =========================
        SECTIONS
        ========================= */
-    section{padding:46px 0}
-    .section-header{max-width:760px;margin-bottom:18px}
-    .section-title{font-family:"Playfair Display",serif;font-size:1.85rem;margin-bottom:8px;color:#fff}
-    .section-subtitle{color:var(--text-muted);font-size:.95rem}
-
-    .vitrine{
-      background:var(--card-bg-2);
-      border-radius:var(--radius-xl);
-      box-shadow:var(--shadow-soft);
-      padding:18px;
-      border:1px solid rgba(200,155,60,.24);
+    section {
+      padding: 46px 0
     }
 
-    .group{padding:12px 6px 18px}
-    .group + .group{border-top:1px solid rgba(255,255,255,.10)}
-
-    .group-head{
-      display:flex;align-items:baseline;justify-content:space-between;
-      gap:12px;margin-bottom:12px;flex-wrap:wrap;
-    }
-    .group-title{font-weight:1000;font-size:1.1rem;letter-spacing:.02em;color:#fff}
-    .group-note{color:rgba(255,255,255,.72);font-size:.85rem;font-weight:700}
-
-    .thumbs{
-      display:grid;
-      grid-template-columns:repeat(5,minmax(0,1fr));
-      gap:12px;
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 18px
     }
 
-    .thumb{
-      border-radius:18px;
-      overflow:hidden;
-      cursor:pointer;
-      transition:transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
-      display:flex;flex-direction:column;min-height:100%;
-      appearance:none;
-      background:rgba(255,255,255,.05);
-      border:1.5px solid rgba(200,155,60,.45);
-      box-shadow:0 10px 24px rgba(0,0,0,.35);
-      color:#fff;
-      text-align:left;
-    }
-    .thumb:hover{
-      transform:translateY(-2px);
-      border-color:rgba(200,155,60,.92);
-      box-shadow:0 16px 34px rgba(0,0,0,.45);
-      background:rgba(255,255,255,.07);
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.85rem;
+      margin-bottom: 8px;
+      color: #fff
     }
 
-    .thumb-img{
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: .95rem
+    }
+
+    .vitrine {
+      background: var(--card-bg-2);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+      border: 1px solid rgba(200, 155, 60, .24);
+    }
+
+    .group {
+      padding: 12px 6px 18px
+    }
+
+    .group+.group {
+      border-top: 1px solid rgba(255, 255, 255, .10)
+    }
+
+    .group-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .group-title {
+      font-weight: 1000;
+      font-size: 1.1rem;
+      letter-spacing: .02em;
+      color: #fff
+    }
+
+    .group-note {
+      color: rgba(255, 255, 255, .72);
+      font-size: .85rem;
+      font-weight: 700
+    }
+
+    .thumbs {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .thumb {
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      appearance: none;
+      background: rgba(255, 255, 255, .05);
+      border: 1.5px solid rgba(200, 155, 60, .45);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
+      color: #fff;
+      text-align: left;
+    }
+
+    .thumb:hover {
+      transform: translateY(-2px);
+      border-color: rgba(200, 155, 60, .92);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, .45);
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .thumb-img {
       aspect-ratio: 4 / 3;
-      position:relative;
-      overflow:hidden;
-      border-bottom:1px solid rgba(200,155,60,.22);
-      background:rgba(0,0,0,.35);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(200, 155, 60, .22);
+      background: rgba(0, 0, 0, .35);
     }
-    .thumb-img img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter:contrast(1.02) saturate(1.02);
+
+    .thumb-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.02) saturate(1.02);
     }
-    .thumb-img::after{
-      content:"";
-      position:absolute;inset:0;
+
+    .thumb-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(circle at 25% 0%, rgba(200,155,60,.18) 0%, rgba(0,0,0,0) 55%),
-        linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.18) 100%);
-      pointer-events:none;
+        radial-gradient(circle at 25% 0%, rgba(200, 155, 60, .18) 0%, rgba(0, 0, 0, 0) 55%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .18) 100%);
+      pointer-events: none;
     }
 
-    .thumb-cap{
-      padding:10px 12px;
-      display:flex;align-items:center;justify-content:space-between;
-      gap:10px;
-    }
-    .thumb-name{font-weight:900;font-size:.92rem;color:#fff;line-height:1.15}
-    .thumb-pill{
-      font-size:.72rem;font-weight:900;
-      padding:6px 9px;border-radius:999px;
-      background:rgba(200,155,60,.14);
-      border:1px solid rgba(200,155,60,.45);
-      white-space:nowrap;color:rgba(255,255,255,.92);
+    .thumb-cap {
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
     }
 
-    .grid-2{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);gap:18px;align-items:start}
-    .info{
-      background:var(--card-bg-2);
-      border-radius:var(--radius-xl);
-      padding:20px;
-      box-shadow:var(--shadow-soft);
-      border:1px solid rgba(200,155,60,.24);
-      color:#fff;
-    }
-    .info h3{
-      font-family:"Playfair Display",serif;
-      font-size:1.35rem;margin-bottom:8px;color:#fff;
-    }
-    .info p{color:rgba(255,255,255,.78);font-size:.92rem;margin-bottom:12px}
-
-    .list{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .list li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      color:rgba(255,255,255,.86);
-      font-size:.92rem;
-    }
-    .list li::before{
-      content:"";
-      width:10px;height:10px;
-      border-radius:999px;
-      margin-top:6px;
-      background:rgba(200,155,60,.32);
-      border:1px solid rgba(200,155,60,.55);
-      box-shadow:0 0 12px rgba(200,155,60,.14);
-      flex:0 0 10px;
+    .thumb-name {
+      font-weight: 900;
+      font-size: .92rem;
+      color: #fff;
+      line-height: 1.15
     }
 
-    .pill{
-      display:inline-flex;align-items:center;gap:6px;
-      padding:6px 10px;border-radius:999px;
-      background:rgba(200,155,60,.12);
-      border:1px solid rgba(200,155,60,.45);
-      font-size:.78rem;color:rgba(255,255,255,.92);
-      font-weight:900;white-space:nowrap;
+    .thumb-pill {
+      font-size: .72rem;
+      font-weight: 900;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(200, 155, 60, .14);
+      border: 1px solid rgba(200, 155, 60, .45);
+      white-space: nowrap;
+      color: rgba(255, 255, 255, .92);
     }
 
-    footer{
-      padding:24px 0;
-      text-align:center;
-      color:rgba(255,255,255,.70);
-      font-size:.8rem;
-      border-top:1px solid rgba(200,155,60,.28);
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 18px;
+      align-items: start
+    }
+
+    .info {
+      background: var(--card-bg-2);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(200, 155, 60, .24);
+      color: #fff;
+    }
+
+    .info h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .info p {
+      color: rgba(255, 255, 255, .78);
+      font-size: .92rem;
+      margin-bottom: 12px
+    }
+
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: rgba(255, 255, 255, .86);
+      font-size: .92rem;
+    }
+
+    .list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      margin-top: 6px;
+      background: rgba(200, 155, 60, .32);
+      border: 1px solid rgba(200, 155, 60, .55);
+      box-shadow: 0 0 12px rgba(200, 155, 60, .14);
+      flex: 0 0 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(200, 155, 60, .12);
+      border: 1px solid rgba(200, 155, 60, .45);
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .92);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    footer {
+      padding: 24px 0;
+      text-align: center;
+      color: rgba(255, 255, 255, .70);
+      font-size: .8rem;
+      border-top: 1px solid rgba(200, 155, 60, .28);
     }
 
     /* =========================
        CAKE LIGHTBOX (plein écran + slider)
        ========================= */
-    .cake-lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.92);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:1000;
-      padding:18px;
-    }
-    .cake-lightbox.is-open{display:flex;}
-
-    .cake-lightbox-inner{
-      position:relative;
-      overflow:visible;
-      width:min(920px, 96vw);
-      max-height:92vh;
-      background:rgba(10,10,12,.92);
-      border-radius:24px;
-      border:1px solid rgba(200,155,60,.45);
-      box-shadow:0 30px 80px rgba(0,0,0,.6);
-      padding:16px;
+    .cake-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 18px;
     }
 
-    .cake-lightbox-imgwrap{
-      position:relative;
-      overflow:hidden;
-      border-radius:18px;
-      border:1px solid rgba(200,155,60,.25);
-      background:#000;
-      z-index:1;
-    }
-    .cake-lightbox-imgwrap img{
-      width:100%;
-      max-height:72vh;
-      display:block;
-      object-fit:contain;
-      background:#000;
+    .cake-lightbox.is-open {
+      display: flex;
     }
 
-    .cake-close{
-      position:absolute;
-      top:12px; right:12px;
-      z-index:50;
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(200,155,60,.55);
-      color:#fff;
-      width:44px;height:44px;
-      border-radius:999px;
-      font-size:22px;
-      cursor:pointer;
-      display:flex;align-items:center;justify-content:center;
+    .cake-lightbox-inner {
+      position: relative;
+      overflow: visible;
+      width: min(920px, 96vw);
+      max-height: 92vh;
+      background: rgba(10, 10, 12, .92);
+      border-radius: 24px;
+      border: 1px solid rgba(200, 155, 60, .45);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .6);
+      padding: 16px;
+    }
+
+    .cake-lightbox-imgwrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(200, 155, 60, .25);
+      background: #000;
+      z-index: 1;
+    }
+
+    .cake-lightbox-imgwrap img {
+      width: 100%;
+      max-height: 72vh;
+      display: block;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .cake-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 50;
+      background: rgba(0, 0, 0, .55);
+      border: 1px solid rgba(200, 155, 60, .55);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       backdrop-filter: blur(10px);
     }
-    .cake-close:hover{border-color:rgba(200,155,60,.95);}
 
-    .cake-nav{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(200,155,60,.35);
-      color:#fff;
-      font-size:30px;
-      width:44px;height:44px;
-      border-radius:999px;
-      cursor:pointer;
-      display:flex;align-items:center;justify-content:center;
-      user-select:none;
-      z-index:40;
-    }
-    .cake-nav:hover{border-color:rgba(200,155,60,.85)}
-    .cake-nav.prev{ left:-58px; }
-    .cake-nav.next{ right:-58px; }
-
-    .cake-actions{
-      margin-top:12px;
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
+    .cake-close:hover {
+      border-color: rgba(200, 155, 60, .95);
     }
 
-    .cake-lb-dots{
-      margin-top:10px;
-      display:flex;
-      justify-content:center;
-      gap:8px;
-    }
-    .cake-lb-dots .dot{
-      width:8px;height:8px;border-radius:999px;
-      background:rgba(255,255,255,.28);
-      border:1px solid rgba(255,255,255,.20);
-    }
-    .cake-lb-dots .dot.is-active{
-      background:rgba(200,155,60,.70);
-      border-color:rgba(200,155,60,.90);
-      box-shadow:0 0 10px rgba(200,155,60,.20);
+    .cake-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, .55);
+      border: 1px solid rgba(200, 155, 60, .35);
+      color: #fff;
+      font-size: 30px;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      z-index: 40;
     }
 
-    .cake-dots{
-      position:absolute;
-      bottom:10px; left:50%;
-      transform:translateX(-50%);
-      display:flex;
-      gap:7px;
-      padding:7px 10px;
-      border-radius:999px;
-      background:rgba(0,0,0,.52);
-      border:1px solid rgba(200,155,60,.28);
+    .cake-nav:hover {
+      border-color: rgba(200, 155, 60, .85)
+    }
+
+    .cake-nav.prev {
+      left: -58px;
+    }
+
+    .cake-nav.next {
+      right: -58px;
+    }
+
+    .cake-actions {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cake-lb-dots {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .cake-lb-dots .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .28);
+      border: 1px solid rgba(255, 255, 255, .20);
+    }
+
+    .cake-lb-dots .dot.is-active {
+      background: rgba(200, 155, 60, .70);
+      border-color: rgba(200, 155, 60, .90);
+      box-shadow: 0 0 10px rgba(200, 155, 60, .20);
+    }
+
+    .cake-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .52);
+      border: 1px solid rgba(200, 155, 60, .28);
       backdrop-filter: blur(10px);
-      pointer-events:none;
+      pointer-events: none;
     }
-    .cake-dots .dot{
-      width:7px;height:7px;border-radius:999px;
-      background:rgba(255,255,255,.35);
-      border:1px solid rgba(255,255,255,.25);
+
+    .cake-dots .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .35);
+      border: 1px solid rgba(255, 255, 255, .25);
     }
-    .cake-dots .dot.is-active{
-      background:rgba(200,155,60,.65);
-      border-color:rgba(200,155,60,.85);
-      box-shadow:0 0 10px rgba(200,155,60,.22);
+
+    .cake-dots .dot.is-active {
+      background: rgba(200, 155, 60, .65);
+      border-color: rgba(200, 155, 60, .85);
+      box-shadow: 0 0 10px rgba(200, 155, 60, .22);
     }
 
     /* RESPONSIVE */
-    @media (max-width: 980px){
-      .thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}
-      .hero-inner{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .cake-nav.prev{ left:10px; }
-      .cake-nav.next{ right:10px; }
+    @media (max-width: 980px) {
+      .thumbs {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr
+      }
+
+      .cake-nav.prev {
+        left: 10px;
+      }
+
+      .cake-nav.next {
+        right: 10px;
+      }
     }
 
     /* ✅ Navbar breakpoint identique à Accueil */
-    @media (max-width: 840px){
-      .nav-links{display:none}
-      .nav-cta{display:none}
-      .nav-burger{display:flex}
+    @media (max-width: 840px) {
+      .nav-links {
+        display: none
+      }
+
+      .nav-cta {
+        display: none
+      }
+
+      .nav-burger {
+        display: flex
+      }
     }
 
     /* ✅ Taille logo mobile identique à Accueil */
-    @media (max-width: 640px){
-      .logo-mark{width:44px;height:44px;flex:0 0 44px;}
-      .hero-actions a{width:100%}
+    @media (max-width: 640px) {
+      .logo-mark {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+      }
+
+      .hero-actions a {
+        width: 100%
+      }
     }
 
-    @media (max-width: 560px){
-      .thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .vitrine{padding:14px}
+    @media (max-width: 560px) {
+      .thumbs {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      .vitrine {
+        padding: 14px
+      }
     }
 
     /* ✅ PLACEHOLDER PHOTO */
-    .thumb-placeholder{
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .thumb-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .placeholder-content{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(200,155,60,.40);
-      color:rgba(255,255,255,.92);
-      font-weight:900;
-      letter-spacing:.02em;
+
+    .placeholder-content {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .55);
+      border: 1px solid rgba(200, 155, 60, .40);
+      color: rgba(255, 255, 255, .92);
+      font-weight: 900;
+      letter-spacing: .02em;
       backdrop-filter: blur(10px);
     }
-    .placeholder-dot{
-      width:10px;height:10px;border-radius:999px;
-      background:rgba(200,155,60,.55);
-      border:1px solid rgba(200,155,60,.95);
-      box-shadow:0 0 12px rgba(200,155,60,.22);
+
+    .placeholder-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(200, 155, 60, .55);
+      border: 1px solid rgba(200, 155, 60, .95);
+      box-shadow: 0 0 12px rgba(200, 155, 60, .22);
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container">
-    <div class="nav">
-      <a class="logo" href="/index.html">
-        <span class="logo-mark">
-          <img src="images/logo%20mice.jpg" alt="Logo M'Ice" class="logo-mark-img">
-        </span>
-        <span class="logo-text">M'ice</span>
-      </a>
-
-      <nav class="nav-links" aria-label="Navigation principale">
-        <a href="/index.html">Accueil</a>
-        <a href="buches.html">Nos bûches glacées</a>
-        <a href="nosparfums.html">Nos parfums</a>
-        <a href="creations-glacees.html" class="is-active">Créations glacées</a>
-        <a href="professionnels.html">Professionnels</a>
-      </nav>
-
-      <!-- CTA desktop -->
-      <a class="nav-cta" href="mailto:miceglaces@gmail.com?subject=Commande%20-%20Créations%20glacées%20M%27Ice">Nous contacter</a>
-
-      <!-- ✅ BURGER MOBILE -->
-      <button
-        class="nav-burger"
-        id="burgerBtn"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        aria-controls="mobileDrawer"
-      >
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- ✅ MENU MOBILE -->
-    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-      <nav class="mobile-links" aria-label="Navigation mobile">
-        <a href="/index.html">Accueil</a>
-        <a href="buches.html">Nos bûches glacées</a>
-        <a href="nosparfums.html">Nos parfums</a>
-        <a href="creations-glacees.html" class="is-active">Créations glacées</a>
-        <a href="professionnels.html">Professionnels</a>
-        <a class="mobile-cta" href="mailto:miceglaces@gmail.com?subject=Commande%20-%20Créations%20glacées%20M%27Ice">Nous contacter</a>
-      </nav>
-    </div>
-  </div>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <section class="hero">
+  <header>
     <div class="container">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-eyebrow">Desserts glacés – fait maison</div>
-          <h1 class="hero-title">Nos créations glacées</h1>
-          <p class="hero-subtitle">
-            Découvrez nos desserts glacés. Bûchettes disponibles uniquement en boutique !
-          </p>
+      <div class="nav">
+        <a class="logo" href="/index.html">
+          <span class="logo-mark">
+            <img src="public/images/branding/logo.jpg" alt="Logo M'Ice" class="logo-mark-img">
+          </span>
+          <span class="logo-text">M'ice</span>
+        </a>
 
-          <div class="hero-tags">
-            <span class="hero-tag">Sur commande</span>
-            <span class="hero-tag">Artisanal</span>
-            <span class="hero-tag">Élégant & gourmand</span>
+        <nav class="nav-links" aria-label="Navigation principale">
+          <a href="/index.html">Accueil</a>
+          <a href="buches.html">Nos bûches glacées</a>
+          <a href="nosparfums.html">Nos parfums</a>
+          <a href="creations-glacees.html" class="is-active">Créations glacées</a>
+          <a href="professionnels.html">Professionnels</a>
+        </nav>
+
+        <!-- CTA desktop -->
+        <a class="nav-cta" href="mailto:miceglaces@gmail.com?subject=Commande%20-%20Créations%20glacées%20M%27Ice">Nous
+          contacter</a>
+
+        <!-- ✅ BURGER MOBILE -->
+        <button class="nav-burger" id="burgerBtn" type="button" aria-label="Ouvrir le menu" aria-expanded="false"
+          aria-controls="mobileDrawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- ✅ MENU MOBILE -->
+      <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+        <nav class="mobile-links" aria-label="Navigation mobile">
+          <a href="/index.html">Accueil</a>
+          <a href="buches.html">Nos bûches glacées</a>
+          <a href="nosparfums.html">Nos parfums</a>
+          <a href="creations-glacees.html" class="is-active">Créations glacées</a>
+          <a href="professionnels.html">Professionnels</a>
+          <a class="mobile-cta"
+            href="mailto:miceglaces@gmail.com?subject=Commande%20-%20Créations%20glacées%20M%27Ice">Nous contacter</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-eyebrow">Desserts glacés – fait maison</div>
+            <h1 class="hero-title">Nos créations glacées</h1>
+            <p class="hero-subtitle">
+              Découvrez nos desserts glacés. Bûchettes disponibles uniquement en boutique !
+            </p>
+
+            <div class="hero-tags">
+              <span class="hero-tag">Sur commande</span>
+              <span class="hero-tag">Artisanal</span>
+              <span class="hero-tag">Élégant & gourmand</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn-primary" href="#vitrine">Voir la vitrine</a>
+              <a class="btn-ghost"
+                href="mailto:miceglaces@gmail.com?subject=Commande%20M%27Ice%20-%20Créations%20glacées">Précommander par
+                mail</a>
+            </div>
           </div>
 
-          <div class="hero-actions">
-            <a class="btn-primary" href="#vitrine">Voir la vitrine</a>
-            <a class="btn-ghost" href="mailto:miceglaces@gmail.com?subject=Commande%20M%27Ice%20-%20Créations%20glacées">Précommander par mail</a>
+          <div class="hero-media">
+            <div class="hero-image-main" style="background-image:url('public/images/products/nougat-glace.jpg');">
+              <span class="hero-label"><span class="hero-dot"></span>Créations glacées artisanales</span>
+            </div>
           </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VITRINE -->
+    <section id="vitrine">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Desserts glacés</h2>
+          <p class="section-subtitle">Cliquez sur une vignette pour commander.</p>
         </div>
 
-        <div class="hero-media">
-          <div class="hero-image-main" style="background-image:url('images/nougat-glace.jpg');">
-            <span class="hero-label"><span class="hero-dot"></span>Créations glacées artisanales</span>
-          </div>
-        </div>
+        <div class="vitrine">
+          <!-- NOUGAT GLACÉ (2) -->
+          <div class="group">
+            <div class="group-head">
+              <div class="group-title">Nougats glacés</div>
+              <div class="group-note">2 versions disponibles</div>
+            </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- VITRINE -->
-  <section id="vitrine">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Desserts glacés</h2>
-        <p class="section-subtitle">Cliquez sur une vignette pour commander.</p>
-      </div>
-
-      <div class="vitrine">
-<!-- NOUGAT GLACÉ (2) -->
-<div class="group">
-  <div class="group-head">
-    <div class="group-title">Nougats glacés</div>
-    <div class="group-note">2 versions disponibles</div>
-  </div>
-
-  <div class="thumbs">
-    <button class="thumb" type="button" data-mail="Nougat glacé (4 personnes)" data-type="stock">
-      <div class="thumb-img">
-        <img src="images/nougat-glace.jpg" alt="Nougat glacé (4 personnes)">
-      </div>
-      <div class="thumb-cap">
-        <div class="thumb-name">Nougat glacé (4 personnes)</div>
-        <div class="thumb-pill">Commander</div>
-      </div>
-    </button>
-
-    <button class="thumb" type="button" data-mail="Nougat glacé (6 personnes)" data-type="stock">
-      <div class="thumb-img">
-        <img src="images/nougat-glace.jpg" alt="Nougat glacé (6 personnes)">
-      </div>
-      <div class="thumb-cap">
-        <div class="thumb-name">Nougat glacé (6 personnes)</div>
-        <div class="thumb-pill">Commander</div>
-      </div>
-    </button>
-  </div>
-</div>
-
-
-        <!-- VACHERIN (1) -->
-        <div class="group">
-          <div class="group-head">
-            <div class="group-title">Vacherin</div>
-            <div class="group-note">1 version disponible</div>
-          </div>
-
-          <div class="thumbs">
-            <button class="thumb" type="button" data-mail="Vacherin" data-type="stock">
-              <div class="thumb-img thumb-placeholder">
-                <div class="placeholder-content">
-                  <span class="placeholder-dot" aria-hidden="true"></span>
-                  <span>Photo à venir</span>
+            <div class="thumbs">
+              <button class="thumb" type="button" data-mail="Nougat glacé (4 personnes)" data-type="stock">
+                <div class="thumb-img">
+                  <img src="public/images/products/nougat-glace.jpg" alt="Nougat glacé (4 personnes)">
                 </div>
-              </div>
+                <div class="thumb-cap">
+                  <div class="thumb-name">Nougat glacé (4 personnes)</div>
+                  <div class="thumb-pill">Commander</div>
+                </div>
+              </button>
 
-              <div class="thumb-cap">
-                <div class="thumb-name">Vacherin</div>
-                <div class="thumb-pill">Commander</div>
-              </div>
-            </button>
+              <button class="thumb" type="button" data-mail="Nougat glacé (6 personnes)" data-type="stock">
+                <div class="thumb-img">
+                  <img src="public/images/products/nougat-glace.jpg" alt="Nougat glacé (6 personnes)">
+                </div>
+                <div class="thumb-cap">
+                  <div class="thumb-name">Nougat glacé (6 personnes)</div>
+                  <div class="thumb-pill">Commander</div>
+                </div>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <!-- MACARONS GLACÉS (5) -->
-        <div class="group">
-          <div class="group-head">
-            <div class="group-title">Macarons glacés</div>
-            <div class="group-note">5 parfums disponibles</div>
+
+          <!-- VACHERIN (1) -->
+          <div class="group">
+            <div class="group-head">
+              <div class="group-title">Vacherin</div>
+              <div class="group-note">1 version disponible</div>
+            </div>
+
+            <div class="thumbs">
+              <button class="thumb" type="button" data-mail="Vacherin" data-type="stock">
+                <div class="thumb-img thumb-placeholder">
+                  <div class="placeholder-content">
+                    <span class="placeholder-dot" aria-hidden="true"></span>
+                    <span>Photo à venir</span>
+                  </div>
+                </div>
+
+                <div class="thumb-cap">
+                  <div class="thumb-name">Vacherin</div>
+                  <div class="thumb-pill">Commander</div>
+                </div>
+              </button>
+            </div>
           </div>
 
-          <div class="thumbs">
-            <button class="thumb" type="button" data-mail="Macaron glacé – Mangue" data-type="stock">
-              <div class="thumb-img"><img src="images/macarons/macaron-mangue.jpg" alt="Macaron glacé mangue"></div>
-              <div class="thumb-cap"><div class="thumb-name">Mangue</div><div class="thumb-pill">Commander</div></div>
-            </button>
+          <!-- MACARONS GLACÉS (5) -->
+          <div class="group">
+            <div class="group-head">
+              <div class="group-title">Macarons glacés</div>
+              <div class="group-note">5 parfums disponibles</div>
+            </div>
 
-            <button class="thumb" type="button" data-mail="Macaron glacé – Framboise" data-type="stock">
-              <div class="thumb-img"><img src="images/macarons/macaron-framboise.jpg" alt="Macaron glacé framboise"></div>
-              <div class="thumb-cap"><div class="thumb-name">Framboise</div><div class="thumb-pill">Commander</div></div>
+            <div class="thumbs">
+              <button class="thumb" type="button" data-mail="Macaron glacé – Mangue" data-type="stock">
+                <div class="thumb-img"><img src="public/images/products/macarons/macaron-mangue.jpg"
+                    alt="Macaron glacé mangue"></div>
+                <div class="thumb-cap">
+                  <div class="thumb-name">Mangue</div>
+                  <div class="thumb-pill">Commander</div>
+                </div>
+              </button>
+
+              <button class="thumb" type="button" data-mail="Macaron glacé – Framboise" data-type="stock">
+                <div class="thumb-img"><img src="public/images/products/macarons/macaron-framboise.jpg"
+                    alt="Macaron glacé framboise"></div>
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Framboise</div>
+              <div class="thumb-pill">Commander</div>
+            </div>
             </button>
 
             <button class="thumb" type="button" data-mail="Macaron glacé – Vanille" data-type="stock">
-              <div class="thumb-img"><img src="images/macarons/macaron-vanille.jpg" alt="Macaron glacé vanille"></div>
-              <div class="thumb-cap"><div class="thumb-name">Vanille</div><div class="thumb-pill">Commander</div></div>
+              <div class="thumb-img"><img src="public/images/products/macarons/macaron-vanille.jpg"
+                  alt="Macaron glacé vanille"></div>
+              <div class="thumb-cap">
+                <div class="thumb-name">Vanille</div>
+                <div class="thumb-pill">Commander</div>
+              </div>
             </button>
 
             <button class="thumb" type="button" data-mail="Macaron glacé – Chocolat" data-type="stock">
-              <div class="thumb-img"><img src="images/macarons/macaron-chocolat.jpg" alt="Macaron glacé chocolat"></div>
-              <div class="thumb-cap"><div class="thumb-name">Chocolat</div><div class="thumb-pill">Commander</div></div>
-            </button>
-
-            <button class="thumb" type="button" data-mail="Macaron glacé – Caramel beurre salé" data-type="stock">
-              <div class="thumb-img"><img src="images/macarons/macaron-caramel.jpg" alt="Macaron glacé caramel beurre salé"></div>
-              <div class="thumb-cap"><div class="thumb-name">Caramel B.S.</div><div class="thumb-pill">Commander</div></div>
-            </button>
+              <div class="thumb-img"><img src="public/images/products/macarons/macaron-chocolat.jpg"
+                  alt="Macaron glacé chocolat"></div>
           </div>
-        </div>
-
-        <!-- BÛCHETTES (SUR PLACE) -->
-        <div class="group">
-          <div class="group-head">
-            <div class="group-title">Bûchettes glacées</div>
-            <div class="group-note">+ de 9 formats disponibles</div>
+          <div class="thumb-cap">
+            <div class="thumb-name">Chocolat</div>
+            <div class="thumb-pill">Commander</div>
           </div>
+          </button>
 
-          <div class="thumbs">
-            <button class="thumb" type="button" data-no-mail="true" data-type="stock">
-              <div class="thumb-img">
-                <img src="images/buchettes/buchette-vanille-framboise.jpg" alt="Bûchette vanille framboise">
-              </div>
-              <div class="thumb-cap"><div class="thumb-name">Vanille-framboise</div><div class="thumb-pill">Sur place</div></div>
-            </button>
-
-            <button class="thumb" type="button" data-no-mail="true" data-type="stock">
-              <div class="thumb-img">
-                <img src="images/buchettes/buchette-cbs-vanille.jpg" alt="Bûchette caramel beurre salé vanille">
-              </div>
-              <div class="thumb-cap"><div class="thumb-name">CBS-vanille</div><div class="thumb-pill">Sur place</div></div>
-            </button>
-
-            <button class="thumb" type="button" data-no-mail="true" data-type="stock">
-              <div class="thumb-img">
-                <img src="images/buchettes/buchette-framboise-fraise.jpg" alt="Bûchette framboise fraise">
-              </div>
-              <div class="thumb-cap"><div class="thumb-name">Framboise-fraise</div><div class="thumb-pill">Sur place</div></div>
-            </button>
-
-            <button class="thumb" type="button" data-no-mail="true" data-type="stock">
-              <div class="thumb-img">
-                <img src="images/buchettes/buchette-fleur-de-lait-framboise.jpg" alt="Bûchette fleur de lait framboise">
-              </div>
-              <div class="thumb-cap"><div class="thumb-name">Fleur de lait-framboise</div><div class="thumb-pill">Sur place</div></div>
-            </button>
-
-            <button class="thumb" type="button" data-no-mail="true" data-type="stock">
-              <div class="thumb-img">
-                <img src="images/buchettes/buchette-pistache-framboise.jpg" alt="Bûchette pistache framboise">
-              </div>
-              <div class="thumb-cap"><div class="thumb-name">Pistache-framboise</div><div class="thumb-pill">Sur place</div></div>
-            </button>
-
-            <button class="thumb" type="button" data-no-mail="true" data-type="stock">
-              <div class="thumb-img">
-                <img src="images/buchettes/buchette-mangue-coco.jpg" alt="Bûchette mangue coco">
-              </div>
-              <div class="thumb-cap"><div class="thumb-name">Mangue-coco</div><div class="thumb-pill">Sur place</div></div>
-            </button>
-
-            <button class="thumb" type="button" data-no-mail="true" data-type="stock">
-              <div class="thumb-img">
-                <img src="images/buchettes/buchette-pistache-fleur-oranger.jpg" alt="Bûchette pistache fleur d'oranger">
-              </div>
-              <div class="thumb-cap"><div class="thumb-name">Pistache-fleur d’oranger</div><div class="thumb-pill">Sur place</div></div>
-            </button>
-
-            <button class="thumb" type="button" data-no-mail="true" data-type="stock">
-              <div class="thumb-img">
-                <img src="images/buchettes/buchette-poire-chocolat.jpg" alt="Bûchette poire chocolat">
-              </div>
-              <div class="thumb-cap"><div class="thumb-name">Poire-chocolat</div><div class="thumb-pill">Sur place</div></div>
-            </button>
-
-            <button class="thumb" type="button" data-no-mail="true" data-type="stock">
-              <div class="thumb-img">
-                <img src="images/buchettes/profiterole-vanille-chocolat-cbs.jpg" alt="Profiteroles vanille chocolat caramel beurre salé">
-              </div>
-              <div class="thumb-cap"><div class="thumb-name">Profiteroles</div><div class="thumb-pill">Sur place</div></div>
-            </button>
-          </div>
-        </div>
-
-        <!-- GÂTEAUX (SUR COMMANDE) -->
-        <div class="group">
-          <div class="group-head">
-            <div class="group-title">Gâteaux (sur commande)</div>
-            <div class="group-note">Gâteaux à la demande</div>
-          </div>
-
-          <div class="thumbs">
-            <button class="thumb cake-card" type="button" aria-label="Gâteaux sur commande – ouvrir la galerie">
-              <div class="thumb-img">
-                <img id="cakeThumbImg" src="images/gateaux-1.jpg" alt="Gâteaux glacés sur commande">
-                <div class="cake-dots" aria-hidden="true" id="cakeThumbDots">
-                  <span class="dot is-active"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
-              </div>
-
-              <div class="thumb-cap">
-                <div class="thumb-name">Gâteaux sur commande</div>
-                <div class="thumb-pill">Sur commande</div>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- SERVICE TRAITEUR -->
-        <div class="group">
-          <div class="group-head">
-            <div class="group-title">Service traiteur</div>
-            <div class="group-note">Sur-mesure • événements • entreprises</div>
-          </div>
-
-          <div class="thumbs">
-            <button class="thumb" type="button" data-mail="Service traiteur – Sur-mesure" data-type="traiteur">
-              <div class="thumb-img thumb-placeholder">
-                <div class="placeholder-content">
-                  <span class="placeholder-dot" aria-hidden="true"></span>
-                  <span>Photo à venir</span>
-                </div>
-              </div>
-
-              <div class="thumb-cap">
-                <div class="thumb-name">Sur-mesure</div>
-                <div class="thumb-pill">Devis</div>
-              </div>
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- INFOS -->
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Commande & retrait</h2>
-      </div>
-
-      <div class="grid-2">
-        <div class="info">
-          <h3>Précommande par mail</h3>
-          <p>Contactez-nous : date souhaitée, numéro, quantités et produits souhaités.</p>
-
-          <ul class="list">
-            <li>miceglaces@gmail.com</li>
-            <li>Retrait : La Garenne, 05260 Saint-Jean-Saint-Nicolas</li>
-            <li>Délais : selon production</li>
-          </ul>
-
-          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;">
-            <span class="pill">Artisanal</span>
-            <span class="pill">Saison</span>
-            <span class="pill">Quantités limitées</span>
-          </div>
-        </div>
-
-        <div class="info">
-          <h3>Pour les professionnels ou tout évènement</h3>
-          <p>Pour toute demande, merci de nous contacter directement !<br><br>
-            Mail : <strong>miceglaces@gmail.com</strong>
-          </p>
-          <p style="color:rgba(255,255,255,.78);font-size:.92rem;">
-            <a href="professionnels.html" style="text-decoration:underline;font-weight:900;color:#fff">Aller sur Professionnels</a>
-          </p>
+          <button class="thumb" type="button" data-mail="Macaron glacé – Caramel beurre salé" data-type="stock">
+            <div class="thumb-img"><img src="public/images/products/macarons/macaron-caramel.jpg"
+                alt="Macaron glacé caramel beurre salé"></div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Caramel B.S.</div>
+              <div class="thumb-pill">Commander</div>
+            </div>
+          </button>
         </div>
       </div>
-    </div>
-  </section>
 
-</main>
+      <!-- BÛCHETTES (SUR PLACE) -->
+      <div class="group">
+        <div class="group-head">
+          <div class="group-title">Bûchettes glacées</div>
+          <div class="group-note">+ de 9 formats disponibles</div>
+        </div>
 
-<footer>
-  © 2025 M'Ice – Atelier de glaces & bûches glacées. Tous droits réservés.
-</footer>
+        <div class="thumbs">
+          <button class="thumb" type="button" data-no-mail="true" data-type="stock">
+            <div class="thumb-img">
+              <img src="public/images/products/buchettes/buchette-vanille-framboise.jpg"
+                alt="Bûchette vanille framboise">
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Vanille-framboise</div>
+              <div class="thumb-pill">Sur place</div>
+            </div>
+          </button>
 
-<!-- LIGHTBOX GÂTEAUX -->
-<div class="cake-lightbox" id="cakeLightbox" aria-hidden="true">
-  <div class="cake-lightbox-inner" role="dialog" aria-modal="true" aria-label="Galerie gâteaux sur commande">
-    <button class="cake-close" type="button" aria-label="Fermer">✕</button>
+          <button class="thumb" type="button" data-no-mail="true" data-type="stock">
+            <div class="thumb-img">
+              <img src="public/images/products/buchettes/buchette-cbs-vanille.jpg"
+                alt="Bûchette caramel beurre salé vanille">
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">CBS-vanille</div>
+              <div class="thumb-pill">Sur place</div>
+            </div>
+          </button>
 
-    <button class="cake-nav prev" type="button" aria-label="Photo précédente">‹</button>
-    <button class="cake-nav next" type="button" aria-label="Photo suivante">›</button>
+          <button class="thumb" type="button" data-no-mail="true" data-type="stock">
+            <div class="thumb-img">
+              <img src="public/images/products/buchettes/buchette-framboise-fraise.jpg" alt="Bûchette framboise fraise">
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Framboise-fraise</div>
+              <div class="thumb-pill">Sur place</div>
+            </div>
+          </button>
 
-    <div class="cake-lightbox-imgwrap">
-      <img id="cakeLightboxImg" src="" alt="Gâteau glacé sur commande">
-    </div>
+          <button class="thumb" type="button" data-no-mail="true" data-type="stock">
+            <div class="thumb-img">
+              <img src="public/images/products/buchettes/buchette-fleur-de-lait-framboise.jpg"
+                alt="Bûchette fleur de lait framboise">
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Fleur de lait-framboise</div>
+              <div class="thumb-pill">Sur place</div>
+            </div>
+          </button>
 
-    <div class="cake-lb-dots" id="cakeLightboxDots" aria-hidden="true"></div>
+          <button class="thumb" type="button" data-no-mail="true" data-type="stock">
+            <div class="thumb-img">
+              <img src="public/images/products/buchettes/buchette-pistache-framboise.jpg"
+                alt="Bûchette pistache framboise">
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Pistache-framboise</div>
+              <div class="thumb-pill">Sur place</div>
+            </div>
+          </button>
 
-    <div class="cake-actions">
-      <a class="btn-primary" id="cakeOrderBtn" href="#">Commander ce gâteau</a>
-      <a class="btn-ghost" href="#vitrine">Retour vitrine</a>
+          <button class="thumb" type="button" data-no-mail="true" data-type="stock">
+            <div class="thumb-img">
+              <img src="public/images/products/buchettes/buchette-mangue-coco.jpg" alt="Bûchette mangue coco">
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Mangue-coco</div>
+              <div class="thumb-pill">Sur place</div>
+            </div>
+          </button>
+
+          <button class="thumb" type="button" data-no-mail="true" data-type="stock">
+            <div class="thumb-img">
+              <img src="public/images/products/buchettes/buchette-pistache-fleur-oranger.jpg"
+                alt="Bûchette pistache fleur d'oranger">
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Pistache-fleur d’oranger</div>
+              <div class="thumb-pill">Sur place</div>
+            </div>
+          </button>
+
+          <button class="thumb" type="button" data-no-mail="true" data-type="stock">
+            <div class="thumb-img">
+              <img src="public/images/products/buchettes/buchette-poire-chocolat.jpg" alt="Bûchette poire chocolat">
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Poire-chocolat</div>
+              <div class="thumb-pill">Sur place</div>
+            </div>
+          </button>
+
+          <button class="thumb" type="button" data-no-mail="true" data-type="stock">
+            <div class="thumb-img">
+              <img src="public/images/products/buchettes/profiterole-vanille-chocolat-cbs.jpg"
+                alt="Profiteroles vanille chocolat caramel beurre salé">
+            </div>
+            <div class="thumb-cap">
+              <div class="thumb-name">Profiteroles</div>
+              <div class="thumb-pill">Sur place</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- GÂTEAUX (SUR COMMANDE) -->
+      <div class="group">
+        <div class="group-head">
+          <div class="group-title">Gâteaux (sur commande)</div>
+          <div class="group-note">Gâteaux à la demande</div>
+        </div>
+
+        <div class="thumbs">
+          <button class="thumb cake-card" type="button" aria-label="Gâteaux sur commande – ouvrir la galerie">
+            <div class="thumb-img">
+              <img id="cakeThumbImg" src="public/images/products/gateaux-1.jpg" alt="Gâteaux glacés sur commande">
+              <div class="cake-dots" aria-hidden="true" id="cakeThumbDots">
+                <span class="dot is-active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+
+            <div class="thumb-cap">
+              <div class="thumb-name">Gâteaux sur commande</div>
+              <div class="thumb-pill">Sur commande</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- SERVICE TRAITEUR -->
+      <div class="group">
+        <div class="group-head">
+          <div class="group-title">Service traiteur</div>
+          <div class="group-note">Sur-mesure • événements • entreprises</div>
+        </div>
+
+        <div class="thumbs">
+          <button class="thumb" type="button" data-mail="Service traiteur – Sur-mesure" data-type="traiteur">
+            <div class="thumb-img thumb-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-dot" aria-hidden="true"></span>
+                <span>Photo à venir</span>
+              </div>
+            </div>
+
+            <div class="thumb-cap">
+              <div class="thumb-name">Sur-mesure</div>
+              <div class="thumb-pill">Devis</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- INFOS -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Commande & retrait</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="info">
+            <h3>Précommande par mail</h3>
+            <p>Contactez-nous : date souhaitée, numéro, quantités et produits souhaités.</p>
+
+            <ul class="list">
+              <li>miceglaces@gmail.com</li>
+              <li>Retrait : La Garenne, 05260 Saint-Jean-Saint-Nicolas</li>
+              <li>Délais : selon production</li>
+            </ul>
+
+            <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;">
+              <span class="pill">Artisanal</span>
+              <span class="pill">Saison</span>
+              <span class="pill">Quantités limitées</span>
+            </div>
+          </div>
+
+          <div class="info">
+            <h3>Pour les professionnels ou tout évènement</h3>
+            <p>Pour toute demande, merci de nous contacter directement !<br><br>
+              Mail : <strong>miceglaces@gmail.com</strong>
+            </p>
+            <p style="color:rgba(255,255,255,.78);font-size:.92rem;">
+              <a href="professionnels.html" style="text-decoration:underline;font-weight:900;color:#fff">Aller sur
+                Professionnels</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 M'Ice – Atelier de glaces & bûches glacées. Tous droits réservés.
+  </footer>
+
+  <!-- LIGHTBOX GÂTEAUX -->
+  <div class="cake-lightbox" id="cakeLightbox" aria-hidden="true">
+    <div class="cake-lightbox-inner" role="dialog" aria-modal="true" aria-label="Galerie gâteaux sur commande">
+      <button class="cake-close" type="button" aria-label="Fermer">✕</button>
+
+      <button class="cake-nav prev" type="button" aria-label="Photo précédente">‹</button>
+      <button class="cake-nav next" type="button" aria-label="Photo suivante">›</button>
+
+      <div class="cake-lightbox-imgwrap">
+        <img id="cakeLightboxImg" src="" alt="Gâteau glacé sur commande">
+      </div>
+
+      <div class="cake-lb-dots" id="cakeLightboxDots" aria-hidden="true"></div>
+
+      <div class="cake-actions">
+        <a class="btn-primary" id="cakeOrderBtn" href="#">Commander ce gâteau</a>
+        <a class="btn-ghost" href="#vitrine">Retour vitrine</a>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  // ===== BURGER MENU (identique Accueil) =====
-  (function(){
-    const burger = document.getElementById("burgerBtn");
-    const drawer = document.getElementById("mobileDrawer");
-    if(!burger || !drawer) return;
+  <script>
+    // ===== BURGER MENU (identique Accueil) =====
+    (function () {
+      const burger = document.getElementById("burgerBtn");
+      const drawer = document.getElementById("mobileDrawer");
+      if (!burger || !drawer) return;
 
-    function setOpen(isOpen){
-      drawer.classList.toggle("is-open", isOpen);
-      burger.classList.toggle("is-open", isOpen);
-      burger.setAttribute("aria-expanded", String(isOpen));
-      drawer.setAttribute("aria-hidden", String(!isOpen));
-    }
+      function setOpen(isOpen) {
+        drawer.classList.toggle("is-open", isOpen);
+        burger.classList.toggle("is-open", isOpen);
+        burger.setAttribute("aria-expanded", String(isOpen));
+        drawer.setAttribute("aria-hidden", String(!isOpen));
+      }
 
-    burger.addEventListener("click", () => {
-      const isOpen = drawer.classList.contains("is-open");
-      setOpen(!isOpen);
-    });
+      burger.addEventListener("click", () => {
+        const isOpen = drawer.classList.contains("is-open");
+        setOpen(!isOpen);
+      });
 
-    drawer.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => setOpen(false));
-    });
+      drawer.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => setOpen(false));
+      });
 
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape") setOpen(false);
-    });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+      });
 
-    window.addEventListener("resize", () => {
-      if(window.innerWidth > 840) setOpen(false);
-    });
-  })();
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 840) setOpen(false);
+      });
+    })();
 
-  // Mail vignettes (sauf gâteau + sur place)
-  document.querySelectorAll(".thumb:not(.cake-card)").forEach(card => {
-    card.addEventListener("click", () => {
-      if(card.dataset.noMail === "true") return;
+    // Mail vignettes (sauf gâteau + sur place)
+    document.querySelectorAll(".thumb:not(.cake-card)").forEach(card => {
+      card.addEventListener("click", () => {
+        if (card.dataset.noMail === "true") return;
 
-      const item = card.getAttribute("data-mail") || "Création glacée";
-      const subject = `Commande M'ice - ${item}`;
-      const body =
-`Bonjour M'ice,
+        const item = card.getAttribute("data-mail") || "Création glacée";
+        const subject = `Commande M'ice - ${item}`;
+        const body =
+          `Bonjour M'ice,
 
 Je souhaite commander / demander :
 - ${item}
@@ -1075,43 +1405,42 @@ Téléphone :
 Détails / préférences (parfums, allergènes, etc.) :
 `;
 
-      window.location.href =
-        `mailto:miceglaces@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href =
+          `mailto:miceglaces@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
     });
-  });
 
-  // Lightbox gâteaux
-  (function(){
-    const cakeImages = [
-      "images/gateaux-1.jpg",
-      "images/gateaux-2.jpg",
-      "images/gateaux-3.jpg",
-    ];
+    // Lightbox gâteaux
+    (function () {
+      const cakeImages = [
+        "public/images/products/gateaux-1.jpg",
+        "public/images/products/gateaux-2.jpg",
+      ];
 
-    const cakeCard = document.querySelector(".cake-card");
-    const lightbox = document.getElementById("cakeLightbox");
-    const lbImg = document.getElementById("cakeLightboxImg");
-    const lbDots = document.getElementById("cakeLightboxDots");
-    const thumbImg = document.getElementById("cakeThumbImg");
-    const thumbDotsWrap = document.getElementById("cakeThumbDots");
-    const orderBtn = document.getElementById("cakeOrderBtn");
+      const cakeCard = document.querySelector(".cake-card");
+      const lightbox = document.getElementById("cakeLightbox");
+      const lbImg = document.getElementById("cakeLightboxImg");
+      const lbDots = document.getElementById("cakeLightboxDots");
+      const thumbImg = document.getElementById("cakeThumbImg");
+      const thumbDotsWrap = document.getElementById("cakeThumbDots");
+      const orderBtn = document.getElementById("cakeOrderBtn");
 
-    if(!cakeCard || !lightbox || !lbImg || !lbDots || !thumbImg || !thumbDotsWrap || !orderBtn) return;
+      if (!cakeCard || !lightbox || !lbImg || !lbDots || !thumbImg || !thumbDotsWrap || !orderBtn) return;
 
-    let index = 0;
+      let index = 0;
 
-    lbDots.innerHTML = cakeImages.map((_, i) => `<span class="dot${i===0?' is-active':''}"></span>`).join("");
+      lbDots.innerHTML = cakeImages.map((_, i) => `<span class="dot${i === 0 ? ' is-active' : ''}"></span>`).join("");
 
-    function setDotsActive(wrapper, i){
-      const dots = wrapper.querySelectorAll(".dot");
-      dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
-    }
+      function setDotsActive(wrapper, i) {
+        const dots = wrapper.querySelectorAll(".dot");
+        dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
+      }
 
-    function buildMailLink(){
-      const item = "Gâteau glacé (sur commande)";
-      const subject = `Commande M'ice - ${item}`;
-      const body =
-`Bonjour M'Ice,
+      function buildMailLink() {
+        const item = "Gâteau glacé (sur commande)";
+        const subject = `Commande M'ice - ${item}`;
+        const body =
+          `Bonjour M'Ice,
 
 Je souhaite commander / demander :
 - ${item}
@@ -1124,95 +1453,96 @@ Téléphone :
 
 Détails / préférences (parfums, allergènes, etc.) :
 `;
-      return `mailto:miceglaces@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    }
-    orderBtn.href = buildMailLink();
-
-    function syncThumb(){
-      thumbImg.src = cakeImages[index];
-      setDotsActive(thumbDotsWrap, index);
-    }
-
-    function openLightbox(i){
-      index = i;
-      lbImg.src = cakeImages[index];
-      setDotsActive(lbDots, index);
-      syncThumb();
-
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden","false");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeLightbox(){
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden","true");
-      document.body.style.overflow = "";
-    }
-
-    function next(){
-      index = (index + 1) % cakeImages.length;
-      lbImg.src = cakeImages[index];
-      setDotsActive(lbDots, index);
-      syncThumb();
-    }
-
-    function prev(){
-      index = (index - 1 + cakeImages.length) % cakeImages.length;
-      lbImg.src = cakeImages[index];
-      setDotsActive(lbDots, index);
-      syncThumb();
-    }
-
-    syncThumb();
-
-    cakeCard.addEventListener("click", (e) => {
-      e.preventDefault();
-      openLightbox(index);
-    });
-
-    const closeBtn = lightbox.querySelector(".cake-close");
-    const nextBtn = lightbox.querySelector(".cake-nav.next");
-    const prevBtn = lightbox.querySelector(".cake-nav.prev");
-
-    if(closeBtn) closeBtn.addEventListener("click", closeLightbox);
-    if(nextBtn) nextBtn.addEventListener("click", next);
-    if(prevBtn) prevBtn.addEventListener("click", prev);
-
-    lightbox.addEventListener("click", (e) => {
-      if(e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if(!lightbox.classList.contains("is-open")) return;
-      if(e.key === "Escape") closeLightbox();
-      if(e.key === "ArrowRight") next();
-      if(e.key === "ArrowLeft") prev();
-    });
-
-    let startX = 0;
-    let isDown = false;
-
-    const wrap = lightbox.querySelector(".cake-lightbox-imgwrap");
-    if(!wrap) return;
-
-    wrap.addEventListener("touchstart", (e) => {
-      isDown = true;
-      startX = e.touches[0].clientX;
-    }, {passive:true});
-
-    wrap.addEventListener("touchend", (e) => {
-      if(!isDown) return;
-      isDown = false;
-      const endX = e.changedTouches[0].clientX;
-      const dx = endX - startX;
-      if(Math.abs(dx) > 40){
-        if(dx < 0) next();
-        else prev();
+        return `mailto:miceglaces@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       }
-    }, {passive:true});
-  })();
-</script>
+      orderBtn.href = buildMailLink();
+
+      function syncThumb() {
+        thumbImg.src = cakeImages[index];
+        setDotsActive(thumbDotsWrap, index);
+      }
+
+      function openLightbox(i) {
+        index = i;
+        lbImg.src = cakeImages[index];
+        setDotsActive(lbDots, index);
+        syncThumb();
+
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      function next() {
+        index = (index + 1) % cakeImages.length;
+        lbImg.src = cakeImages[index];
+        setDotsActive(lbDots, index);
+        syncThumb();
+      }
+
+      function prev() {
+        index = (index - 1 + cakeImages.length) % cakeImages.length;
+        lbImg.src = cakeImages[index];
+        setDotsActive(lbDots, index);
+        syncThumb();
+      }
+
+      syncThumb();
+
+      cakeCard.addEventListener("click", (e) => {
+        e.preventDefault();
+        openLightbox(index);
+      });
+
+      const closeBtn = lightbox.querySelector(".cake-close");
+      const nextBtn = lightbox.querySelector(".cake-nav.next");
+      const prevBtn = lightbox.querySelector(".cake-nav.prev");
+
+      if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+      if (nextBtn) nextBtn.addEventListener("click", next);
+      if (prevBtn) prevBtn.addEventListener("click", prev);
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("is-open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+      });
+
+      let startX = 0;
+      let isDown = false;
+
+      const wrap = lightbox.querySelector(".cake-lightbox-imgwrap");
+      if (!wrap) return;
+
+      wrap.addEventListener("touchstart", (e) => {
+        isDown = true;
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      wrap.addEventListener("touchend", (e) => {
+        if (!isDown) return;
+        isDown = false;
+        const endX = e.changedTouches[0].clientX;
+        const dx = endX - startX;
+        if (Math.abs(dx) > 40) {
+          if (dx < 0) next();
+          else prev();
+        }
+      }, { passive: true });
+    })();
+  </script>
 
 </body>
+
 </html>
