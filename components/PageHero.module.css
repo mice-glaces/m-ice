@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Page Hero — Refined, spacious
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: var(--color-primary);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.hero.compact {
+    min-height: 35vh;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(14, 14, 16, 0.7) 0%,
+            rgba(14, 14, 16, 0.5) 50%,
+            var(--color-bg) 100%);
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: var(--max-width-content);
+    padding: calc(var(--header-height) + var(--space-4xl)) var(--space-xl) var(--space-4xl);
+}
+
+.content.centered {
+    text-align: center;
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: var(--text-5xl);
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+    font-weight: 300;
+    line-height: 1.0;
+}
+
+.subtitle {
+    font-size: 0.72rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+}
+
+.divider {
+    width: 40px;
+    height: 1.5px;
+    background-color: var(--color-accent);
+    margin: var(--space-xl) auto 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.content:not(.centered) .divider {
+    margin-left: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) {
+    .hero {
+        min-height: 65vh;
+    }
+
+    .hero.compact {
+        min-height: 45vh;
+    }
+}

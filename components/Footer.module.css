@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Footer — Clean, spacious, modern
+   ========================================================================== */
+
+.footer {
+    position: relative;
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding: var(--space-5xl) 0 var(--space-xl);
+    overflow: visible;
+}
+
+/* Wave Divider */
+.waveDivider {
+    position: absolute;
+    top: -99px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    pointer-events: none;
+    line-height: 0;
+}
+
+.waveDivider svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.waveFill {
+    fill: var(--color-bg);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-2xl);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-3xl);
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+        gap: var(--space-2xl);
+    }
+}
+
+.columnTitle {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--space-xl);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.logoCircle {
+    width: 40px;
+    height: 40px;
+    background: var(--color-accent);
+    color: white;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.logoLabel {
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+}
+
+.description {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+    margin-bottom: var(--space-xl);
+    max-width: 280px;
+}
+
+.social {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.socialIcon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.socialIcon:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+.linkList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.link {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+}
+
+.link:hover {
+    color: white;
+}
+
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+}
+
+.contactIcon {
+    color: var(--color-accent);
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    padding-top: var(--space-2xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.copyright {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.08em;
+    text-align: center;
+}

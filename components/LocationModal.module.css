@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Location Modal — First visit prompt
+   ========================================================================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl);
+}
+
+.modal {
+    background: #0e0e10;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 28px;
+    width: 100%;
+    max-width: 440px;
+    padding: var(--space-3xl) var(--space-2xl);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: rgba(200, 155, 60, 0.1);
+    border: 1px solid rgba(200, 155, 60, 0.2);
+    border-radius: 16px;
+    color: var(--color-accent);
+    margin-bottom: var(--space-xl);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 300;
+    color: white;
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Location Cards */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.locationCard {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    width: 100%;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: left;
+}
+
+.locationCard:hover {
+    background: rgba(200, 155, 60, 0.08);
+    border-color: rgba(200, 155, 60, 0.25);
+    transform: translateY(-2px);
+}
+
+.locationCard:active {
+    transform: translateY(0);
+}
+
+.cardPin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    color: var(--color-accent);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.locationCard:hover .cardPin {
+    background: rgba(200, 155, 60, 0.15);
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cardCity {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.cardAddress {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cardArrow {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.locationCard:hover .cardArrow {
+    color: var(--color-accent);
+    transform: translateX(3px);
+}

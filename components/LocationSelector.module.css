@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Location Selector — Header dropdown
+   ========================================================================== */
+
+.wrapper {
+    position: relative;
+    z-index: 100;
+}
+
+.trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.trigger:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.pinIcon {
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
+
+.locationName {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+}
+
+.chevron {
+    opacity: 0.5;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.chevronOpen {
+    transform: rotate(180deg);
+}
+
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 260px;
+    background: rgba(14, 14, 16, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 6px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    animation: dropdownIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.dropdownHeader {
+    padding: 10px 14px 8px;
+}
+
+.dropdownHeader span {
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 14px;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+}
+
+.optionActive {
+    background: rgba(200, 155, 60, 0.1);
+    color: white;
+}
+
+.optionActive:hover {
+    background: rgba(200, 155, 60, 0.15);
+}
+
+.optionInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.optionName {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.optionAddress {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.optionActive .optionAddress {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.checkIcon {
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
