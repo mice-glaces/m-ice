@@ -7,6 +7,7 @@ import { Cake, X, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 import styles from './page.module.css'
+import { useTranslation } from '@/context/LanguageContext'
 
 const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -77,6 +78,7 @@ const CREATIONS_DATA: CreationCategory[] = [
 
 export default function NosCreations() {
     const [selectedItem, setSelectedItem] = useState<any>(null);
+    const { t } = useTranslation();
 
     return (
         <main className={styles.main}>
@@ -223,22 +225,21 @@ export default function NosCreations() {
                                         style={{ top: '-15%', left: '-10%' }}
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.1 } }} transition={{ delay: 0.4 }}
                                     >
-                                        100% Naturel
+                                        {t('modal.100natural')}
                                     </motion.span>
                                     <motion.span 
                                         className={styles.annoTextTR}
                                         style={{ top: '-15%', right: '-10%' }}
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.1 } }} transition={{ delay: 0.6 }}
                                     >
-                                        Artisanat Pur
+                                        {t('modal.authentic').replace('{flavor}', 'Artisanat')}
                                     </motion.span>
                                     <motion.span 
                                         className={styles.annoTextB}
                                         style={{ bottom: '-20%', left: '50%' }}
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.1 } }} transition={{ delay: 0.8 }}
-                                    >
-                                        Fait Maison<br/>dans les Alpes
-                                    </motion.span>
+                                        dangerouslySetInnerHTML={{ __html: t('modal.homemade') }}
+                                    />
                                 </motion.div>
                             </div>
                             
@@ -251,15 +252,15 @@ export default function NosCreations() {
                                 
                                 <div className={styles.modalDetails}>
                                     <div className={styles.detailItem}>
-                                        <span className={styles.detailLabel}>Engagement Qualité</span>
+                                        <span className={styles.detailLabel}>{t('creations.quality.title')}</span>
                                         <span className={styles.detailText}>
-                                            Chaque création est élaborée dans notre atelier avec des matières premières sélectionnées : fruits de saison, miel local et produits laitiers de montagne.
+                                            {t('creations.quality.desc')}
                                         </span>
                                     </div>
                                     <div className={styles.detailItem}>
-                                        <span className={styles.detailLabel}>Commande & Retrait</span>
+                                        <span className={styles.detailLabel}>{t('creations.order.title')}</span>
                                         <span className={styles.detailText}>
-                                            Nos desserts glacés sont disponibles sur commande. Pour toute personnalisation ou demande spécifique, contactez-nous au moins 48h à l&apos;avance.
+                                            {t('creations.order.desc')}
                                         </span>
                                     </div>
                                 </div>

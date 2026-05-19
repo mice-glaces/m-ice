@@ -218,7 +218,7 @@ export default function HomePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        Le goût du vrai
+                        {t('hero.title.line1')}<br/>{t('hero.title.line2')}
                     </motion.h1>
                     
                     <motion.p 
@@ -226,10 +226,8 @@ export default function HomePage() {
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                        Des saveurs uniques,<br />
-                        fabriquées avec passion.
-                    </motion.p>
+                        dangerouslySetInnerHTML={{ __html: t('hero.description').replace(/\n/g, '<br />') }}
+                    />
                     
                     <motion.div 
                         className={styles.heroCta}
@@ -238,7 +236,7 @@ export default function HomePage() {
                         transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <Link href="/nos-glaces" className={styles.goldBtn}>
-                            Découvrir nos saveurs
+                            {t('hero.cta')}
                         </Link>
                     </motion.div>
                 </div>
@@ -324,8 +322,8 @@ export default function HomePage() {
                 <div className="container">
                     <div className={styles.featuredHeader}>
                         <div>
-                            <span className={styles.sectionLabel}>L&apos;Art de Recevoir</span>
-                            <h2 className={styles.sectionTitle}>Nos Créations Glacées</h2>
+                            <span className={styles.sectionLabel}>{t('section.creations.label')}</span>
+                            <h2 className={styles.sectionTitle}>{t('section.creations.title')}</h2>
                         </div>
                         <div className={styles.featuredActions}>
                             <div className={styles.carouselNav}>
@@ -387,7 +385,7 @@ export default function HomePage() {
 
                     <div className={styles.featuredCta}>
                         <Link href="/creations" className="btn">
-                            Découvrir toutes nos créations
+                            {t('section.creations.cta')}
                         </Link>
                     </div>
                 </div>

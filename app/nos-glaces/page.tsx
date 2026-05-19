@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, X } from 'lucide-react'
 import PageHero from '@/components/PageHero'
 import styles from './page.module.css'
+import { useTranslation } from '@/context/LanguageContext'
 
 const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -313,6 +314,7 @@ const flavors = [
 export default function NosGlacesPage() {
     const [activeFilter, setActiveFilter] = useState('all')
     const [selectedFlavor, setSelectedFlavor] = useState<typeof flavors[0] | null>(null)
+    const { t } = useTranslation()
 
     const filteredFlavors = flavors.filter(flavor => {
         if (activeFilter === 'all') return true
@@ -322,8 +324,8 @@ export default function NosGlacesPage() {
     return (
         <>
             <PageHero
-                title="Nos Parfums"
-                subtitle="Une Collection de Saveurs d'Exception"
+                title={t('nav.flavors')}
+                subtitle={t('hero.description').split('\n')[0]}
                 backgroundImage="/images/hero_final_unzoomed.png"
                 compact
             />
@@ -334,9 +336,9 @@ export default function NosGlacesPage() {
             <section className={`section ${styles.whiteBg}`}>
                 <div className="container">
                     <div className={styles.flavorsHeader}>
-                        <h2 className={styles.flavorsTitle}>L&apos;Atelier des Saveurs</h2>
+                        <h2 className={styles.flavorsTitle}>{t('section.creations.title')}</h2>
                         <p className={styles.flavorsSubtitle}>
-                            Une collection artisanale au service du goût, entre classiques intemporels et créations inspirées par les saisons.
+                            {t('hero.description')}
                         </p>
                     </div>
 
@@ -346,19 +348,19 @@ export default function NosGlacesPage() {
                             className={`${styles.filterBtn} ${activeFilter === 'all' ? styles.filterBtnActive : ''}`}
                             onClick={() => setActiveFilter('all')}
                         >
-                            Tout voir
+                            {t('category.all')}
                         </button>
                         <button
                             className={`${styles.filterBtn} ${activeFilter === 'glaces' ? styles.filterBtnActive : ''}`}
                             onClick={() => setActiveFilter('glaces')}
                         >
-                            Crèmes Glacées
+                            {t('category.icecream')}
                         </button>
                         <button
                             className={`${styles.filterBtn} ${activeFilter === 'sorbets' ? styles.filterBtnActive : ''}`}
                             onClick={() => setActiveFilter('sorbets')}
                         >
-                            Sorbets Plein Fruit
+                            {t('category.sorbet')}
                         </button>
                     </div>
 
@@ -392,7 +394,7 @@ export default function NosGlacesPage() {
                                     )}
                                 </motion.div>
                                 <div className={styles.flavorContent}>
-                                    <h3 className={styles.flavorName}>{flavor.name}</h3>
+                                    <h3 className={styles.flavorName}>{t(`flavor.${flavor.id}.name`)}</h3>
                                 </div>
                             </motion.article>
                         ))}
@@ -432,7 +434,7 @@ export default function NosGlacesPage() {
                                 >
                                     <Image
                                         src={selectedFlavor.image}
-                                        alt={selectedFlavor.name}
+                                        alt={t(`flavor.${selectedFlavor.id}.name`)}
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         className={styles.modalImg}
@@ -484,52 +486,43 @@ export default function NosGlacesPage() {
                                         style={{ top: '-15%', left: '-10%' }}
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.1 } }} transition={{ delay: 0.4 }}
                                     >
-                                        {selectedFlavor.category === 'glaces' ? '100% Naturel' : '100% Gourmand'}
+                                        {selectedFlavor.category === 'glaces' ? t('modal.100natural') : '100% Gourmand'}
                                     </motion.span>
                                     <motion.span 
                                         className={styles.annoTextTR}
                                         style={{ top: '-15%', right: '-10%' }}
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.1 } }} transition={{ delay: 0.6 }}
                                     >
-                                        {selectedFlavor.name} Authentique
+                                        {t('modal.authentic').replace('{flavor}', t(`flavor.${selectedFlavor.id}.name`))}
                                     </motion.span>
                                     <motion.span 
                                         className={styles.annoTextB}
                                         style={{ bottom: '-20%', left: '50%' }}
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.1 } }} transition={{ delay: 0.8 }}
-                                    >
-                                        Fait Maison<br/>dans les Alpes
-                                    </motion.span>
+                                        dangerouslySetInnerHTML={{ __html: t('modal.homemade') }}
+                                    />
                                 </motion.div>
                             </div>
                             
-                            <div className={styles.modalInfoCol}>
-                                <span className={styles.modalCategory}>
-                                    {selectedFlavor.category === 'glaces' ? 'Glace Artisanale' : 'Sorbet Pur Fruit'}
-                                </span>
-                                <h2 className={styles.modalTitle}>{selectedFlavor.name}</h2>
-                                <p className={styles.modalDesc}>{selectedFlavor.description}</p>
-                                
+                            <div className={styles.modalInfo}>
+                                <div className={styles.modalHeader}>
+                                    <span className={styles.modalCategory}>
+                                        {selectedFlavor.category === 'glaces' ? t('category.icecream') : t('category.sorbet')}
+                                    </span>
+                                    <h3 className={styles.modalTitle}>{t(`flavor.${selectedFlavor.id}.name`)}</h3>
+                                    <p className={styles.modalDesc}>{t(`flavor.${selectedFlavor.id}.desc`)}</p>
+                                </div>
                                 <div className={styles.modalDetails}>
                                     <div className={styles.detailItem}>
-                                        <span className={styles.detailLabel}>Composition & Ingrédients</span>
+                                        <span className={styles.detailLabel}>{t('modal.composition.title')}</span>
                                         <span className={styles.detailText}>
-                                            {selectedFlavor.category === 'glaces' ? (
-                                                selectedFlavor.name.toLowerCase() === 'vanille' ? 
-                                                    'Sélection rigoureuse des ingrédients, dont certains locaux. Lait entier et crème du Champsaur. Origine Indonésie.' 
-                                                    : selectedFlavor.name.toLowerCase() === 'chocolat' ?
-                                                    'Sélection rigoureuse des ingrédients, dont certains locaux. Lait entier et crème du Champsaur. Chocolat origine Vietnam.'
-                                                    : 
-                                                    'Sélection rigoureuse des ingrédients, dont certains locaux. Lait entier et crème du Champsaur.'
-                                            ) : (
-                                                'Sélection rigoureuse des ingrédients, dont certains locaux. Sans colorant ni arôme.'
-                                            )}
+                                            {t('modal.composition.desc')}
                                         </span>
                                     </div>
                                     <div className={styles.detailItem}>
-                                        <span className={styles.detailLabel}>Méthode de Fabrication</span>
+                                        <span className={styles.detailLabel}>{t('modal.method.title')}</span>
                                         <span className={styles.detailText}>
-                                            Toutes nos glaces et sorbets sont fabriqués par notre petite équipe dans notre laboratoire au cœur des montagnes dans le Champsaur.
+                                            {t('modal.method.desc')}
                                         </span>
                                     </div>
                                 </div>

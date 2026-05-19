@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import PageHero from '@/components/PageHero'
 import styles from './page.module.css'
+import { useTranslation } from '@/context/LanguageContext'
 
 const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -30,11 +31,13 @@ const values = [
 ]
 
 export default function CollaborateursPage() {
+    const { t } = useTranslation()
+
     return (
         <>
             <PageHero
-                title="Nos Collaborateurs"
-                subtitle="L'art de la glace artisanale dans les Hautes-Alpes"
+                title={t('collab.title')}
+                subtitle={t('collab.subtitle')}
                 backgroundImage="/images/hero_final_unzoomed.png"
                 compact
             />
@@ -47,20 +50,16 @@ export default function CollaborateursPage() {
                             className={styles.storyContent}
                             {...fadeInUp}
                         >
-                            <span className={styles.label}>Héritage & Passion</span>
-                            <h2 className={styles.storyTitle}>
-                                Une Odyssée<br />
-                                <span className={styles.accent}>Glacée Premium</span>
-                            </h2>
+                            <span className={styles.label}>{t('collab.label1')}</span>
+                            <h2 
+                                className={styles.storyTitle} 
+                                dangerouslySetInnerHTML={{ __html: t('collab.heading1') }}
+                            />
                             <p className={styles.storyText}>
-                                Au cœur des massifs alpins, M&apos;Ice redéfinit l&apos;art de la glace.
-                                Notre quête : l&apos;équilibre parfait entre tradition artisanale et
-                                audace créative.
+                                {t('collab.p1')}
                             </p>
                             <p className={styles.storyText}>
-                                Chaque sorbet, chaque crème est une célébration du geste précis,
-                                du goût à l&apos;état brut, sublimé par la noblesse des produits
-                                que nous sélectionnons.
+                                {t('collab.p2')}
                             </p>
                         </motion.div>
                         <motion.div
@@ -86,11 +85,11 @@ export default function CollaborateursPage() {
             <section className={`section ${styles.valuesSection}`}>
                 <div className="container">
                     <div className={styles.valuesHeader}>
-                        <span className={styles.label}>Nos Engagements</span>
-                        <h2 className={styles.valuesTitle}>Ce Qui Nous Anime</h2>
+                        <span className={styles.label}>{t('collab.commitments')}</span>
+                        <h2 className={styles.valuesTitle}>{t('collab.drives_us')}</h2>
                     </div>
                     <div className={styles.valuesGrid}>
-                        {values.map((value, index) => (
+                        {['artisanat', 'qualite', 'passion'].map((val, index) => (
                             <motion.div
                                 key={index}
                                 className={styles.valueCard}
@@ -100,8 +99,8 @@ export default function CollaborateursPage() {
                                 transition={{ delay: index * 0.1 }}
                             >
                                 <span className={styles.valueNumber}>0{index + 1}</span>
-                                <h3 className={styles.valueTitle}>{value.title}</h3>
-                                <p className={styles.valueDescription}>{value.description}</p>
+                                <h3 className={styles.valueTitle}>{t(`collab.${val}`)}</h3>
+                                <p className={styles.valueDescription}>{t(`collab.${val}.desc`)}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -118,10 +117,7 @@ export default function CollaborateursPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 1 }}
                     >
-                        <p>
-                            &ldquo;Créer des glaces qui racontent une histoire,
-                            celle de notre terroir et de notre passion.&rdquo;
-                        </p>
+                        <p>{t('collab.quote')}</p>
                     </motion.blockquote>
                 </div>
             </section>
@@ -136,18 +132,17 @@ export default function CollaborateursPage() {
                         className={styles.ctaContent}
                         {...fadeInUp}
                     >
-                        <h2 className={styles.ctaTitle}>Venez Nous Rencontrer</h2>
+                        <h2 className={styles.ctaTitle}>{t('collab.meet_us')}</h2>
                         <p className={styles.ctaText}>
-                            Découvrez notre univers et dégustez nos créations dans notre boutique
-                            à La Garenne.
+                            {t('collab.meet_us.desc')}
                         </p>
                         <div className={styles.ctaButtons}>
                             <Link href="/nous-trouver" className="btn btn--accent">
-                                Nous trouver
+                                {t('collab.find_us_btn')}
                                 <ArrowRight size={18} />
                             </Link>
                             <Link href="/nos-glaces" className="btn btn--outline-light">
-                                Découvrir nos parfums
+                                {t('collab.discover_btn')}
                             </Link>
                         </div>
                     </motion.div>

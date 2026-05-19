@@ -5,6 +5,8 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Send, Check } from 'lucide-react'
 import PageHero from '@/components/PageHero'
 import styles from './page.module.css'
+import { LOCATIONS } from '@/context/LocationContext'
+import { useTranslation } from '@/context/LanguageContext'
 
 const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -19,6 +21,7 @@ export default function ContactPage() {
     const [formType, setFormType] = useState<FormType>('particulier')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const { t } = useTranslation()
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -34,8 +37,8 @@ export default function ContactPage() {
     return (
         <>
             <PageHero
-                title="Contact"
-                subtitle="Une Question ? Un Projet ?"
+                title={t('contact.title')}
+                subtitle={t('contact.subtitle')}
                 backgroundImage="/images/hero_final_unzoomed.png"
                 compact
             />
@@ -55,14 +58,14 @@ export default function ContactPage() {
                                     className={`${styles.formTypeBtn} ${formType === 'particulier' ? styles.active : ''}`}
                                     onClick={() => setFormType('particulier')}
                                 >
-                                    Particulier
+                                    {t('contact.individual')}
                                 </button>
                                 <button
                                     type="button"
                                     className={`${styles.formTypeBtn} ${formType === 'professionnel' ? styles.active : ''}`}
                                     onClick={() => setFormType('professionnel')}
                                 >
-                                    Professionnel
+                                    {t('contact.professional')}
                                 </button>
                             </div>
 
@@ -71,51 +74,48 @@ export default function ContactPage() {
                                     <div className={styles.successIcon}>
                                         <Check size={40} />
                                     </div>
-                                    <h3>Message Envoyé</h3>
-                                    <p>Votre demande a été transmise avec succès. Nos équipes reviendront vers vous sous 24h.</p>
+                                    <h3>{t('contact.sent')}</h3>
+                                    <p>{t('contact.sentMessage')}</p>
                                     <button
                                         className="btn btn--outline-light"
                                         onClick={() => setIsSubmitted(false)}
                                     >
-                                        Envoyer un autre message
+                                        {t('contact.sendAnother')}
                                     </button>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className={styles.form}>
                                     <div className={styles.formRow}>
                                         <div className={styles.formGroup}>
-                                            <label htmlFor="firstName" className={styles.label}>Prénom *</label>
+                                            <label htmlFor="firstName" className={styles.label}>{t('contact.firstName')} *</label>
                                             <input
                                                 type="text"
                                                 id="firstName"
                                                 name="firstName"
                                                 required
                                                 className={styles.input}
-                                                placeholder="Jean"
                                             />
                                         </div>
                                         <div className={styles.formGroup}>
-                                            <label htmlFor="lastName" className={styles.label}>Nom *</label>
+                                            <label htmlFor="lastName" className={styles.label}>{t('contact.lastName')} *</label>
                                             <input
                                                 type="text"
                                                 id="lastName"
                                                 name="lastName"
                                                 required
                                                 className={styles.input}
-                                                placeholder="Dupont"
                                             />
                                         </div>
                                     </div>
 
                                     <div className={styles.formGroup}>
-                                        <label htmlFor="email" className={styles.label}>Email professionnel *</label>
+                                        <label htmlFor="email" className={styles.label}>{t('contact.email')} *</label>
                                         <input
                                             type="email"
                                             id="email"
                                             name="email"
                                             required
                                             className={styles.input}
-                                            placeholder="jean@exemple.fr"
                                         />
                                     </div>
 
@@ -126,7 +126,7 @@ export default function ContactPage() {
                                             animate={{ opacity: 1, height: 'auto' }}
                                         >
                                             <div className={styles.formGroup}>
-                                                <label htmlFor="company" className={styles.label}>Établissement *</label>
+                                                <label htmlFor="company" className={styles.label}>{t('contact.company')} *</label>
                                                 <input
                                                     type="text"
                                                     id="company"
@@ -136,7 +136,7 @@ export default function ContactPage() {
                                                 />
                                             </div>
                                             <div className={styles.formGroup}>
-                                                <label htmlFor="activity" className={styles.label}>Secteur</label>
+                                                <label htmlFor="activity" className={styles.label}>{t('contact.sector')}</label>
                                                 <select id="activity" name="activity" className={styles.select}>
                                                     <option value="">Sélectionner...</option>
                                                     <option value="restaurant">Restaurant</option>
@@ -150,9 +150,9 @@ export default function ContactPage() {
                                     )}
 
                                     <div className={styles.formGroup}>
-                                        <label htmlFor="subject" className={styles.label}>Objet de votre demande *</label>
+                                        <label htmlFor="subject" className={styles.label}>{t('contact.subject')} *</label>
                                         <select id="subject" name="subject" required className={styles.select}>
-                                            <option value="">Modifier l&apos;objet...</option>
+                                            <option value="">...</option>
                                             {formType === 'particulier' ? (
                                                 <>
                                                     <option value="info">Renseignement général</option>
@@ -171,16 +171,13 @@ export default function ContactPage() {
                                     </div>
 
                                     <div className={styles.formGroup}>
-                                        <label htmlFor="message" className={styles.label}>Votre Message *</label>
+                                        <label htmlFor="message" className={styles.label}>{t('contact.message')} *</label>
                                         <textarea
                                             id="message"
                                             name="message"
                                             rows={6}
                                             required
                                             className={styles.textarea}
-                                            placeholder={formType === 'particulier'
-                                                ? "Comment pouvons-nous vous aider ?"
-                                                : "Décrivez vos besoins et votre volume annuel prévisionnel..."}
                                         />
                                     </div>
 
@@ -189,7 +186,7 @@ export default function ContactPage() {
                                         className={`btn btn--accent btn--lg ${styles.submitBtn}`}
                                         disabled={isSubmitting}
                                     >
-                                        {isSubmitting ? 'Transmission...' : 'Envoyer la demande'}
+                                        {isSubmitting ? t('contact.sending') : t('contact.send')}
                                         {!isSubmitting && <Send size={18} className="ml-2" />}
                                     </button>
                                 </form>
@@ -206,43 +203,33 @@ export default function ContactPage() {
                         >
                             <div className={styles.sidebarCard}>
                                 <h3 className={styles.sidebarTitle}>Contacts</h3>
-                                <div className={styles.sidebarItem}>
-                                    <span className={styles.sidebarLabel}>La Garenne</span>
-                                    <a href="tel:+33659328360" className={styles.sidebarLink}>
-                                        06 59 32 83 60
-                                    </a>
-                                </div>
-                                <div className={styles.sidebarItem}>
-                                    <span className={styles.sidebarLabel}>Embrun</span>
-                                    <a href="tel:+33660468459" className={styles.sidebarLink}>
-                                        06 60 46 84 59
-                                    </a>
-                                </div>
-                                <div className={styles.sidebarItem}>
-                                    <span className={styles.sidebarLabel}>Email La Garenne</span>
-                                    <a href="mailto:MICEGLACES@GMAIL.COM" className={styles.sidebarLink}>
-                                        MICEGLACES@GMAIL.COM
-                                    </a>
-                                </div>
-                                <div className={styles.sidebarItem}>
-                                    <span className={styles.sidebarLabel}>Email Embrun</span>
-                                    <a href="mailto:MICE.EMBRUN@GMAIL.COM" className={styles.sidebarLink}>
-                                        MICE.EMBRUN@GMAIL.COM
-                                    </a>
-                                </div>
+                                {Object.values(LOCATIONS).map((loc) => (
+                                    <div key={loc.id}>
+                                        <div className={styles.sidebarItem}>
+                                            <span className={styles.sidebarLabel}>{loc.shortName}</span>
+                                            <a href={`tel:${loc.phone.replace(/\s+/g, '')}`} className={styles.sidebarLink}>
+                                                {loc.phone}
+                                            </a>
+                                        </div>
+                                        <div className={styles.sidebarItem}>
+                                            <span className={styles.sidebarLabel}>Email {loc.shortName}</span>
+                                            <a href={`mailto:${loc.email.toLowerCase()}`} className={styles.sidebarLink}>
+                                                {loc.email.toLowerCase()}
+                                            </a>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
                             <div className={styles.sidebarCard}>
                                 <h3 className={styles.sidebarTitle}>Nos Boutiques</h3>
-                                <address className={styles.sidebarAddress}>
-                                    <p><strong>La Garenne</strong></p>
-                                    <p>05260 SAINT-JEAN-SAINT-NICOLAS</p>
-                                </address>
-                                <address className={styles.sidebarAddress} style={{ marginTop: '1rem' }}>
-                                    <p><strong>Embrun</strong></p>
-                                    <p>Place du Général Dosse</p>
-                                    <p>05200 Embrun</p>
-                                </address>
+                                {Object.values(LOCATIONS).map((loc) => (
+                                    <address key={loc.id} className={styles.sidebarAddress} style={{ marginTop: '1rem' }}>
+                                        <p><strong>{loc.name}</strong></p>
+                                        <p>{loc.address}</p>
+                                        <p>{loc.postalCode} {loc.city}</p>
+                                    </address>
+                                ))}
                             </div>
 
                             <div className={styles.sidebarCard}>
