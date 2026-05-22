@@ -19,7 +19,7 @@ export const LOCATIONS: Record<string, GlacierLocation> = {
     'saint-jean': {
         id: 'saint-jean',
         name: 'M\'Ice Saint-Jean-Saint-Nicolas',
-        shortName: 'Saint-Jean',
+        shortName: 'Saint-Jean-Saint-Nicolas',
         address: 'La Garenne',
         city: 'Saint-Jean-Saint-Nicolas',
         postalCode: '05260',
