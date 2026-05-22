@@ -174,7 +174,6 @@ const translations: Record<Locale, TranslationKeys> = {
         'promo.desc': 'Toute l\'année chez M\'Ice, découvrez nos incontournables crêpes et gaufres croustillantes. Préparées à la minute, elles accompagnent à merveille nos glaces artisanales ou se dégustent seules avec nos nappages gourmands.',
         'promo.cta': 'Nous rendre visite',
         'promo.badge': "Toute l'année chez M'Ice",
-    },
 
         'flavor.1.name': "Vanille",
         'flavor.1.desc': "Onctueuse aux gousses de vanille bourbon",
@@ -283,6 +282,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'creations.order.desc': "Nos desserts glacés sont disponibles sur commande. Pour toute personnalisation ou demande spécifique, contactez-nous au moins 48h à l'avance.",
         'creations.quality.title': "Engagement Qualité",
         'creations.quality.desc': "Chaque création est élaborée dans notre atelier avec des matières premières sélectionnées : fruits de saison, miel local et produits laitiers de montagne.",
+    },
 
     en: {
         'nav.home': 'HOME',
@@ -415,7 +415,6 @@ const translations: Record<Locale, TranslationKeys> = {
         'promo.desc': 'All year round at M\'Ice, discover our unmissable crispy crêpes and waffles. Made to order, they perfectly accompany our artisanal ice creams or can be enjoyed plain with our gourmands.',
         'promo.cta': 'Visit us',
         'promo.badge': "All year round at M'Ice",
-    },
 
         'flavor.1.name': "Vanilla",
         'flavor.1.desc': "Creamy with bourbon vanilla pods",
@@ -524,6 +523,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'creations.order.desc': "Our frozen desserts are available to order. For any customization or specific request, please contact us at least 48 hours in advance.",
         'creations.quality.title': "Quality Commitment",
         'creations.quality.desc': "Each creation is made in our workshop with selected raw materials: seasonal fruits, local honey, and mountain dairy products.",
+    },
 
     es: {
         'nav.home': 'INICIO',
@@ -656,7 +656,6 @@ const translations: Record<Locale, TranslationKeys> = {
         'promo.desc': 'Durante la temporada de verano, descubra nuestras imprescindibles crepas y gofres crujientes. Preparadas al momento, acompañan a la perfección nuestros helados artesanales o se disfrutan solas con nuestras coberturas caseras.',
         'promo.cta': 'Visítenos',
         'promo.badge': 'Edición de Verano',
-    },
 
         'flavor.1.name': "Vainilla",
         'flavor.1.desc': "Cremosa con vainas de vainilla bourbon",
@@ -765,6 +764,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'creations.order.desc': "Nuestros postres helados están disponibles bajo pedido. Para cualquier personalización o solicitud específica, por favor contáctenos con al menos 48 horas de anticipación.",
         'creations.quality.title': "Compromiso de Calidad",
         'creations.quality.desc': "Cada creación se elabora en nuestro taller con materias primas seleccionadas: frutas de temporada, miel local y productos lácteos de montaña.",
+    },
 
     it: {
         'nav.home': 'HOME',
@@ -896,7 +896,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'promo.desc': 'Durante la stagione estiva, scopri le nostre imperdibili crêpes e waffle croccanti. Preparate al momento, accompagnano perfettamente i nostri gelati artigianali o si gustano da sole con le nostre guarnizioni fatte in casa.',
         'promo.cta': 'Vieni a trovarci',
         'promo.badge': 'Edizione Estiva',
-    },
+
         'flavor.1.name': "Vaniglia",
         'flavor.1.desc': "Cremosa con baccelli di vaniglia bourbon",
         'flavor.2.name': "Cioccolato",
@@ -1004,6 +1004,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'creations.order.desc': "I nostri dessert gelati sono disponibili su ordinazione. Per qualsiasi personalizzazione o richiesta specifica, contattaci con almeno 48 ore di anticipo.",
         'creations.quality.title': "Impegno di Qualità",
         'creations.quality.desc': "Ogni creazione è elaborata nel nostro laboratorio con materie prime selezionate: frutta di stagione, miele locale e prodotti lattiero-caseari di montagna.",
+    }
 }
 
 export default translations
