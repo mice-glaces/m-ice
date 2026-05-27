@@ -63,16 +63,7 @@ const CREATIONS_DATA: CreationCategory[] = [
     },
     {
         category: "Bûchettes glacées",
-        items: [
-            { id: 'b1', name: "Vanille-framboise", description: "Duo classique, fraîcheur et gourmandise", image: "/images/buchettes/vanille-framboise.jpg", scale: 1.0, yOffset: 0, xOffset: 0, brightness: 0.97, contrast: 1.37 },
-            { id: 'b2', name: "CBS-vanille", description: "Caramel beurre salé et vanille bourbon", image: "/images/buchettes/cbs-vanille.jpg", scale: 1.0, yOffset: 0, xOffset: 0, brightness: 0.93, contrast: 1.32 },
-            { id: 'b3', name: "Framboise-fraise", description: "100% fruits rouges, explosion de saveurs", image: "/images/buchettes/framboise-fraise.jpg", scale: 1.0, yOffset: 0, xOffset: 0, brightness: 1.14, contrast: 1.11 },
-            { id: 'b4', name: "Fleur de lait-framboise", description: "Douceur lactée et acidité fruitée", image: "/images/buchettes/fleur-de-lait-framboise.jpg", scale: 1.0, yOffset: 0, xOffset: 0, brightness: 1.03, contrast: 1.10 },
-            { id: 'b5', name: "Pistache-framboise", description: "Mariage subtil du vert et du rouge", image: "/images/buchettes/pistache-framboise.jpg", scale: 1.0, yOffset: 0, xOffset: 0, brightness: 1.05, contrast: 1.07 },
-            { id: 'b6', name: "Mangue-coco", description: "Évasion tropicale, onctuosité exotique", image: "/images/buchettes/mangue-coco.jpg", scale: 1.0, yOffset: 0, xOffset: 0, brightness: 1.09, contrast: 1.03 },
-            { id: 'b7', name: "Poire-chocolat", description: "Accord parfait, classique revisité", image: "/images/buchettes/poire-chocolat.jpg", scale: 1.0, yOffset: 0, xOffset: 0, brightness: 1.10, contrast: 1.03 },
-            { id: 'b8', name: "Profiteroles", description: "Choux craquants, chocolat et vanille", image: "/images/original/profiterole-vanille-chocolat-cbs.jpg", scale: 1.0, yOffset: 0, xOffset: 0, brightness: 1.00, contrast: 1.19 },
-        ],
+        items: [],
     },
 ]
 

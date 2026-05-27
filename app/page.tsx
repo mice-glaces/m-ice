@@ -30,6 +30,7 @@ const featuredProducts = [
         category: 'Crème Artisanale',
         image: '/images/vanille.png',
         isSeasonal: false,
+        scale: 0.7,
     },
     {
         id: 2,
@@ -37,6 +38,7 @@ const featuredProducts = [
         description: 'Grand cru de cacao, saveur intense',
         category: 'Crème Artisanale',
         image: '/images/chocolat.png',
+        scale: 0.7,
     },
     {
         id: 3,
@@ -44,6 +46,7 @@ const featuredProducts = [
         description: 'Pistache torréfiée, goût authentique',
         category: 'Crème Artisanale',
         image: '/images/pistachio_scoop.png',
+        scale: 1.15,
     },
     {
         id: 9,
@@ -65,6 +68,7 @@ const featuredProducts = [
         description: 'Alliance fraîche de menthe et pépites de cacao',
         category: 'Crème Artisanale',
         image: '/images/mint_choc_scoop.png',
+        scale: 0.8,
     },
     {
         id: 16,
@@ -72,6 +76,7 @@ const featuredProducts = [
         description: 'Pureté du fruit, acidulé et éclatant',
         category: 'Sorbet Plein Fruit',
         image: '/images/framboise.png',
+        scale: 0.6,
     },
     {
         id: 17,
@@ -86,6 +91,7 @@ const featuredProducts = [
         description: 'Éclat de fruits des bois au sommet des Alpes',
         category: 'Sorbet Plein Fruit',
         image: '/images/blueberry_scoop.png',
+        scale: 0.65,
     },
     {
         id: 23,
@@ -295,6 +301,7 @@ export default function HomePage() {
                                                 fill
                                                 sizes="(max-width: 768px) 100vw, 33vw"
                                                 className={styles.productImg}
+                                                style={product.scale ? { scale: product.scale } : undefined}
                                             />
                                             {product.isSeasonal && (
                                                 <span className={styles.productBadge}>Édition Limitée</span>
@@ -457,6 +464,7 @@ export default function HomePage() {
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         className={styles.modalImg}
+                                        style={selectedFlavor.scale ? { scale: selectedFlavor.scale } : undefined}
                                     />
                                     
                                     {/* SVG Drawing Layer */}

@@ -27,12 +27,12 @@ const staggerItem = {
     whileInView: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } }
 } as const
 
-const timelineYears = ['2020', '2021', '2023', '2025']
+const timelineYears = ['2020', '2021', '2025']
 
 const teamMembers = [
     { name: "Régis", nameKey: "regis", image: "/images/team-regis.png", emoji: "🍦" },
-    { name: "Clara", nameKey: "clara", image: "/images/team-clara.png", emoji: "✨" },
     { name: "Anaïs", nameKey: "anais", image: "/images/team-anais.png", emoji: "🎨" },
+    { name: "Clara", nameKey: "clara", image: "/images/team-clara.png", emoji: "✨" },
     { name: "Victor", nameKey: "victor", image: "/images/team-victor.png", emoji: "🏔️" }
 ]
 

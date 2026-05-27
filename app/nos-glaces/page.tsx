@@ -156,7 +156,6 @@ const flavors = [
     },
     {
         id: 17,
-        scale: 0.6,
         name: 'Fraise',
         description: "Le bon goût de l'été",
         category: 'sorbets',
@@ -270,15 +269,6 @@ const flavors = [
         description: 'Une touche aromatique',
         category: 'glaces',
         image: '/images/thyme_scoop.png',
-        price: '3,00€ la boule',
-    },
-    {
-        id: 31,
-        scale: 0.65,
-        name: 'Miel de Châtaignier',
-        description: 'Miel de caractère aux notes boisées',
-        category: 'glaces',
-        image: '/images/chestnut_honey_scoop.png',
         price: '3,00€ la boule',
     },
     {
@@ -504,14 +494,12 @@ export default function NosGlacesPage() {
                                 </motion.div>
                             </div>
                             
-                            <div className={styles.modalInfo}>
-                                <div className={styles.modalHeader}>
-                                    <span className={styles.modalCategory}>
-                                        {selectedFlavor.category === 'glaces' ? t('category.icecream') : t('category.sorbet')}
-                                    </span>
-                                    <h3 className={styles.modalTitle}>{t(`flavor.${selectedFlavor.id}.name`)}</h3>
-                                    <p className={styles.modalDesc}>{t(`flavor.${selectedFlavor.id}.desc`)}</p>
-                                </div>
+                            <div className={styles.modalInfoCol}>
+                                <span className={styles.modalCategory}>
+                                    {selectedFlavor.category === 'glaces' ? t('category.icecream') : t('category.sorbet')}
+                                </span>
+                                <h3 className={styles.modalTitle}>{t(`flavor.${selectedFlavor.id}.name`)}</h3>
+                                <p className={styles.modalDesc}>{t(`flavor.${selectedFlavor.id}.desc`)}</p>
                                 <div className={styles.modalDetails}>
                                     <div className={styles.detailItem}>
                                         <span className={styles.detailLabel}>{t('modal.composition.title')}</span>
