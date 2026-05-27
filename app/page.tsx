@@ -433,7 +433,7 @@ export default function HomePage() {
                         <div className={styles.promoImageWrapper}>
                             <div className={styles.promoImageContainer}>
                                 <Image
-                                    src="/images/original/crepes-gauffres.png"
+                                    src="/images/original/crepes-gauffres.jpg"
                                     alt={t('promo.title')}
                                     fill
                                     sizes="(max-width: 768px) 100vw, 50vw"
