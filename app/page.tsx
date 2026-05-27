@@ -143,14 +143,15 @@ const featuredCreations = [
     {
         id: 'c4',
         name: 'Bûchette Vanille-Fraise',
-        description: 'Un format individuel pour une explosion de gourmandise.',
+        description: 'De retour en décembre 2026.',
         category: 'Bûchettes glacées',
         image: '/images/buchettes/vanille-framboise.jpg',
         scale: 1.0,
         yOffset: 0,
         xOffset: 0,
         brightness: 0.97,
-        contrast: 1.25
+        contrast: 1.25,
+        isUnavailable: true
     },
 ]
 
@@ -364,21 +365,38 @@ export default function HomePage() {
                                 <div key={product.id} className={styles.sliderItem}>
                                 <article 
                                         className={styles.productCard}
-                                        onClick={() => setSelectedFlavor(product)}
-                                        style={{ cursor: 'pointer' }}
+                                        onClick={product.isUnavailable ? undefined : () => setSelectedFlavor(product)}
+                                        style={{ cursor: product.isUnavailable ? 'default' : 'pointer' }}
                                     >
-                                        <div className={styles.productImage}>
-                                             <Image
-                                                src={product.image}
-                                                alt={product.name}
-                                                fill
-                                                sizes="(max-width: 768px) 100vw, 33vw"
-                                                className={styles.productImg}
-                                                style={{ 
-                                                    transform: `scale(${product.scale || 1}) translate(${product.xOffset || 0}px, ${product.yOffset || 0}px)`,
-                                                    filter: `brightness(${product.brightness || 1}) contrast(${product.contrast || 1})`
-                                                }}
-                                            />
+                                        <div className={styles.productImage} style={product.isUnavailable ? { display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-warm-white, #faf7f2)', border: '1px dashed rgba(0,0,0,0.15)', borderRadius: '12px', width: '100%', aspectRatio: '1' } : undefined}>
+                                            {product.isUnavailable ? (
+                                                <div style={{
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    padding: '1.5rem',
+                                                    color: 'var(--color-accent, #c89b3c)',
+                                                    fontStyle: 'italic',
+                                                    fontWeight: 500,
+                                                    fontSize: '1.05rem',
+                                                    textAlign: 'center'
+                                                }}>
+                                                    De retour en décembre 2026
+                                                </div>
+                                            ) : (
+                                                 <Image
+                                                    src={product.image}
+                                                    alt={product.name}
+                                                    fill
+                                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                                    className={styles.productImg}
+                                                    style={{ 
+                                                        transform: `scale(${product.scale || 1}) translate(${product.xOffset || 0}px, ${product.yOffset || 0}px)`,
+                                                        filter: `brightness(${product.brightness || 1}) contrast(${product.contrast || 1})`
+                                                    }}
+                                                />
+                                            )}
                                         </div>
                                         <div className={styles.productContent}>
                                             <span style={{ fontSize: '0.7rem', color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700 }}>{product.category}</span>
