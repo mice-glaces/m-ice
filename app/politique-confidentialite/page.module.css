@@ -1,0 +1,42 @@
+/* Page Politique de Confidentialité */
+
+.content {
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+}
+
+.content h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.content h2:first-of-type {
+    margin-top: 0;
+}
+
+.content p, .content ul {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+}
+
+.content ul {
+    padding-left: var(--space-xl);
+    list-style-type: disc;
+}
+
+.content li {
+    margin-bottom: var(--space-xs);
+}
+
+.content p:last-child {
+    margin-bottom: 0;
+}
+
+.content strong {
+    color: var(--color-text);
+}

@@ -14,86 +14,56 @@ export default function MentionsLegalesPage() {
                     <article className={styles.content}>
                         <h2>Éditeur du site</h2>
                         <p>
-                            <strong>M&apos;Ice - Glacier Artisanal</strong><br />
+                            Le site internet <strong>M&apos;Ice Glacier Artisanal</strong> est édité par l&apos;entreprise individuelle M&apos;Ice :
+                        </p>
+                        <p>
+                            <strong>M&apos;Ice — Atelier & Laboratoire</strong><br />
                             La Garenne<br />
-                            Saint-Jean-Saint-Nicolas<br />
-                            05260, Hautes-Alpes, France
+                            Saint-Jean-Saint-Nicolas (05260), Hautes-Alpes, France<br />
+                            Téléphone : 06 59 32 83 60<br />
+                            E-mail : miceglaces@gmail.com
                         </p>
                         <p>
-                            Téléphone : 04 00 00 00 00<br />
-                            Email : contact@mice-glacier.fr
+                            <strong>M&apos;Ice — Boutique Embrun</strong><br />
+                            Place du Général Dosse<br />
+                            Embrun (05200), Hautes-Alpes, France<br />
+                            Téléphone : 06 60 46 84 59<br />
+                            E-mail : mice.embrun@gmail.com
                         </p>
                         <p>
-                            SIRET : XXX XXX XXX XXXXX<br />
-                            RCS : Gap
+                            <strong>Immatriculation :</strong><br />
+                            RCS / Répertoire des Métiers : Gap (Hautes-Alpes)<br />
+                            SIRET : [SIRET à renseigner]
                         </p>
 
                         <h2>Directeur de la publication</h2>
-                        <p>[Nom du directeur de publication]</p>
+                        <p>
+                            <strong>Régis</strong> — Co-fondateur et Maître Glacier chez M&apos;Ice.
+                        </p>
 
                         <h2>Hébergement</h2>
                         <p>
-                            Ce site est hébergé par :<br />
-                            <strong>GitHub, Inc.</strong><br />
-                            88 Colin P Kelly Jr St<br />
-                            San Francisco, CA 94107<br />
-                            United States
+                            Le site est hébergé par la société <strong>Vercel Inc.</strong> :<br />
+                            Vercel Inc.<br />
+                            340 S Lemon Ave #4133<br />
+                            Walnut, CA 91789, États-Unis<br />
+                            Site internet : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>https://vercel.com</a>
                         </p>
 
                         <h2>Propriété intellectuelle</h2>
                         <p>
-                            L&apos;ensemble de ce site relève de la législation française et internationale
-                            sur le droit d&apos;auteur et la propriété intellectuelle. Tous les droits de
-                            reproduction sont réservés, y compris pour les documents téléchargeables
-                            et les représentations iconographiques et photographiques.
+                            L&apos;ensemble du contenu de ce site (textes, photographies, logos, animations, structure générale) est la propriété exclusive de M&apos;Ice ou fait l&apos;objet d&apos;une autorisation d&apos;utilisation.
                         </p>
                         <p>
-                            La reproduction de tout ou partie de ce site sur un support électronique
-                            quel qu&apos;il soit est formellement interdite sauf autorisation expresse
-                            du directeur de la publication.
-                        </p>
-
-                        <h2>Protection des données personnelles</h2>
-                        <p>
-                            Conformément au Règlement Général sur la Protection des Données (RGPD)
-                            et à la loi Informatique et Libertés, vous disposez d&apos;un droit d&apos;accès,
-                            de rectification, de suppression et d&apos;opposition aux données vous concernant.
-                        </p>
-                        <p>
-                            Les informations collectées via le formulaire de contact sont destinées
-                            exclusivement à M&apos;Ice et ne seront en aucun cas cédées à des tiers.
-                            Elles sont conservées pour la durée nécessaire au traitement de votre
-                            demande et dans le respect de la réglementation en vigueur.
-                        </p>
-                        <p>
-                            Pour exercer vos droits, vous pouvez nous contacter par email à
-                            contact@mice-glacier.fr ou par courrier postal à l&apos;adresse indiquée ci-dessus.
-                        </p>
-
-                        <h2>Cookies</h2>
-                        <p>
-                            Ce site n&apos;utilise pas de cookies de traçage publicitaire.
-                            Seuls des cookies techniques essentiels au fonctionnement du site
-                            peuvent être utilisés.
-                        </p>
-
-                        <h2>Crédits</h2>
-                        <p>
-                            Conception et développement : [Votre nom/agence]<br />
-                            Photographies : [Crédit photos]
+                            Toute reproduction, représentation, modification ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l&apos;accord écrit préalable de M&apos;Ice. Toute exploitation non autorisée sera considérée comme constitutive d&apos;une contrefaçon et poursuivie conformément aux dispositions du Code de la Propriété Intellectuelle.
                         </p>
 
                         <h2>Limitation de responsabilité</h2>
                         <p>
-                            Les informations contenues sur ce site sont aussi précises que possible
-                            et le site est périodiquement remis à jour, mais peut toutefois contenir
-                            des inexactitudes, des omissions ou des lacunes.
+                            M&apos;Ice s&apos;efforce de fournir sur ce site des informations aussi précises que possible. Toutefois, les informations sont données à titre indicatif et ne sauraient dispenser l&apos;utilisateur d&apos;une vérification complémentaire.
                         </p>
                         <p>
-                            M&apos;Ice ne pourra être tenu responsable des dommages directs et indirects
-                            causés au matériel de l&apos;utilisateur, lors de l&apos;accès au site, résultant
-                            de l&apos;utilisation d&apos;un matériel non conforme ou de l&apos;apparition d&apos;un bug
-                            ou d&apos;une incompatibilité.
+                            M&apos;Ice ne pourra être tenu responsable des dommages directs ou indirects causés au matériel de l&apos;utilisateur lors de l&apos;accès au site, ou résultant d&apos;une omission, d&apos;une inexactitude ou d&apos;une mise à jour tardive des informations.
                         </p>
                     </article>
                 </div>
