@@ -85,7 +85,8 @@ const translations: Record<Locale, TranslationKeys> = {
         'general.followInstagram': 'Suivez-nous sur Instagram',
 
         // Categories
-        'category.cream': 'Crème Artisanale',
+        'category.cream': 'Crème glacée',
+        'category.icecream': 'Crème glacée',
         'category.sorbet': 'Sorbet Plein Fruit',
         'category.all': 'Tous',
 
@@ -340,7 +341,8 @@ const translations: Record<Locale, TranslationKeys> = {
         'general.inspiration': 'Inspiration',
         'general.followInstagram': 'Follow us on Instagram',
 
-        'category.cream': 'Artisanal Cream',
+        'category.cream': 'Ice Cream',
+        'category.icecream': 'Ice Cream',
         'category.sorbet': 'Pure Fruit Sorbet',
         'category.all': 'All',
 
@@ -580,7 +582,8 @@ const translations: Record<Locale, TranslationKeys> = {
         'general.inspiration': 'Inspiración',
         'general.followInstagram': 'Síguenos en Instagram',
 
-        'category.cream': 'Crema Artesanal',
+        'category.cream': 'Helado',
+        'category.icecream': 'Helado',
         'category.sorbet': 'Sorbete Puro de Fruta',
         'category.all': 'Todos',
 
@@ -820,7 +823,8 @@ const translations: Record<Locale, TranslationKeys> = {
         'general.inspiration': 'Ispirazione',
         'general.followInstagram': 'Seguici su Instagram',
 
-        'category.cream': 'Crema Artigianale',
+        'category.cream': 'Gelato',
+        'category.icecream': 'Gelato',
         'category.sorbet': 'Sorbetto Puro alla Frutta',
         'category.all': 'Tutti',
 
