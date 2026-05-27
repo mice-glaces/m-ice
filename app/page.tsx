@@ -122,6 +122,7 @@ const featuredCreations = [
         name: 'Nougat Glacé',
         description: 'Miel de montagne, amandes et pistaches torréfiées.',
         category: 'Nougats glacés',
+        categoryKey: 'nougat',
         image: '/images/original/nougat-glace.jpg',
         scale: 1.0,
         brightness: 0.95,
@@ -133,6 +134,7 @@ const featuredCreations = [
         name: 'Macarons Glacés',
         description: "L'élégance du macaron alliée à la fraîcheur de nos sorbets.",
         category: 'Macarons glacés',
+        categoryKey: 'macaron',
         image: '/images/macarons/mangue.jpg',
         scale: 0.83,
         yOffset: 16,
@@ -145,6 +147,7 @@ const featuredCreations = [
         name: 'Bûchette Vanille-Fraise',
         description: 'De retour en décembre 2026.',
         category: 'Bûchettes glacées',
+        categoryKey: 'buchette',
         image: '/images/buchettes/vanille-framboise.jpg',
         scale: 1.0,
         yOffset: 0,
@@ -179,6 +182,11 @@ export default function HomePage() {
     const [creationsIndex, setCreationsIndex] = useState(0)
     const [selectedFlavor, setSelectedFlavor] = useState<any | null>(null)
     const itemsPerPage = 3
+
+    const isCreation = selectedFlavor && typeof selectedFlavor.id === 'string' && selectedFlavor.id.startsWith('c');
+    const nameKey = selectedFlavor ? (isCreation ? `creation.${selectedFlavor.id}.name` : `flavor.${selectedFlavor.id}.name`) : '';
+    const descKey = selectedFlavor ? (isCreation ? `creation.${selectedFlavor.id}.desc` : `flavor.${selectedFlavor.id}.desc`) : '';
+    const categoryKeyText = selectedFlavor ? (isCreation ? `creations.${selectedFlavor.categoryKey}` : (selectedFlavor.category === 'Crème glacée' ? 'category.cream' : 'category.sorbet')) : '';
 
     const nextSlide = () => {
         if (currentIndex < featuredProducts.length - itemsPerPage) {
@@ -257,8 +265,8 @@ export default function HomePage() {
                 <div className="container">
                     <div className={styles.featuredHeader}>
                         <div>
-                            <span className={styles.sectionLabel}>Nos Parfums</span>
-                            <h2 className={styles.sectionTitle}>Une Explosion de Saveurs</h2>
+                            <span className={styles.sectionLabel}>{t('section.flavors.label')}</span>
+                            <h2 className={styles.sectionTitle}>{t('section.flavors.title')}</h2>
                         </div>
                         <div className={styles.featuredActions}>
                             <div className={styles.carouselNav}>
@@ -298,18 +306,18 @@ export default function HomePage() {
                                         <div className={styles.productImage}>
                                             <Image
                                                 src={product.image}
-                                                alt={product.name}
+                                                alt={t('flavor.' + product.id + '.name')}
                                                 fill
                                                 sizes="(max-width: 768px) 100vw, 33vw"
                                                 className={styles.productImg}
                                                 style={product.scale ? { scale: product.scale } : undefined}
                                             />
                                             {product.isSeasonal && (
-                                                <span className={styles.productBadge}>Édition Limitée</span>
+                                                <span className={styles.productBadge}>{t('product.seasonal')}</span>
                                             )}
                                         </div>
                                         <div className={styles.productContent}>
-                                            <h3 className={styles.productName}>{product.name}</h3>
+                                            <h3 className={styles.productName}>{t('flavor.' + product.id + '.name')}</h3>
                                         </div>
                                     </article>
                                 </div>
@@ -319,7 +327,7 @@ export default function HomePage() {
 
                     <div className={styles.featuredCta}>
                         <Link href="/nos-glaces" className="btn">
-                            Voir tous nos parfums
+                            {t('section.flavors.cta')}
                         </Link>
                     </div>
                 </div>
@@ -382,12 +390,12 @@ export default function HomePage() {
                                                     fontSize: '1.05rem',
                                                     textAlign: 'center'
                                                 }}>
-                                                    De retour en décembre 2026
+                                                    {t('creations.buchette.comingSoon')}
                                                 </div>
                                             ) : (
                                                  <Image
                                                     src={product.image}
-                                                    alt={product.name}
+                                                    alt={t('creation.' + product.id + '.name')}
                                                     fill
                                                     sizes="(max-width: 768px) 100vw, 33vw"
                                                     className={styles.productImg}
@@ -399,8 +407,8 @@ export default function HomePage() {
                                             )}
                                         </div>
                                         <div className={styles.productContent}>
-                                            <span style={{ fontSize: '0.7rem', color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700 }}>{product.category}</span>
-                                            <h3 className={styles.productName} style={{ marginTop: '0.5rem' }}>{product.name}</h3>
+                                            <span style={{ fontSize: '0.7rem', color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700 }}>{t('creations.' + product.categoryKey)}</span>
+                                            <h3 className={styles.productName} style={{ marginTop: '0.5rem' }}>{t('creation.' + product.id + '.name')}</h3>
                                         </div>
                                     </article>
                                 </div>
@@ -530,43 +538,42 @@ export default function HomePage() {
                                         style={{ top: '-15%', left: '-10%' }}
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.1 } }} transition={{ delay: 0.4 }}
                                     >
-                                        100% Naturel
+                                        {t('modal.100natural')}
                                     </motion.span>
                                     <motion.span 
                                         className={styles.annoTextTR}
                                         style={{ top: '-15%', right: '-10%' }}
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.1 } }} transition={{ delay: 0.6 }}
                                     >
-                                        {selectedFlavor.name} Authentique
+                                        {t('modal.authentic').replace('{flavor}', t(nameKey))}
                                     </motion.span>
                                     <motion.span 
                                         className={styles.annoTextB}
                                         style={{ bottom: '-20%', left: '50%' }}
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.1 } }} transition={{ delay: 0.8 }}
-                                    >
-                                        Fait Maison<br/>dans les Alpes
-                                    </motion.span>
+                                        dangerouslySetInnerHTML={{ __html: t('modal.homemade') }}
+                                    />
                                 </motion.div>
                             </div>
                             
                             <div className={styles.modalInfoCol}>
                                 <span className={styles.modalCategory}>
-                                    {selectedFlavor.category}
+                                    {t(categoryKeyText)}
                                 </span>
-                                <h2 className={styles.modalTitle}>{selectedFlavor.name}</h2>
-                                <p className={styles.modalDesc}>{selectedFlavor.description}</p>
+                                <h2 className={styles.modalTitle}>{t(nameKey)}</h2>
+                                <p className={styles.modalDesc}>{t(descKey)}</p>
                                 
                                 <div className={styles.modalDetails}>
                                     <div className={styles.detailItem}>
-                                        <span className={styles.detailLabel}>Composition & Ingrédients</span>
+                                        <span className={styles.detailLabel}>{t('modal.composition.title')}</span>
                                         <span className={styles.detailText}>
-                                            Sélection rigoureuse des meilleurs ingrédients locaux. Lait entier de notre ferme partenaire pour nos crèmes glacées, et fruits cueillis à pleine maturité pour nos sorbets. Sans aucun colorant ni arôme artificiel.
+                                            {t('modal.composition.desc')}
                                         </span>
                                     </div>
                                     <div className={styles.detailItem}>
-                                        <span className={styles.detailLabel}>Méthode de Fabrication</span>
+                                        <span className={styles.detailLabel}>{t('modal.method.title')}</span>
                                         <span className={styles.detailText}>
-                                            Turbinée à l&apos;ancienne dans notre atelier au cœur des montagnes. Une méthode de fabrication lente qui garantit une texture onctueuse, crémeuse et incroyablement aérée, typique des vraies glaces artisanales.
+                                            {t('modal.method.desc')}
                                         </span>
                                     </div>
                                 </div>

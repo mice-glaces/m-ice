@@ -39,12 +39,14 @@ interface CreationItem {
 
 interface CreationCategory {
     category: string;
+    categoryKey: string;
     items: CreationItem[];
 }
 
 const CREATIONS_DATA: CreationCategory[] = [
     {
         category: "Nougats glacés",
+        categoryKey: "nougat",
         items: [
             { id: 'n1', name: "Nougat glacé (4 pers.)", description: "Texture légère et fondante, miel et fruits confits", image: "/images/original/nougat-glace.jpg", scale: 1.0, brightness: 0.95, contrast: 1.15 },
             { id: 'n2', name: "Nougat glacé (6 pers.)", description: "Format familial, parfait pour les grandes tablées", image: "/images/original/nougat-glace.jpg", scale: 1.0, brightness: 0.95, contrast: 1.15 },
@@ -53,6 +55,7 @@ const CREATIONS_DATA: CreationCategory[] = [
 
     {
         category: "Macarons glacés",
+        categoryKey: "macaron",
         items: [
             { id: 'm1', name: "Mangue", description: "Coque croquante, cœur glacé à la mangue fraîche", image: "/images/macarons/mangue.jpg", scale: 0.83, yOffset: 16, xOffset: 0, brightness: 0.92, contrast: 1.51 },
             { id: 'm2', name: "Framboise", description: "Intensité fruitée, équilibre sucré-acidulé", image: "/images/macarons/framboise.jpg", scale: 0.94, yOffset: 29, xOffset: 0, brightness: 1.30, contrast: 1.30 },
@@ -63,6 +66,7 @@ const CREATIONS_DATA: CreationCategory[] = [
     },
     {
         category: "Bûchettes glacées",
+        categoryKey: "buchette",
         items: [],
     },
 ]
@@ -74,8 +78,8 @@ export default function NosCreations() {
     return (
         <main className={styles.main}>
             <PageHero
-                title="Nos Créations Glacées"
-                subtitle="Desserts glacés – fait maison"
+                title={t('section.creations.title')}
+                subtitle={t('creations.subtitle')}
                 backgroundImage="/images/hero_final_unzoomed.png"
                 compact
             />
@@ -84,12 +88,12 @@ export default function NosCreations() {
             <section className={`section ${styles.whiteBg}`}>
                 <div className="container">
                     {CREATIONS_DATA.map((group) => (
-                        <div key={group.category} className={styles.categorySection}>
+                        <div key={group.categoryKey} className={styles.categorySection}>
                             <div className={styles.categoryHeader}>
-                                <h2 className={styles.categoryTitle}>{group.category}</h2>
-                                {group.category === "Bûchettes glacées" && (
+                                <h2 className={styles.categoryTitle}>{t('creations.' + group.categoryKey)}</h2>
+                                {group.categoryKey === "buchette" && (
                                     <p style={{ color: 'var(--color-accent)', fontStyle: 'italic', marginTop: '10px', fontSize: '1.1rem', fontWeight: 500 }}>
-                                        Les bûchettes glacées seront de retour en décembre 2026
+                                        {t('creations.buchette.comingSoon')}
                                     </p>
                                 )}
                             </div>
@@ -106,12 +110,12 @@ export default function NosCreations() {
                                         key={item.id}
                                         className={styles.creationCard}
                                         variants={fadeInUp}
-                                        onClick={() => setSelectedItem({ ...item, categoryName: group.category })}
+                                        onClick={() => setSelectedItem({ ...item, categoryName: t('creations.' + group.categoryKey) })}
                                     >
                                         <div className={styles.creationImage}>
                                             <Image
                                                 src={item.image}
-                                                alt={item.name}
+                                                alt={t('creation.' + item.id + '.name')}
                                                 fill
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                                 className={styles.creationImg}
@@ -122,7 +126,7 @@ export default function NosCreations() {
                                             />
                                         </div>
                                         <div className={styles.creationContent}>
-                                            <h3 className={styles.creationName}>{item.name}</h3>
+                                            <h3 className={styles.creationName}>{t('creation.' + item.id + '.name')}</h3>
                                         </div>
                                     </motion.article>
                                 ))}
@@ -238,8 +242,8 @@ export default function NosCreations() {
                                 <span className={styles.modalCategory}>
                                     {selectedItem.categoryName}
                                 </span>
-                                <h2 className={styles.modalTitle}>{selectedItem.name}</h2>
-                                <p className={styles.modalDesc}>{selectedItem.description}</p>
+                                <h2 className={styles.modalTitle}>{t('creation.' + selectedItem.id + '.name')}</h2>
+                                <p className={styles.modalDesc}>{t('creation.' + selectedItem.id + '.desc')}</p>
                                 
                                 <div className={styles.modalDetails}>
                                     <div className={styles.detailItem}>

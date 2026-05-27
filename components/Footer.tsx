@@ -3,24 +3,26 @@
 import Link from 'next/link'
 import { Instagram, Facebook, Phone, MapPin, Mail } from 'lucide-react'
 import { useLocation } from '@/context/LocationContext'
+import { useTranslation } from '@/context/LanguageContext'
 import styles from './Footer.module.css'
-
-const quickLinks = [
-    { href: '/', label: 'ACCUEIL' },
-    { href: '/nos-glaces', label: 'NOS GLACES' },
-    { href: '/creations', label: 'NOS CRÉATIONS' },
-    { href: '/collaborateurs', label: 'NOS COLLABORATEURS' },
-    { href: '/nous-trouver', label: 'NOUS TROUVER' },
-]
-
-const legalLinks = [
-    { href: '/mentions-legales', label: 'MENTIONS LÉGALES' },
-    { href: '/politique-confidentialite', label: 'POLITIQUE DE CONFIDENTIALITÉ' },
-]
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
     const { currentLocation } = useLocation()
+    const { t } = useTranslation()
+
+    const quickLinks = [
+        { href: '/', labelKey: 'nav.home' },
+        { href: '/nos-glaces', labelKey: 'nav.flavors' },
+        { href: '/creations', labelKey: 'nav.creations' },
+        { href: '/collaborateurs', labelKey: 'collab.title' },
+        { href: '/nous-trouver', labelKey: 'findus.title' },
+    ]
+
+    const legalLinks = [
+        { href: '/mentions-legales', labelKey: 'footer.legalMentions' },
+        { href: '/politique-confidentialite', labelKey: 'footer.privacy' },
+    ]
 
     return (
         <footer className={styles.footer}>
@@ -36,7 +38,7 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className={styles.column}>
                         <p className={styles.description}>
-                            Glacier artisanal des Hautes-Alpes. Une expérience glacée unique en famille ou entre amis.
+                            {t('footer.description')}
                         </p>
                         <div className={styles.social}>
                             <a href="#" className={styles.socialIcon} aria-label="Facebook">
@@ -50,12 +52,12 @@ export default function Footer() {
 
                     {/* Navigation */}
                     <div className={styles.column}>
-                        <h4 className={styles.columnTitle}>NAVIGATION</h4>
+                        <h4 className={styles.columnTitle}>{t('footer.nav')}</h4>
                         <ul className={styles.linkList}>
                             {quickLinks.map((link) => (
                                 <li key={link.href}>
                                     <Link href={link.href} className={styles.link}>
-                                        {link.label}
+                                        {t(link.labelKey).toUpperCase()}
                                     </Link>
                                 </li>
                             ))}
@@ -83,12 +85,12 @@ export default function Footer() {
 
                     {/* Legal */}
                     <div className={styles.column}>
-                        <h4 className={styles.columnTitle}>LÉGAL</h4>
+                        <h4 className={styles.columnTitle}>{t('footer.legal')}</h4>
                         <ul className={styles.linkList}>
                             {legalLinks.map((link) => (
                                 <li key={link.href}>
                                     <Link href={link.href} className={styles.link}>
-                                        {link.label}
+                                        {t(link.labelKey).toUpperCase()}
                                     </Link>
                                 </li>
                             ))}
@@ -98,7 +100,7 @@ export default function Footer() {
 
                 <div className={styles.bottom}>
                     <p className={styles.copyright}>
-                        © {currentYear} M&apos;ICE GLACIER ARTISANAL - TOUS DROITS RÉSERVÉS.
+                        © {currentYear} {t('footer.rights')}
                     </p>
                 </div>
             </div>
