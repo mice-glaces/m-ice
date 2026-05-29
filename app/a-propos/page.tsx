@@ -27,8 +27,6 @@ const staggerItem = {
     whileInView: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } }
 } as const
 
-const timelineYears = ['2020', '2021', '2025']
-
 const teamMembers = [
     { name: "Régis", nameKey: "regis", image: "/images/team-regis.png", emoji: "🍦" },
     { name: "Anaïs", nameKey: "anais", image: "/images/team-anais.png", emoji: "🎨" },
@@ -137,20 +135,6 @@ export default function AProposPage() {
                         </motion.div>
                     </div>
 
-                    {/* Timeline */}
-                    <motion.div className={styles.timeline} {...staggerContainer}>
-                        {timelineYears.map((year) => (
-                            <motion.div key={year} className={styles.timelineItem} variants={staggerItem}>
-                                <div className={styles.timelineDot}>
-                                    <span className={styles.timelineYear}>{year}</span>
-                                </div>
-                                <div className={styles.timelineContent}>
-                                    <h3 className={styles.timelineTitle}>{t(`about.timeline.${year}.title`)}</h3>
-                                    <p className={styles.timelineDesc}>{t(`about.timeline.${year}.desc`)}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
                 </div>
             </section>
 
