@@ -28,7 +28,7 @@ const flavors = [
         id: 1,
         scale: 0.7,
         name: 'Vanille',
-        description: 'Onctueuse aux gousses de vanille bourbon',
+        description: 'Onctueuse aux gousses de vanille d\'Indonésie',
         category: 'glaces',
         image: '/images/vanille.png',
         price: '3,00€ la boule',

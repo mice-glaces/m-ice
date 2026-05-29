@@ -59,7 +59,7 @@ const CREATIONS_DATA: CreationCategory[] = [
         items: [
             { id: 'm1', name: "Mangue", description: "Coque croquante, cœur glacé à la mangue fraîche", image: "/images/macarons/mangue.jpg", scale: 0.83, yOffset: 16, xOffset: 0, brightness: 0.92, contrast: 1.51 },
             { id: 'm2', name: "Framboise", description: "Intensité fruitée, équilibre sucré-acidulé", image: "/images/macarons/framboise.jpg", scale: 0.94, yOffset: 29, xOffset: 0, brightness: 1.30, contrast: 1.30 },
-            // { id: 'm3', name: "Vanille", description: "Classique et élégant, vanille bourbon", image: "/images/macarons/vanille.jpg", scale: 1.28, yOffset: -29, xOffset: 0, brightness: 1.10, contrast: 1.25 },
+            // { id: 'm3', name: "Vanille", description: "Classique et élégant, vanille d'Indonésie", image: "/images/macarons/vanille.jpg", scale: 1.28, yOffset: -29, xOffset: 0, brightness: 1.10, contrast: 1.25 },
             { id: 'm4', name: "Chocolat", description: "Cacao intense, texture fondante", image: "/images/macarons/chocolat.jpg", scale: 1.02, yOffset: 0, xOffset: 0, brightness: 1.20, contrast: 1.30 },
             { id: 'm5', name: "Caramel B.S.", description: "Caramel au beurre salé, douceur bretonne", image: "/images/macarons/caramel.jpg", scale: 0.97, yOffset: 0, xOffset: 0, brightness: 0.94, contrast: 1.26 },
         ],

@@ -197,7 +197,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'promo.badge': "Toute l'année chez M'Ice",
 
         'flavor.1.name': "Vanille",
-        'flavor.1.desc': "Onctueuse aux gousses de vanille bourbon",
+        'flavor.1.desc': "Onctueuse aux gousses de vanille d'Indonésie",
         'flavor.2.name': "Chocolat",
         'flavor.2.desc': "Grand cru de cacao, saveur intense",
         'flavor.3.name': "Pistache",
@@ -459,7 +459,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'promo.badge': "All year round at M'Ice",
 
         'flavor.1.name': "Vanilla",
-        'flavor.1.desc': "Creamy with bourbon vanilla pods",
+        'flavor.1.desc': "Creamy with Indonesian vanilla pods",
         'flavor.2.name': "Chocolate",
         'flavor.2.desc': "Grand cru cocoa, intense flavor",
         'flavor.3.name': "Pistachio",
@@ -721,7 +721,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'promo.badge': 'Edición de Verano',
 
         'flavor.1.name': "Vainilla",
-        'flavor.1.desc': "Cremosa con vainas de vainilla bourbon",
+        'flavor.1.desc': "Cremosa con vainas de vainilla de Indonesia",
         'flavor.2.name': "Chocolate",
         'flavor.2.desc': "Cacao grand cru, sabor intenso",
         'flavor.3.name': "Pistacho",
@@ -982,7 +982,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'promo.badge': 'Edizione Estiva',
 
         'flavor.1.name': "Vaniglia",
-        'flavor.1.desc': "Cremosa con baccelli di vaniglia bourbon",
+        'flavor.1.desc': "Cremosa con baccelli di vaniglia dell'Indonesia",
         'flavor.2.name': "Cioccolato",
         'flavor.2.desc': "Cacao grand cru, sapore intenso",
         'flavor.3.name': "Pistacchio",

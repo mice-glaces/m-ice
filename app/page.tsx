@@ -26,7 +26,7 @@ const featuredProducts = [
     {
         id: 1,
         name: 'Vanille',
-        description: 'Onctueuse aux gousses de vanille bourbon',
+        description: 'Onctueuse aux gousses de vanille d\'Indonésie',
         category: 'Crème glacée',
         image: '/images/vanille.png',
         isSeasonal: false,
