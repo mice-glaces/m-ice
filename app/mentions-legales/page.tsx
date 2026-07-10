@@ -32,7 +32,8 @@ const CONTENT = {
                         <p>
                             <strong>Immatriculation :</strong><br />
                             RCS / Répertoire des Métiers : Gap (Hautes-Alpes)<br />
-                            SIREN : 901 918 763
+                            SIREN : 901 918 763<br />
+                            SIRET (siège social) : 901 918 763 00011
                         </p>
                     </>
                 )
@@ -112,7 +113,8 @@ const CONTENT = {
                         <p>
                             <strong>Registration:</strong><br />
                             RCS / Directory of Trades: Gap (Hautes-Alpes)<br />
-                            SIREN: 901 918 763
+                            SIREN: 901 918 763<br />
+                            SIRET (head office): 901 918 763 00011
                         </p>
                     </>
                 )
@@ -192,7 +194,8 @@ const CONTENT = {
                         <p>
                             <strong>Registro:</strong><br />
                             RCS / Directorio de Oficios: Gap (Hautes-Alpes)<br />
-                            SIREN: 901 918 763
+                            SIREN: 901 918 763<br />
+                            SIRET (sede social): 901 918 763 00011
                         </p>
                     </>
                 )
@@ -272,7 +275,8 @@ const CONTENT = {
                         <p>
                             <strong>Registrazione:</strong><br />
                             RCS / Registro delle Imprese Artigiane: Gap (Hautes-Alpes)<br />
-                            SIREN: 901 918 763
+                            SIREN: 901 918 763<br />
+                            SIRET (sede legale): 901 918 763 00011
                         </p>
                     </>
                 )
