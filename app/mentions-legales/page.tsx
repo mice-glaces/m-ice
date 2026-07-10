@@ -32,7 +32,7 @@ const CONTENT = {
                         <p>
                             <strong>Immatriculation :</strong><br />
                             RCS / Répertoire des Métiers : Gap (Hautes-Alpes)<br />
-                            SIRET : [SIRET à renseigner]
+                            SIREN : 901 918 763
                         </p>
                     </>
                 )
@@ -112,7 +112,7 @@ const CONTENT = {
                         <p>
                             <strong>Registration:</strong><br />
                             RCS / Directory of Trades: Gap (Hautes-Alpes)<br />
-                            SIRET: [SIRET to be provided]
+                            SIREN: 901 918 763
                         </p>
                     </>
                 )
@@ -192,7 +192,7 @@ const CONTENT = {
                         <p>
                             <strong>Registro:</strong><br />
                             RCS / Directorio de Oficios: Gap (Hautes-Alpes)<br />
-                            SIRET: [SIRET a rellenar]
+                            SIREN: 901 918 763
                         </p>
                     </>
                 )
@@ -272,7 +272,7 @@ const CONTENT = {
                         <p>
                             <strong>Registrazione:</strong><br />
                             RCS / Registro delle Imprese Artigiane: Gap (Hautes-Alpes)<br />
-                            SIRET: [SIRET da inserire]
+                            SIREN: 901 918 763
                         </p>
                     </>
                 )
