@@ -880,8 +880,8 @@
     background: #0e0e10;
     width: 100%;
     max-width: 920px;
-    height: auto;
-    max-height: 88vh;
+    min-height: 80vh;
+    max-height: 92vh;
     border-radius: 28px;
     display: flex;
     position: relative;
@@ -954,6 +954,7 @@
     flex-direction: column;
     justify-content: center;
     border-left: 1px solid rgba(255, 255, 255, 0.04);
+    overflow-y: auto;
 }
 
 @media (max-width: 768px) {
