@@ -16,8 +16,8 @@ const fadeInUp = {
 }
 
 const schedule = [
-    { period: 'Haute Saison', days: 'Juillet - Août', hours: '10h00 - 19h00 non-stop' },
-    { period: 'Mi-Saison', days: 'Mai - Juin, Septembre', hours: 'Mer à Dim : 14h - 18h' },
+    { period: 'Haute Saison', days: 'Juillet - Août', hours: '14h00 - 19h00 non-stop' },
+    { period: 'Mi-Saison', days: 'Mai - Juin, Septembre', hours: 'Consultez nos horaires sur notre fiche Google' },
     { period: 'Hiver', days: 'Vacances Scolaires', hours: 'Consultez nos actus' },
 ]
 
