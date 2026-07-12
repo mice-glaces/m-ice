@@ -39,6 +39,9 @@ const CONTENT = {
                                 <strong>Données de navigation (Cookies) :</strong> Ce site n&apos;utilise aucun cookie de traçage publicitaire, de ciblage ou de réseaux sociaux. Nous utilisons uniquement des cookies techniques et locaux pour mémoriser vos préférences de navigation (comme le glacier sélectionné et votre langue de préférence) afin d&apos;optimiser votre expérience utilisateur.
                             </li>
                         </ul>
+                        <p>
+                            La base légale de ce traitement est votre consentement (lorsque vous soumettez le formulaire) ainsi que notre intérêt légitime à vous répondre.
+                        </p>
                     </>
                 )
             },
@@ -86,6 +89,9 @@ const CONTENT = {
                             - Par e-mail : <strong>miceglaces@gmail.com</strong><br />
                             - Par courrier : <strong>M&apos;Ice — La Garenne, 05260 Saint-Jean-Saint-Nicolas, France</strong>
                         </p>
+                        <p>
+                            Si vous estimez, après nous avoir contactés, que vos droits « Informatique et Libertés » ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>).
+                        </p>
                     </>
                 )
             }
@@ -125,6 +131,9 @@ const CONTENT = {
                                 <strong>Navigation Data (Cookies):</strong> This site does not use any advertising tracking, targeting, or social media cookies. We only use technical and local cookies to remember your browsing preferences (such as the selected ice cream parlor and your preferred language) in order to optimize your user experience.
                             </li>
                         </ul>
+                        <p>
+                            The legal basis for this processing is your consent (when you submit the form) as well as our legitimate interest in responding to you.
+                        </p>
                     </>
                 )
             },
@@ -172,6 +181,9 @@ const CONTENT = {
                             - By e-mail: <strong>miceglaces@gmail.com</strong><br />
                             - By mail: <strong>M&apos;Ice — La Garenne, 05260 Saint-Jean-Saint-Nicolas, France</strong>
                         </p>
+                        <p>
+                            If you believe, after contacting us, that your data protection rights have not been respected, you can file a complaint with the CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>), the French data protection authority.
+                        </p>
                     </>
                 )
             }
@@ -211,6 +223,9 @@ const CONTENT = {
                                 <strong>Datos de Navegación (Cookies):</strong> Este sitio no utiliza cookies de seguimiento publicitario, de orientación o de redes sociales. Solo utilizamos cookies técnicas y locales para recordar sus preferencias de navegación (como la heladería seleccionada y su idioma de preferencia) a fin de optimizar su experiencia de usuario.
                             </li>
                         </ul>
+                        <p>
+                            La base jurídica de este tratamiento es su consentimiento (cuando envía el formulario) así como nuestro interés legítimo en responderle.
+                        </p>
                     </>
                 )
             },
@@ -258,6 +273,9 @@ const CONTENT = {
                             - Por correo electrónico: <strong>miceglaces@gmail.com</strong><br />
                             - Por correo postal: <strong>M&apos;Ice — La Garenne, 05260 Saint-Jean-Saint-Nicolas, Francia</strong>
                         </p>
+                        <p>
+                            Si considera, tras habernos contactado, que sus derechos de protección de datos no han sido respetados, puede presentar una reclamación ante la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>), la autoridad francesa de protección de datos.
+                        </p>
                     </>
                 )
             }
@@ -297,6 +315,9 @@ const CONTENT = {
                                 <strong>Dati di Navigazione (Cookie):</strong> Questo sito non utilizza alcun cookie di tracciamento pubblicitario, di targeting o di social network. Utilizziamo solo cookie tecnici e locali per memorizzare le tue preferenze di navigazione (come la gelateria selezionata e la lingua preferita) per ottimizzare la tua esperienza utente.
                             </li>
                         </ul>
+                        <p>
+                            La base giuridica di questo trattamento è il tuo consenso (quando invii il modulo) nonché il nostro legittimo interesse a risponderti.
+                        </p>
                     </>
                 )
             },
@@ -343,6 +364,9 @@ const CONTENT = {
                         <p>
                             - Via e-mail: <strong>miceglaces@gmail.com</strong><br />
                             - Per posta: <strong>M&apos;Ice — La Garenne, 05260 Saint-Jean-Saint-Nicolas, Francia</strong>
+                        </p>
+                        <p>
+                            Se ritieni, dopo averci contattato, che i tuoi diritti in materia di protezione dei dati non siano stati rispettati, puoi presentare un reclamo alla CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>), l&apos;autorità francese per la protezione dei dati.
                         </p>
                     </>
                 )

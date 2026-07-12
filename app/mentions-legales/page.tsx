@@ -13,7 +13,7 @@ const CONTENT = {
                 content: (
                     <>
                         <p>
-                            Le site internet <strong>M&apos;Ice Glacier Artisanal</strong> est édité par l&apos;entreprise individuelle M&apos;Ice :
+                            Le site internet <strong>M&apos;Ice Glacier Artisanal</strong> est édité par l&apos;entreprise individuelle de Régis Rochet, exerçant sous le nom commercial M&apos;Ice :
                         </p>
                         <p>
                             <strong>M&apos;Ice — Atelier & Laboratoire</strong><br />
@@ -33,7 +33,8 @@ const CONTENT = {
                             <strong>Immatriculation :</strong><br />
                             RCS / Répertoire des Métiers : Gap (Hautes-Alpes)<br />
                             SIREN : 901 918 763<br />
-                            SIRET (siège social) : 901 918 763 00011
+                            SIRET (siège social) : 901 918 763 00011<br />
+                            Numéro de TVA intracommunautaire : FR 83 901 918 763
                         </p>
                     </>
                 )
@@ -42,7 +43,7 @@ const CONTENT = {
                 title: "Directeur de la publication",
                 content: (
                     <p>
-                        <strong>Régis</strong> — Co-fondateur et Maître Glacier chez M&apos;Ice.
+                        <strong>Régis Rochet</strong> — Co-fondateur et Maître Glacier chez M&apos;Ice.
                     </p>
                 )
             },
@@ -54,7 +55,8 @@ const CONTENT = {
                         Vercel Inc.<br />
                         340 S Lemon Ave #4133<br />
                         Walnut, CA 91789, États-Unis<br />
-                        Site internet : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>https://vercel.com</a>
+                        Site internet : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>https://vercel.com</a><br />
+                        Contact : privacy@vercel.com
                     </p>
                 )
             },
@@ -94,7 +96,7 @@ const CONTENT = {
                 content: (
                     <>
                         <p>
-                            The website <strong>M&apos;Ice Glacier Artisanal</strong> is published by the sole proprietorship M&apos;Ice:
+                            The website <strong>M&apos;Ice Glacier Artisanal</strong> is published by the sole proprietorship of Régis Rochet, operating under the trade name M&apos;Ice:
                         </p>
                         <p>
                             <strong>M&apos;Ice — Workshop & Laboratory</strong><br />
@@ -114,7 +116,8 @@ const CONTENT = {
                             <strong>Registration:</strong><br />
                             RCS / Directory of Trades: Gap (Hautes-Alpes)<br />
                             SIREN: 901 918 763<br />
-                            SIRET (head office): 901 918 763 00011
+                            SIRET (head office): 901 918 763 00011<br />
+                            EU VAT Number: FR 83 901 918 763
                         </p>
                     </>
                 )
@@ -123,7 +126,7 @@ const CONTENT = {
                 title: "Publication Director",
                 content: (
                     <p>
-                        <strong>Régis</strong> — Co-founder and Master Ice Cream Maker at M&apos;Ice.
+                        <strong>Régis Rochet</strong> — Co-founder and Master Ice Cream Maker at M&apos;Ice.
                     </p>
                 )
             },
@@ -135,7 +138,8 @@ const CONTENT = {
                         Vercel Inc.<br />
                         340 S Lemon Ave #4133<br />
                         Walnut, CA 91789, USA<br />
-                        Website: <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>https://vercel.com</a>
+                        Website: <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>https://vercel.com</a><br />
+                        Contact: privacy@vercel.com
                     </p>
                 )
             },
@@ -175,7 +179,7 @@ const CONTENT = {
                 content: (
                     <>
                         <p>
-                            El sitio web <strong>M&apos;Ice Glacier Artisanal</strong> es editado por la empresa individual M&apos;Ice:
+                            El sitio web <strong>M&apos;Ice Glacier Artisanal</strong> es editado por la empresa individual de Régis Rochet, que opera bajo el nombre comercial M&apos;Ice:
                         </p>
                         <p>
                             <strong>M&apos;Ice — Taller y Laboratorio</strong><br />
@@ -195,7 +199,8 @@ const CONTENT = {
                             <strong>Registro:</strong><br />
                             RCS / Directorio de Oficios: Gap (Hautes-Alpes)<br />
                             SIREN: 901 918 763<br />
-                            SIRET (sede social): 901 918 763 00011
+                            SIRET (sede social): 901 918 763 00011<br />
+                            Número de IVA intracomunitario: FR 83 901 918 763
                         </p>
                     </>
                 )
@@ -204,7 +209,7 @@ const CONTENT = {
                 title: "Director de la publicación",
                 content: (
                     <p>
-                        <strong>Régis</strong> — Cofundador y Maestro Heladero en M&apos;Ice.
+                        <strong>Régis Rochet</strong> — Cofundador y Maestro Heladero en M&apos;Ice.
                     </p>
                 )
             },
@@ -216,7 +221,8 @@ const CONTENT = {
                         Vercel Inc.<br />
                         340 S Lemon Ave #4133<br />
                         Walnut, CA 91789, Estados Unidos<br />
-                        Sitio web: <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>https://vercel.com</a>
+                        Sitio web: <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>https://vercel.com</a><br />
+                        Contacto: privacy@vercel.com
                     </p>
                 )
             },
@@ -256,7 +262,7 @@ const CONTENT = {
                 content: (
                     <>
                         <p>
-                            Il sito web <strong>M&apos;Ice Glacier Artisanal</strong> è pubblicato dall&apos;impresa individuale M&apos;Ice:
+                            Il sito web <strong>M&apos;Ice Glacier Artisanal</strong> è pubblicato dall&apos;impresa individuale di Régis Rochet, operante con il nome commerciale M&apos;Ice:
                         </p>
                         <p>
                             <strong>M&apos;Ice — Atelier e Laboratorio</strong><br />
@@ -276,7 +282,8 @@ const CONTENT = {
                             <strong>Registrazione:</strong><br />
                             RCS / Registro delle Imprese Artigiane: Gap (Hautes-Alpes)<br />
                             SIREN: 901 918 763<br />
-                            SIRET (sede legale): 901 918 763 00011
+                            SIRET (sede legale): 901 918 763 00011<br />
+                            Partita IVA intracomunitaria: FR 83 901 918 763
                         </p>
                     </>
                 )
@@ -285,7 +292,7 @@ const CONTENT = {
                 title: "Direttore della pubblicazione",
                 content: (
                     <p>
-                        <strong>Régis</strong> — Cofondatore e Maestro Gelataio presso M&apos;Ice.
+                        <strong>Régis Rochet</strong> — Cofondatore e Maestro Gelataio presso M&apos;Ice.
                     </p>
                 )
             },
@@ -297,7 +304,8 @@ const CONTENT = {
                         Vercel Inc.<br />
                         340 S Lemon Ave #4133<br />
                         Walnut, CA 91789, Stati Uniti<br />
-                        Sito internet: <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>https://vercel.com</a>
+                        Sito internet: <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>https://vercel.com</a><br />
+                        Contatto: privacy@vercel.com
                     </p>
                 )
             },
