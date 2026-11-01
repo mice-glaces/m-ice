@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Send, Check } from 'lucide-react'
 import PageHero from '@/components/PageHero'
 import styles from './page.module.css'
-import { LOCATIONS } from '@/context/LocationContext'
+import { LOCATIONS, useLocation } from '@/context/LocationContext'
 import { useTranslation } from '@/context/LanguageContext'
 
 const fadeInUp = {
@@ -19,18 +19,35 @@ type FormType = 'particulier' | 'professionnel'
 
 export default function ContactPage() {
     const [formType, setFormType] = useState<FormType>('particulier')
-    const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const { t } = useTranslation()
+    const { currentLocation } = useLocation()
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setIsSubmitting(true)
+        const form = e.currentTarget
+        const data = new FormData(form)
+        const get = (key: string) => String(data.get(key) ?? '').trim()
+        const shop = LOCATIONS[get('shop')] ?? currentLocation
+        const subjectSelect = form.elements.namedItem('subject') as HTMLSelectElement
+        const subjectLabel = subjectSelect.selectedOptions[0]?.text ?? get('subject')
 
-        // Simulate form submission
-        await new Promise(resolve => setTimeout(resolve, 1500))
+        const lines = [
+            get('message'),
+            '',
+            '—',
+            `${get('firstName')} ${get('lastName')}`,
+            get('email'),
+        ]
+        if (formType === 'professionnel') {
+            lines.push(`${get('company')}${get('activity') ? ` (${get('activity')})` : ''}`)
+        }
 
-        setIsSubmitting(false)
+        // No mail backend yet: open the visitor's email app with everything pre-filled
+        const mailto = `mailto:${shop.email.toLowerCase()}`
+            + `?subject=${encodeURIComponent(`[Site M'Ice] ${subjectLabel}`)}`
+            + `&body=${encodeURIComponent(lines.join('\n'))}`
+        window.location.href = mailto
         setIsSubmitted(true)
     }
 
@@ -150,6 +167,15 @@ export default function ContactPage() {
                                     )}
 
                                     <div className={styles.formGroup}>
+                                        <label htmlFor="shop" className={styles.label}>{t('contact.shop')} *</label>
+                                        <select id="shop" name="shop" required defaultValue={currentLocation.id} key={currentLocation.id} className={styles.select}>
+                                            {Object.values(LOCATIONS).map((loc) => (
+                                                <option key={loc.id} value={loc.id}>{loc.name}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    <div className={styles.formGroup}>
                                         <label htmlFor="subject" className={styles.label}>{t('contact.subject')} *</label>
                                         <select id="subject" name="subject" required className={styles.select}>
                                             <option value="">...</option>
@@ -184,10 +210,9 @@ export default function ContactPage() {
                                     <button
                                         type="submit"
                                         className={`btn btn--accent btn--lg ${styles.submitBtn}`}
-                                        disabled={isSubmitting}
                                     >
-                                        {isSubmitting ? t('contact.sending') : t('contact.send')}
-                                        {!isSubmitting && <Send size={18} className="ml-2" />}
+                                        {t('contact.send')}
+                                        <Send size={18} className="ml-2" />
                                     </button>
                                 </form>
                             )}
@@ -207,7 +232,7 @@ export default function ContactPage() {
                                     <div key={loc.id}>
                                         <div className={styles.sidebarItem}>
                                             <span className={styles.sidebarLabel}>{loc.shortName}</span>
-                                            <a href={`tel:${loc.phone.replace(/\s+/g, '')}`} className={styles.sidebarLink}>
+                                            <a href={`tel:+33${loc.phone.replace(/\s+/g, '').slice(1)}`} className={styles.sidebarLink}>
                                                 {loc.phone}
                                             </a>
                                         </div>

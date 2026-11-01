@@ -75,8 +75,15 @@ export default function NosCreations() {
     const [selectedItem, setSelectedItem] = useState<any>(null);
     const { t } = useTranslation();
 
+    useEffect(() => {
+        if (!selectedItem) return
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelectedItem(null) }
+        window.addEventListener('keydown', onKey)
+        return () => window.removeEventListener('keydown', onKey)
+    }, [selectedItem])
+
     return (
-        <main className={styles.main}>
+        <div className={styles.main}>
             <PageHero
                 title={t('section.creations.title')}
                 subtitle={t('creations.subtitle')}
@@ -111,6 +118,9 @@ export default function NosCreations() {
                                         className={styles.creationCard}
                                         variants={fadeInUp}
                                         onClick={() => setSelectedItem({ ...item, categoryName: t('creations.' + group.categoryKey) })}
+                                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedItem({ ...item, categoryName: t('creations.' + group.categoryKey) }) } }}
+                                        role="button"
+                                        tabIndex={0}
                                     >
                                         <div className={styles.creationImage}>
                                             <Image
@@ -154,7 +164,7 @@ export default function NosCreations() {
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button className={styles.modalClose} onClick={() => setSelectedItem(null)}>
+                            <button className={styles.modalClose} onClick={() => setSelectedItem(null)} aria-label="Fermer">
                                 <X size={20} />
                             </button>
                             
@@ -267,6 +277,6 @@ export default function NosCreations() {
 
 
 
-        </main>
+        </div>
     );
 }

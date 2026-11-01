@@ -18,6 +18,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         const saved = localStorage.getItem('mice-lang') as Locale | null
         if (saved && translations[saved]) {
             setLocaleState(saved)
+            document.documentElement.lang = saved
         }
     }, [])
 

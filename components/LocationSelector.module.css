@@ -140,3 +140,13 @@
     color: var(--color-accent);
     flex-shrink: 0;
 }
+
+@media (max-width: 480px) {
+    .locationName {
+        display: none;
+    }
+
+    .trigger {
+        padding: 8px 10px;
+    }
+}

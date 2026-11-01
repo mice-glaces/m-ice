@@ -26,6 +26,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'nav.creations': 'NOS CRÉATIONS',
         'nav.about': 'À PROPOS',
         'nav.contact': 'CONTACT',
+        'nav.faq': 'FAQ',
 
         // Hero
         'hero.title.line1': "L'art de la glace",
@@ -71,8 +72,9 @@ const translations: Record<Locale, TranslationKeys> = {
         'contact.message': 'Votre Message',
         'contact.send': 'Envoyer la demande',
         'contact.sending': 'Transmission...',
-        'contact.sent': 'Message Envoyé',
-        'contact.sentMessage': 'Votre demande a été transmise avec succès. Nos équipes reviendront vers vous sous 24h.',
+        'contact.sent': 'Message prêt à envoyer',
+        'contact.sentMessage': 'Votre messagerie s\'est ouverte avec votre message pré-rempli : il ne vous reste plus qu\'à l\'envoyer. Rien ne s\'est ouvert ? Écrivez-nous directement à l\'adresse indiquée à droite.',
+        'contact.shop': 'Glacier concerné',
         'contact.sendAnother': 'Envoyer un autre message',
 
         // General
@@ -311,6 +313,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'nav.creations': 'OUR CREATIONS',
         'nav.about': 'ABOUT',
         'nav.contact': 'CONTACT',
+        'nav.faq': 'FAQ',
 
         'hero.title.line1': 'The art of artisanal',
         'hero.title.line2': 'ice cream',
@@ -350,8 +353,9 @@ const translations: Record<Locale, TranslationKeys> = {
         'contact.message': 'Your Message',
         'contact.send': 'Send request',
         'contact.sending': 'Sending...',
-        'contact.sent': 'Message Sent',
-        'contact.sentMessage': 'Your request has been successfully submitted. Our team will get back to you within 24 hours.',
+        'contact.sent': 'Message ready to send',
+        'contact.sentMessage': 'Your email app has opened with your message pre-filled: just hit send. Nothing opened? Write to us directly at the address shown on the right.',
+        'contact.shop': 'Which shop?',
         'contact.sendAnother': 'Send another message',
 
         'general.phone': 'Phone',
@@ -573,6 +577,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'nav.creations': 'NUESTRAS CREACIONES',
         'nav.about': 'NOSOTROS',
         'nav.contact': 'CONTACTO',
+        'nav.faq': 'PREGUNTAS FRECUENTES',
 
         'hero.title.line1': 'El arte del helado',
         'hero.title.line2': 'artesanal',
@@ -612,8 +617,9 @@ const translations: Record<Locale, TranslationKeys> = {
         'contact.message': 'Su Mensaje',
         'contact.send': 'Enviar solicitud',
         'contact.sending': 'Enviando...',
-        'contact.sent': 'Mensaje Enviado',
-        'contact.sentMessage': 'Su solicitud ha sido enviada con éxito. Nuestro equipo le responderá en 24 horas.',
+        'contact.sent': 'Mensaje listo para enviar',
+        'contact.sentMessage': 'Su aplicación de correo se ha abierto con el mensaje ya redactado: solo tiene que enviarlo. ¿No se abrió nada? Escríbanos directamente a la dirección indicada.',
+        'contact.shop': 'Heladería',
         'contact.sendAnother': 'Enviar otro mensaje',
 
         'general.phone': 'Teléfono',
@@ -714,11 +720,11 @@ const translations: Record<Locale, TranslationKeys> = {
         'values.unique.title': 'Creaciones Únicas',
         'values.unique.desc': 'De los sabores clásicos a las innovaciones de temporada, déjate sorprender.',
 
-        'promo.label': "Verano en M'Ice",
+        'promo.label': "En M'Ice",
         'promo.title': 'Nuestras Crepas y Gofres',
-        'promo.desc': 'Durante la temporada de verano, descubra nuestras imprescindibles crepas y gofres crujientes. Preparadas al momento, acompañan a la perfección nuestros helados artesanales o se disfrutan solas con nuestras coberturas caseras.',
+        'promo.desc': 'Durante todo el año en M\'Ice, descubra nuestras imprescindibles crepas y gofres crujientes. Preparadas al momento, acompañan a la perfección nuestros helados artesanales o se disfrutan solas con nuestras coberturas caseras.',
         'promo.cta': 'Visítenos',
-        'promo.badge': 'Edición de Verano',
+        'promo.badge': "Todo el año en M'Ice",
 
         'flavor.1.name': "Vainilla",
         'flavor.1.desc': "Cremosa con vainas de vainilla de Indonesia",
@@ -835,6 +841,7 @@ const translations: Record<Locale, TranslationKeys> = {
         'nav.creations': 'LE NOSTRE CREAZIONI',
         'nav.about': 'CHI SIAMO',
         'nav.contact': 'CONTATTO',
+        'nav.faq': 'DOMANDE FREQUENTI',
 
         'hero.title.line1': "L'arte del gelato",
         'hero.title.line2': 'artigianale',
@@ -874,8 +881,9 @@ const translations: Record<Locale, TranslationKeys> = {
         'contact.message': 'Il Suo Messaggio',
         'contact.send': 'Invia richiesta',
         'contact.sending': 'Invio...',
-        'contact.sent': 'Messaggio Inviato',
-        'contact.sentMessage': 'La sua richiesta è stata inviata con successo. Il nostro team le risponderà entro 24 ore.',
+        'contact.sent': 'Messaggio pronto da inviare',
+        'contact.sentMessage': 'Il suo programma di posta si è aperto con il messaggio già compilato: basta inviarlo. Non si è aperto nulla? Ci scriva direttamente all\'indirizzo indicato.',
+        'contact.shop': 'Gelateria',
         'contact.sendAnother': 'Invia un altro messaggio',
 
         'general.phone': 'Telefono',
@@ -975,11 +983,11 @@ const translations: Record<Locale, TranslationKeys> = {
         'values.unique.title': 'Creazioni Uniche',
         'values.unique.desc': 'Dai gusti classici alle innovazioni stagionali, lasciati sorprendere.',
 
-        'promo.label': "Estate da M'Ice",
+        'promo.label': "Da M'Ice",
         'promo.title': 'Le Nostre Crêpes e Waffle',
-        'promo.desc': 'Durante la stagione estiva, scopri le nostre imperdibili crêpes e waffle croccanti. Preparate al momento, accompagnano perfettamente i nostri gelati artigianali o si gustano da sole con le nostre guarnizioni fatte in casa.',
+        'promo.desc': 'Tutto l\'anno da M\'Ice, scopri le nostre imperdibili crêpes e waffle croccanti. Preparate al momento, accompagnano perfettamente i nostri gelati artigianali o si gustano da sole con le nostre guarnizioni fatte in casa.',
         'promo.cta': 'Vieni a trovarci',
-        'promo.badge': 'Edizione Estiva',
+        'promo.badge': "Tutto l'anno da M'Ice",
 
         'flavor.1.name': "Vaniglia",
         'flavor.1.desc': "Cremosa con baccelli di vaniglia dell'Indonesia",

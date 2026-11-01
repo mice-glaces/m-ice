@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useRef, useEffect, useCallback, RefObject } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
@@ -176,41 +176,53 @@ const values = [
     },
 ]
 
+function useSlider() {
+    const ref = useRef<HTMLDivElement>(null)
+    const [canPrev, setCanPrev] = useState(false)
+    const [canNext, setCanNext] = useState(false)
+
+    const update = useCallback(() => {
+        const el = ref.current
+        if (!el) return
+        setCanPrev(el.scrollLeft > 4)
+        setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4)
+    }, [])
+
+    useEffect(() => {
+        update()
+        window.addEventListener('resize', update)
+        return () => window.removeEventListener('resize', update)
+    }, [update])
+
+    const scroll = (direction: 1 | -1) => {
+        const el = ref.current
+        const item = el?.firstElementChild as HTMLElement | null
+        if (!el || !item) return
+        const gap = parseFloat(getComputedStyle(el).columnGap) || 0
+        el.scrollBy({ left: direction * (item.offsetWidth + gap), behavior: 'smooth' })
+    }
+
+    return { ref: ref as RefObject<HTMLDivElement>, canPrev, canNext, update, scroll }
+}
+
 export default function HomePage() {
     const { t } = useTranslation()
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const [creationsIndex, setCreationsIndex] = useState(0)
     const [selectedFlavor, setSelectedFlavor] = useState<any | null>(null)
-    const itemsPerPage = 3
+    const flavorsSlider = useSlider()
+    const creationsSlider = useSlider()
 
     const isCreation = selectedFlavor && typeof selectedFlavor.id === 'string' && selectedFlavor.id.startsWith('c');
     const nameKey = selectedFlavor ? (isCreation ? `creation.${selectedFlavor.id}.name` : `flavor.${selectedFlavor.id}.name`) : '';
     const descKey = selectedFlavor ? (isCreation ? `creation.${selectedFlavor.id}.desc` : `flavor.${selectedFlavor.id}.desc`) : '';
     const categoryKeyText = selectedFlavor ? (isCreation ? `creations.${selectedFlavor.categoryKey}` : (selectedFlavor.category === 'Crème glacée' ? 'category.cream' : 'category.sorbet')) : '';
 
-    const nextSlide = () => {
-        if (currentIndex < featuredProducts.length - itemsPerPage) {
-            setCurrentIndex(prev => prev + 1)
-        }
-    }
+    useEffect(() => {
+        if (!selectedFlavor) return
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelectedFlavor(null) }
+        window.addEventListener('keydown', onKey)
+        return () => window.removeEventListener('keydown', onKey)
+    }, [selectedFlavor])
 
-    const prevSlide = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex(prev => prev - 1)
-        }
-    }
-
-    const nextCreationsSlide = () => {
-        if (creationsIndex < featuredCreations.length - itemsPerPage) {
-            setCreationsIndex(prev => prev + 1)
-        }
-    }
-
-    const prevCreationsSlide = () => {
-        if (creationsIndex > 0) {
-            setCreationsIndex(prev => prev - 1)
-        }
-    }
     return (
         <>
             {/* Hero Section */}
@@ -221,6 +233,7 @@ export default function HomePage() {
                         alt="Glaces artisanales M'Ice"
                         fill
                         priority
+                        sizes="100vw"
                         className={styles.heroImage}
                     />
                     <div className={styles.heroOverlay} />
@@ -271,18 +284,18 @@ export default function HomePage() {
                         <div className={styles.featuredActions}>
                             <div className={styles.carouselNav}>
                                 <button
-                                    onClick={prevSlide}
-                                    className={`${styles.navBtn} ${currentIndex === 0 ? styles.disabled : ''}`}
+                                    onClick={() => flavorsSlider.scroll(-1)}
+                                    className={`${styles.navBtn} ${!flavorsSlider.canPrev ? styles.disabled : ''}`}
                                     aria-label="Précédent"
-                                    disabled={currentIndex === 0}
+                                    disabled={!flavorsSlider.canPrev}
                                 >
                                     <ChevronLeft size={24} />
                                 </button>
                                 <button
-                                    onClick={nextSlide}
-                                    className={`${styles.navBtn} ${currentIndex >= featuredProducts.length - itemsPerPage ? styles.disabled : ''}`}
+                                    onClick={() => flavorsSlider.scroll(1)}
+                                    className={`${styles.navBtn} ${!flavorsSlider.canNext ? styles.disabled : ''}`}
                                     aria-label="Suivant"
-                                    disabled={currentIndex >= featuredProducts.length - itemsPerPage}
+                                    disabled={!flavorsSlider.canNext}
                                 >
                                     <ChevronRight size={24} />
                                 </button>
@@ -291,16 +304,15 @@ export default function HomePage() {
                     </div>
 
                     <div className={styles.sliderContainer}>
-                        <motion.div
-                            className={styles.sliderTrack}
-                            animate={{ x: `-${currentIndex * (100 / itemsPerPage)}%` }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        >
+                        <div className={styles.sliderTrack} ref={flavorsSlider.ref} onScroll={flavorsSlider.update}>
                             {featuredProducts.map((product: any) => (
                                 <div key={product.id} className={styles.sliderItem}>
-                                    <article 
+                                    <article
                                         className={styles.productCard}
                                         onClick={() => setSelectedFlavor(product)}
+                                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedFlavor(product) } }}
+                                        role="button"
+                                        tabIndex={0}
                                         style={{ cursor: 'pointer' }}
                                     >
                                         <div className={styles.productImage}>
@@ -322,7 +334,7 @@ export default function HomePage() {
                                     </article>
                                 </div>
                             ))}
-                        </motion.div>
+                        </div>
                     </div>
 
                     <div className={styles.featuredCta}>
@@ -344,18 +356,18 @@ export default function HomePage() {
                         <div className={styles.featuredActions}>
                             <div className={styles.carouselNav}>
                                 <button
-                                    onClick={prevCreationsSlide}
-                                    className={`${styles.navBtn} ${creationsIndex === 0 ? styles.disabled : ''}`}
+                                    onClick={() => creationsSlider.scroll(-1)}
+                                    className={`${styles.navBtn} ${!creationsSlider.canPrev ? styles.disabled : ''}`}
                                     aria-label="Précédent"
-                                    disabled={creationsIndex === 0}
+                                    disabled={!creationsSlider.canPrev}
                                 >
                                     <ChevronLeft size={24} />
                                 </button>
                                 <button
-                                    onClick={nextCreationsSlide}
-                                    className={`${styles.navBtn} ${creationsIndex >= featuredCreations.length - itemsPerPage ? styles.disabled : ''}`}
+                                    onClick={() => creationsSlider.scroll(1)}
+                                    className={`${styles.navBtn} ${!creationsSlider.canNext ? styles.disabled : ''}`}
                                     aria-label="Suivant"
-                                    disabled={creationsIndex >= featuredCreations.length - itemsPerPage}
+                                    disabled={!creationsSlider.canNext}
                                 >
                                     <ChevronRight size={24} />
                                 </button>
@@ -364,11 +376,7 @@ export default function HomePage() {
                     </div>
 
                     <div className={styles.sliderContainer}>
-                        <motion.div
-                            className={styles.sliderTrack}
-                            animate={{ x: `-${creationsIndex * (100 / itemsPerPage)}%` }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        >
+                        <div className={styles.sliderTrack} ref={creationsSlider.ref} onScroll={creationsSlider.update}>
                             {featuredCreations.map((product: any) => (
                                 <div key={product.id} className={styles.sliderItem}>
                                 <article 
@@ -413,7 +421,7 @@ export default function HomePage() {
                                     </article>
                                 </div>
                             ))}
-                        </motion.div>
+                        </div>
                     </div>
 
                     <div className={styles.featuredCta}>
@@ -475,7 +483,7 @@ export default function HomePage() {
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button className={styles.modalClose} onClick={() => setSelectedFlavor(null)}>
+                            <button className={styles.modalClose} onClick={() => setSelectedFlavor(null)} aria-label="Fermer">
                                 <X size={20} />
                             </button>
                             
@@ -486,7 +494,7 @@ export default function HomePage() {
                                 >
                                     <Image
                                         src={selectedFlavor.image}
-                                        alt={selectedFlavor.name}
+                                        alt={t(nameKey)}
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         className={styles.modalImg}

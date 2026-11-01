@@ -61,6 +61,7 @@ export default function AProposPage() {
                         alt="M'Ice Glacier Artisanal"
                         fill
                         priority
+                        sizes="100vw"
                         className={styles.heroImg}
                     />
                     <div className={styles.heroOverlay} />
@@ -128,6 +129,7 @@ export default function AProposPage() {
                                     src="/images/hero_final_unzoomed.png"
                                     alt="Notre laboratoire artisanal M'Ice"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className={styles.storyImg}
                                 />
                             </div>

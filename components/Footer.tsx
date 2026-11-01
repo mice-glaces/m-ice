@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Instagram, Facebook, Phone, MapPin, Mail } from 'lucide-react'
+import { Instagram, Phone, MapPin, Mail } from 'lucide-react'
 import { useLocation } from '@/context/LocationContext'
 import { useTranslation } from '@/context/LanguageContext'
 import styles from './Footer.module.css'
@@ -17,6 +17,7 @@ export default function Footer() {
         { href: '/creations', labelKey: 'nav.creations' },
         { href: '/collaborateurs', labelKey: 'collab.title' },
         { href: '/nous-trouver', labelKey: 'findus.title' },
+        { href: '/faq', labelKey: 'nav.faq' },
     ]
 
     const legalLinks = [
@@ -41,10 +42,7 @@ export default function Footer() {
                             {t('footer.description')}
                         </p>
                         <div className={styles.social}>
-                            <a href="#" className={styles.socialIcon} aria-label="Facebook">
-                                <Facebook size={18} />
-                            </a>
-                            <a href="https://instagram.com/mice_glacier" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
+                            <a href="https://instagram.com/mice_glacier" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram M'Ice">
                                 <Instagram size={18} />
                             </a>
                         </div>

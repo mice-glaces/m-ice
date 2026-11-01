@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import TransparentLogo from './TransparentLogo'
+import Image from 'next/image'
 import LocationSelector from './LocationSelector'
 import LanguageSelector from './LanguageSelector'
 import { useTranslation } from '@/context/LanguageContext'
@@ -35,11 +35,13 @@ export default function Header() {
             <div className={styles.container}>
                 <Link href="/" className={styles.logo} aria-label="M'Ice - Accueil">
                     <div className={styles.logoWrapper}>
-                        <TransparentLogo 
-                            src="/images/branding/logo.jpg" 
-                            alt="M'Ice" 
+                        <Image
+                            src="/images/branding/logo-transparent.png"
+                            alt="M'Ice"
+                            width={480}
+                            height={310}
+                            priority
                             className={styles.logoImg}
-                            height={120}
                         />
                     </div>
                 </Link>

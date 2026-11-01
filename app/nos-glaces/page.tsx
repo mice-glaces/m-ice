@@ -306,6 +306,13 @@ export default function NosGlacesPage() {
     const [selectedFlavor, setSelectedFlavor] = useState<typeof flavors[0] | null>(null)
     const { t } = useTranslation()
 
+    useEffect(() => {
+        if (!selectedFlavor) return
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelectedFlavor(null) }
+        window.addEventListener('keydown', onKey)
+        return () => window.removeEventListener('keydown', onKey)
+    }, [selectedFlavor])
+
     const filteredFlavors = flavors.filter(flavor => {
         if (activeFilter === 'all') return true
         return flavor.category === activeFilter
@@ -326,7 +333,7 @@ export default function NosGlacesPage() {
             <section className={`section ${styles.whiteBg}`}>
                 <div className="container">
                     <div className={styles.flavorsHeader}>
-                        <h2 className={styles.flavorsTitle}>{t('section.creations.title')}</h2>
+                        <h2 className={styles.flavorsTitle}>{t('section.flavors.title')}</h2>
                         <p className={styles.flavorsSubtitle}>
                             {t('hero.description')}
                         </p>
@@ -368,6 +375,9 @@ export default function NosGlacesPage() {
                                 className={styles.flavorCard}
                                 variants={fadeInUp}
                                 onClick={() => setSelectedFlavor(flavor)}
+                                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedFlavor(flavor) } }}
+                                role="button"
+                                tabIndex={0}
                                 style={{ cursor: 'pointer' }}
                             >
                                 <motion.div className={styles.flavorImage} layoutId={`flavor-img-${flavor.id}`}>
@@ -413,7 +423,7 @@ export default function NosGlacesPage() {
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button className={styles.modalClose} onClick={() => setSelectedFlavor(null)}>
+                            <button className={styles.modalClose} onClick={() => setSelectedFlavor(null)} aria-label="Fermer">
                                 <X size={20} />
                             </button>
                             

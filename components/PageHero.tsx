@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './PageHero.module.css'
 
 interface PageHeroProps {
@@ -18,10 +19,17 @@ export default function PageHero({
     compact = false,
 }: PageHeroProps) {
     return (
-        <section
-            className={`${styles.hero} ${compact ? styles.compact : ''}`}
-            style={backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : undefined}
-        >
+        <section className={`${styles.hero} ${compact ? styles.compact : ''}`}>
+            {backgroundImage && (
+                <Image
+                    src={backgroundImage}
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    className={styles.backgroundImg}
+                />
+            )}
             {overlay && <div className={styles.overlay} />}
             <div className={`${styles.content} ${centered ? styles.centered : ''}`}>
                 <h1 className={styles.title}>{title}</h1>

@@ -1,13 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 import styles from './page.module.css'
 
 const faqItems = [
     {
         question: 'Quels sont vos horaires d\'ouverture ?',
-        answer: 'Nos horaires varient selon la saison. En haute saison (juillet-août), nous sommes ouverts tous les jours de 10h à 19h. En mi-saison, nous ouvrons du mercredi au dimanche. Consultez notre page "Nous trouver" ou nos réseaux sociaux pour les horaires à jour.',
+        answer: 'Nos horaires varient selon la saison. En haute saison (juillet-août), nous sommes ouverts de 14h à 19h non-stop. En mi-saison (mai-juin et septembre), les horaires sont mis à jour sur notre fiche Google. Consultez aussi notre page "Nous trouver" ou notre Instagram pour les annonces de dernière minute.',
     },
     {
         question: 'Proposez-vous des options sans lactose ou véganes ?',
@@ -83,9 +84,9 @@ export default function FAQPage() {
                     <div className={styles.moreQuestions}>
                         <h3>Vous avez d&apos;autres questions ?</h3>
                         <p>Notre équipe est à votre disposition pour vous répondre.</p>
-                        <a href="/contact" className="btn btn--primary">
+                        <Link href="/contact" className="btn btn--primary">
                             Nous contacter
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>
