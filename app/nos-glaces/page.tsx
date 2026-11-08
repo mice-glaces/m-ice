@@ -31,7 +31,7 @@ const flavors = [
         name: 'Vanille',
         description: 'Onctueuse aux gousses de vanille d\'Indonésie',
         category: 'glaces',
-        image: '/images/vanille-scoop.png',
+        image: '/images/boules/vanille.png',
         price: '3,00€ la boule',
         isSeasonal: false,
     },
@@ -74,7 +74,7 @@ const flavors = [
         name: 'Café blanc',
         description: 'Douceur lactée aux notes de café délicates',
         category: 'glaces',
-        image: '/images/white_coffee_scoop.png',
+        image: '/images/boules/white_coffee.png',
         price: '3,00€ la boule',
     },
 
@@ -83,7 +83,7 @@ const flavors = [
         name: 'Yaourt',
         description: 'Un bon goût de montagne',
         category: 'glaces',
-        image: '/images/yogurt_scoop.png',
+        image: '/images/boules/yogurt.png',
         price: '3,00€ la boule',
     },
     {
@@ -99,7 +99,7 @@ const flavors = [
         name: 'Fleur de lait',
         description: 'Le bon goût du lait',
         category: 'glaces',
-        image: '/images/fleur_de_lait_scoop.png',
+        image: '/images/boules/fleur_de_lait.png',
         price: '3,00€ la boule',
     },
     {
@@ -107,7 +107,7 @@ const flavors = [
         name: 'Marron',
         description: 'L\'onctuosité de la crème de marron',
         category: 'glaces',
-        image: '/images/chestnut_scoop.png',
+        image: '/images/boules/chestnut.png',
         price: '3,00€ la boule',
     },
     {
@@ -123,7 +123,7 @@ const flavors = [
         name: 'Génépi',
         description: 'Saveur typique du Champsaur distillé à Saint-Jean-Saint-Nicolas',
         category: 'glaces',
-        image: '/images/genepi_scoop.png',
+        image: '/images/boules/genepi.png',
         price: '3,00€ la boule',
     },
     {
@@ -185,7 +185,7 @@ const flavors = [
         name: 'Abricot',
         description: "Douceur d'été",
         category: 'sorbets',
-        image: '/images/apricot_scoop.png',
+        image: '/images/boules/apricot.png',
         price: '3,00€ la boule',
     },
     {
@@ -203,7 +203,7 @@ const flavors = [
         name: 'Citron',
         description: "Fraîcheur acidulée",
         category: 'sorbets',
-        image: '/images/lemon_scoop.png',
+        image: '/images/boules/lemon.png',
         price: '3,00€ la boule',
     },
     {
@@ -219,7 +219,7 @@ const flavors = [
         name: 'Ananas',
         description: 'Exotisme tropical, sucré et désaltérant',
         category: 'sorbets',
-        image: '/images/pineapple_scoop.png',
+        image: '/images/boules/pineapple.png',
         price: '3,00€ la boule',
     },
     {
@@ -236,7 +236,7 @@ const flavors = [
         name: 'Passion',
         description: 'Explosion de saveurs',
         category: 'sorbets',
-        image: '/images/passion_fruit_scoop.png',
+        image: '/images/boules/passion_fruit.png',
         price: '3,00€ la boule',
     },
     {
@@ -252,7 +252,7 @@ const flavors = [
         name: 'Litchi',
         description: 'Fragrance florale et délicatesse exotique',
         category: 'sorbets',
-        image: '/images/lychee_scoop.png',
+        image: '/images/boules/lychee.png',
         price: '3,00€ la boule',
     },
     {
@@ -269,7 +269,7 @@ const flavors = [
         name: 'Thym',
         description: 'Une touche aromatique',
         category: 'glaces',
-        image: '/images/thyme_scoop.png',
+        image: '/images/boules/thyme.png',
         price: '3,00€ la boule',
     },
     {
@@ -295,7 +295,7 @@ const flavors = [
         name: 'Stracciatella',
         description: 'Crème onctueuse et éclats de chocolat croquants',
         category: 'glaces',
-        image: '/images/stracciatella_scoop.png',
+        image: '/images/boules/stracciatella.png',
         price: '3,00€ la boule',
     },
 ]

@@ -30,7 +30,7 @@ const featuredProducts = [
         name: 'Vanille',
         description: 'Onctueuse aux gousses de vanille d\'Indonésie',
         category: 'Crème glacée',
-        image: '/images/vanille-scoop.png',
+        image: '/images/boules/vanille.png',
         isSeasonal: false,
         scale: 0.7,
     },
@@ -62,7 +62,7 @@ const featuredProducts = [
         name: 'Génépi',
         description: 'Saveur typique des sommets de nos Alpes',
         category: 'Crème glacée',
-        image: '/images/genepi_scoop.png',
+        image: '/images/boules/genepi.png',
     },
     {
         id: 15,
@@ -114,7 +114,7 @@ const featuredProducts = [
         name: 'Litchi',
         description: 'Fragrance florale et délicatesse exotique',
         category: 'Sorbet Plein Fruit',
-        image: '/images/lychee_scoop.png',
+        image: '/images/boules/lychee.png',
     },
 ]
 
