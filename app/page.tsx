@@ -7,6 +7,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './page.module.css'
 import { useTranslation } from '@/context/LanguageContext'
+import { scoopStyle } from '@/data/scoopTone'
 import { LOCATIONS } from '@/data/locations'
 
 const fadeInUp = {
@@ -29,7 +30,7 @@ const featuredProducts = [
         name: 'Vanille',
         description: 'Onctueuse aux gousses de vanille d\'Indonésie',
         category: 'Crème glacée',
-        image: '/images/vanille.png',
+        image: '/images/vanille-scoop.png',
         isSeasonal: false,
         scale: 0.7,
     },
@@ -343,7 +344,7 @@ export default function HomePage() {
                                                 fill
                                                 sizes="(max-width: 768px) 100vw, 33vw"
                                                 className={styles.productImg}
-                                                style={product.scale ? { scale: product.scale } : undefined}
+                                                style={scoopStyle(product.image, product.scale)}
                                             />
                                             {product.isSeasonal && (
                                                 <span className={styles.productBadge}>{t('product.seasonal')}</span>
@@ -513,7 +514,7 @@ export default function HomePage() {
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         className={styles.modalImg}
-                                        style={selectedFlavor.scale ? { scale: selectedFlavor.scale } : undefined}
+                                        style={scoopStyle(selectedFlavor.image, selectedFlavor.scale)}
                                     />
                                     
                                     {/* SVG Drawing Layer */}

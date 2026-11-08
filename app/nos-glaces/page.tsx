@@ -7,6 +7,7 @@ import { ArrowRight, X } from 'lucide-react'
 import PageHero from '@/components/PageHero'
 import styles from './page.module.css'
 import { useTranslation } from '@/context/LanguageContext'
+import { scoopStyle } from '@/data/scoopTone'
 
 const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -30,7 +31,7 @@ const flavors = [
         name: 'Vanille',
         description: 'Onctueuse aux gousses de vanille d\'Indonésie',
         category: 'glaces',
-        image: '/images/vanille.png',
+        image: '/images/vanille-scoop.png',
         price: '3,00€ la boule',
         isSeasonal: false,
     },
@@ -390,7 +391,7 @@ export default function NosGlacesPage() {
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                         className={styles.flavorImg}
-                                        style={flavor.scale ? { scale: flavor.scale } : undefined}
+                                        style={scoopStyle(flavor.image, flavor.scale)}
                                     />
                                     {flavor.isSeasonal && (
                                         <span className={styles.flavorBadge}>Limitée</span>
@@ -441,7 +442,7 @@ export default function NosGlacesPage() {
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         className={styles.modalImg}
-                                        style={selectedFlavor.scale ? { scale: selectedFlavor.scale } : undefined}
+                                        style={scoopStyle(selectedFlavor.image, selectedFlavor.scale)}
                                     />
                                     
                                     {/* SVG Drawing Layer covering the entire image box! */}

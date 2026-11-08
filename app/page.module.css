@@ -340,25 +340,6 @@
     margin: 0 auto;
 }
 
-/* Gold hairline disc that draws itself around the product on hover/focus */
-.productImage::before {
-    content: '';
-    position: absolute;
-    inset: 4%;
-    border: 1px solid var(--color-accent);
-    border-radius: 50%;
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.6s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
-    pointer-events: none;
-}
-
-.productCard:hover .productImage::before,
-.productCard:focus-visible .productImage::before {
-    opacity: 1;
-    transform: scale(1);
-}
-
 .productCard:focus-visible .productName {
     text-decoration: underline;
     text-decoration-color: var(--color-accent);
@@ -417,15 +398,10 @@
     cursor: default;
 }
 
-.productCardUnavailable .productImage::before {
-    display: none;
-}
-
 .comingSoon {
     position: absolute;
     inset: 6%;
     border-radius: 50%;
-    border: 1px solid var(--color-border-accent);
     background: var(--color-warm-white);
     display: flex;
     align-items: center;
@@ -629,7 +605,7 @@
 .modalImg {
     object-fit: contain;
     mix-blend-mode: multiply;
-    filter: brightness(1.05) contrast(1.1);
+    filter: brightness(var(--scoop-brightness)) contrast(var(--scoop-contrast));
     -webkit-mask-image: radial-gradient(circle, black 55%, transparent 68%);
     mask-image: radial-gradient(circle, black 55%, transparent 68%);
 }

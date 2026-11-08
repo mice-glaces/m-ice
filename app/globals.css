@@ -88,8 +88,9 @@
   --glass-blur: blur(24px);
 
   /* Visual Studio */
-  --scoop-brightness: 1.03;
-  --scoop-contrast: 1.11;
+  /* Kept close to neutral: a stronger boost clipped the pale scoops to flat white */
+  --scoop-brightness: 1;
+  --scoop-contrast: 1.03;
   --scoop-bg: #fdfdfb;
   --scoop-size: 220px;
 }

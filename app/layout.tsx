@@ -4,6 +4,7 @@ import Providers from '@/components/Providers'
 import type { Metadata } from 'next'
 import { LOCATIONS } from '@/data/locations'
 import { SITE_URL, SITE_NAME, INSTAGRAM_URL } from '@/data/site'
+import { SCOOP_TONE_TABLE, SCOOP_TONE_GREY_TABLE } from '@/data/scoopTone'
 
 // next/font exposes the self-hosted families through these variables; globals.css
 // maps them onto --font-display / --font-body.
@@ -76,6 +77,18 @@ export default function RootLayout({
     return (
         <html lang="fr" className={`${cormorant.variable} ${dmSans.variable}`}>
             <body>
+                {/* Tone curves for overexposed scoop photos (see data/scoopTone.ts) */}
+                <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true" focusable="false">
+                    {[['scoop-tone', SCOOP_TONE_TABLE], ['scoop-tone-grey', SCOOP_TONE_GREY_TABLE]].map(([id, table]) => (
+                        <filter key={id} id={id} colorInterpolationFilters="sRGB">
+                            <feComponentTransfer>
+                                <feFuncR type="table" tableValues={table} />
+                                <feFuncG type="table" tableValues={table} />
+                                <feFuncB type="table" tableValues={table} />
+                            </feComponentTransfer>
+                        </filter>
+                    ))}
+                </svg>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
