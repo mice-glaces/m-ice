@@ -19,7 +19,7 @@ export const LOCATIONS: Record<string, GlacierLocation> = {
         address: 'La Garenne',
         city: 'Saint-Jean-Saint-Nicolas',
         postalCode: '05260',
-        phone: '06 59 32 83 60',
+        phone: '06 60 46 84 59',
         email: 'MICEGLACES@GMAIL.COM',
         mapUrl: 'https://maps.google.com/?q=La+Garenne+Saint-Jean-Saint-Nicolas',
         coordinates: { lat: 44.6717, lng: 6.2253 },

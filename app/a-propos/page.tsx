@@ -29,7 +29,6 @@ const staggerItem = {
 
 const teamMembers = [
     { name: "Régis", nameKey: "regis", image: "/images/team-regis.png" },
-    { name: "Anaïs", nameKey: "anais", image: "/images/team-anais.png" },
     { name: "Clara", nameKey: "clara", image: "/images/team-clara.png" },
     { name: "Victor", nameKey: "victor", image: "/images/team-victor.png" }
 ]

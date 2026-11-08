@@ -37,7 +37,7 @@
 
 .columnTitle {
     font-family: var(--font-body);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     font-weight: 700;
     color: var(--color-accent);
     margin-bottom: var(--space-xl);
@@ -155,4 +155,29 @@
     color: rgba(255, 255, 255, 0.3);
     letter-spacing: 0.08em;
     text-align: center;
+}
+
+/* Phones / tablets: shorter footer, links tall enough to tap */
+@media (max-width: 1023px) {
+    .footer {
+        padding-top: var(--space-3xl);
+    }
+
+    .grid {
+        gap: var(--space-2xl);
+        margin-bottom: var(--space-2xl);
+    }
+
+    .columnTitle {
+        margin-bottom: var(--space-md);
+    }
+
+    .linkList {
+        gap: 0;
+    }
+
+    .linkList .link {
+        display: inline-block;
+        padding: 9px 0;
+    }
 }

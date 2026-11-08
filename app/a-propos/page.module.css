@@ -8,7 +8,7 @@
 
 .label {
     display: inline-block;
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.25em;
@@ -82,7 +82,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.14em;
@@ -448,13 +448,9 @@
 
 @media (min-width: 640px) {
     .teamGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .teamGrid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 960px;
+        margin: 0 auto;
     }
 }
 
@@ -726,3 +722,42 @@
         display: none;
     }
 }
+
+/* Phones: two cards per row and a compact three-portrait team row
+   instead of one very long column */
+@media (max-width: 639px) {
+    .originGrid,
+    .valuesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+
+    .originCard,
+    .valueCard {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .teamGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .teamCard {
+        padding: var(--space-md) var(--space-xs);
+    }
+
+    .teamPortraitRing {
+        width: 84px;
+        height: 84px;
+        padding: 3px;
+    }
+
+    .teamPortraitWrapper {
+        margin-bottom: var(--space-sm);
+    }
+
+    .teamName {
+        font-size: var(--text-lg);
+    }
+}
+

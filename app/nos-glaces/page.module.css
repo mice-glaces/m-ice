@@ -90,7 +90,7 @@
 
 .flavorsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
     gap: var(--space-2xl);
 }
 .flavorCard {
@@ -375,4 +375,28 @@
     .annotationTL { left: -5%; }
     .annotationTR { right: -5%; }
     .annotationB { bottom: -5%; }
+}
+
+/* Phones: two scoops per row instead of one long column */
+@media (max-width: 600px) {
+    .flavorsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl) var(--space-md);
+    }
+
+    .flavorImage {
+        width: 100%;
+        max-width: 170px;
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .flavorCard {
+        gap: var(--space-xs);
+    }
+
+    .flavorName {
+        font-size: var(--text-lg);
+        line-height: 1.2;
+    }
 }

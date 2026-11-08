@@ -19,7 +19,7 @@ const CONTENT = {
                             <strong>M&apos;Ice — Atelier & Laboratoire</strong><br />
                             La Garenne<br />
                             Saint-Jean-Saint-Nicolas (05260), Hautes-Alpes, France<br />
-                            Téléphone : 06 59 32 83 60<br />
+                            Téléphone : 06 60 46 84 59<br />
                             E-mail : miceglaces@gmail.com
                         </p>
                         <p>
@@ -102,7 +102,7 @@ const CONTENT = {
                             <strong>M&apos;Ice — Workshop & Laboratory</strong><br />
                             La Garenne<br />
                             Saint-Jean-Saint-Nicolas (05260), Hautes-Alpes, France<br />
-                            Phone: 06 59 32 83 60<br />
+                            Phone: 06 60 46 84 59<br />
                             E-mail: miceglaces@gmail.com
                         </p>
                         <p>
@@ -185,7 +185,7 @@ const CONTENT = {
                             <strong>M&apos;Ice — Taller y Laboratorio</strong><br />
                             La Garenne<br />
                             Saint-Jean-Saint-Nicolas (05260), Hautes-Alpes, Francia<br />
-                            Teléfono: 06 59 32 83 60<br />
+                            Teléfono: 06 60 46 84 59<br />
                             E-mail: miceglaces@gmail.com
                         </p>
                         <p>
@@ -268,7 +268,7 @@ const CONTENT = {
                             <strong>M&apos;Ice — Atelier e Laboratorio</strong><br />
                             La Garenne<br />
                             Saint-Jean-Saint-Nicolas (05260), Hautes-Alpes, Francia<br />
-                            Telefono: 06 59 32 83 60<br />
+                            Telefono: 06 60 46 84 59<br />
                             E-mail: miceglaces@gmail.com
                         </p>
                         <p>

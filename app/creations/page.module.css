@@ -39,7 +39,7 @@
 
 .creationsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
     gap: var(--space-2xl);
     margin-top: var(--space-3xl);
 }
@@ -269,4 +269,27 @@
     pointer-events: none;
     max-width: 100px;
     line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+    .creationsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl) var(--space-md);
+        margin-top: var(--space-xl);
+    }
+
+    .creationImage {
+        width: 100%;
+    }
+
+    .creationCard {
+        gap: var(--space-sm);
+    }
+}
+
+@media (max-width: 600px) {
+    .creationName {
+        font-size: var(--text-lg);
+        line-height: 1.2;
+    }
 }

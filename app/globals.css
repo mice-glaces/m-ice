@@ -57,7 +57,7 @@
   --space-3xl: 4.5rem;
   --space-4xl: 7rem;
   --space-5xl: 10rem;
-  --space-section: clamp(6rem, 10vw, 12rem);
+  --space-section: clamp(4rem, 10vw, 12rem);
 
   /* Layout */
   --max-width: 1280px;

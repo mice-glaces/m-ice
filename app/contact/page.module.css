@@ -258,3 +258,31 @@
     color: var(--color-accent);
     transform: translateX(4px);
 }
+
+/* Phones: grid children may shrink, compact type switch, comfortable tap targets */
+.contactGrid > * {
+    min-width: 0;
+}
+
+@media (max-width: 480px) {
+    .formTypeSelector {
+        margin-bottom: var(--space-2xl);
+    }
+
+    .formTypeBtn {
+        min-width: 0;
+        padding: var(--space-md) var(--space-sm);
+        letter-spacing: 0.1em;
+        font-size: 0.72rem;
+    }
+
+    .submitBtn {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .sidebarLink {
+        display: inline-block;
+        padding: 6px 0;
+    }
+}

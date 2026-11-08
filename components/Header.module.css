@@ -141,7 +141,7 @@
 /* Mobile Menu Toggle */
 .menuToggle {
     display: block;
-    padding: var(--space-sm);
+    padding: 12px 10px;
     background: transparent;
     border: none;
     cursor: pointer;
