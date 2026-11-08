@@ -56,25 +56,34 @@
     cursor: pointer;
 }
 
-.creationCard:hover {
-    transform: translateY(-12px);
+/* Gold hairline disc (the logo's sun) drawn on hover/focus, as on the home page */
+.creationImage::before {
+    content: '';
+    position: absolute;
+    inset: 4%;
+    border: 1px solid var(--color-accent);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+    pointer-events: none;
+}
+
+.creationCard:hover .creationImage::before,
+.creationCard:focus-visible .creationImage::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.creationCard:focus-visible {
+    outline: none;
 }
 
 .creationImage {
     position: relative;
     width: 350px;
-    height: 350px;
-    animation: float 7s ease-in-out infinite;
-}
-
-.creationCard:nth-child(even) .creationImage {
-    animation-delay: -3.5s;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-16px); }
-    100% { transform: translateY(0px); }
+    max-width: 100%;
+    aspect-ratio: 1;
 }
 
 .creationImg {

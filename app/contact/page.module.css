@@ -49,8 +49,7 @@
 
 .formTypeBtn.active {
     background-color: var(--color-accent);
-    color: white;
-    box-shadow: var(--shadow-accent);
+    color: var(--color-primary);
 }
 
 /* Form */

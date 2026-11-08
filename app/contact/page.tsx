@@ -73,6 +73,7 @@ export default function ContactPage() {
                                 <button
                                     type="button"
                                     className={`${styles.formTypeBtn} ${formType === 'particulier' ? styles.active : ''}`}
+                                    aria-pressed={formType === 'particulier'}
                                     onClick={() => setFormType('particulier')}
                                 >
                                     {t('contact.individual')}
@@ -80,6 +81,7 @@ export default function ContactPage() {
                                 <button
                                     type="button"
                                     className={`${styles.formTypeBtn} ${formType === 'professionnel' ? styles.active : ''}`}
+                                    aria-pressed={formType === 'professionnel'}
                                     onClick={() => setFormType('professionnel')}
                                 >
                                     {t('contact.professional')}
@@ -94,7 +96,7 @@ export default function ContactPage() {
                                     <h3>{t('contact.sent')}</h3>
                                     <p>{t('contact.sentMessage')}</p>
                                     <button
-                                        className="btn btn--outline-light"
+                                        className="btn btn--outline-dark"
                                         onClick={() => setIsSubmitted(false)}
                                     >
                                         {t('contact.sendAnother')}

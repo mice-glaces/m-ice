@@ -5,18 +5,21 @@ import type { Metadata } from 'next'
 import { LOCATIONS } from '@/data/locations'
 import { SITE_URL, SITE_NAME, INSTAGRAM_URL } from '@/data/site'
 
-const playfair = Cormorant_Garamond({
+// next/font exposes the self-hosted families through these variables; globals.css
+// maps them onto --font-display / --font-body.
+const cormorant = Cormorant_Garamond({
     subsets: ['latin'],
-    weight: ['300', '400', '500', '600', '700'],
+    weight: ['300', '400', '500', '600'],
+    style: ['normal', 'italic'],
     display: 'swap',
-    variable: '--font-display',
+    variable: '--font-cormorant',
 })
 
-const inter = DM_Sans({
+const dmSans = DM_Sans({
     subsets: ['latin'],
-    weight: ['400', '500', '700'],
+    weight: ['300', '400', '500', '700'],
     display: 'swap',
-    variable: '--font-body',
+    variable: '--font-dm-sans',
 })
 
 export const metadata: Metadata = {
@@ -71,7 +74,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="fr" className={`${playfair.variable} ${inter.variable}`}>
+        <html lang="fr" className={`${cormorant.variable} ${dmSans.variable}`}>
             <body>
                 <script
                     type="application/ld+json"

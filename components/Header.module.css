@@ -120,11 +120,11 @@
     right: 18px;
 }
 
-.navLink.navLink-active {
+.navLink.navLinkActive {
     color: white;
 }
 
-.navLink.navLink-active::after {
+.navLink.navLinkActive::after {
     left: 18px;
     right: 18px;
 }
@@ -262,6 +262,10 @@
         display: none;
     }
 
+    .nav.navOpen .navLink.navLinkActive {
+        color: var(--color-accent);
+    }
+
     .nav.navOpen .navLink:hover {
         background: rgba(255, 255, 255, 0.04);
         color: white;
@@ -282,6 +286,11 @@
 @media (max-width: 480px) {
     .rightActions {
         gap: var(--space-sm);
+    }
+
+    .logoWrapper,
+    .header.scrolled .logoWrapper {
+        height: 44px;
     }
 }
 

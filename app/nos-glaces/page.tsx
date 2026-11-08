@@ -343,18 +343,21 @@ export default function NosGlacesPage() {
                     <div className={styles.filtersWrapper}>
                         <button
                             className={`${styles.filterBtn} ${activeFilter === 'all' ? styles.filterBtnActive : ''}`}
+                            aria-pressed={activeFilter === 'all'}
                             onClick={() => setActiveFilter('all')}
                         >
                             {t('category.all')}
                         </button>
                         <button
                             className={`${styles.filterBtn} ${activeFilter === 'glaces' ? styles.filterBtnActive : ''}`}
+                            aria-pressed={activeFilter === 'glaces'}
                             onClick={() => setActiveFilter('glaces')}
                         >
                             {t('category.icecream')}
                         </button>
                         <button
                             className={`${styles.filterBtn} ${activeFilter === 'sorbets' ? styles.filterBtnActive : ''}`}
+                            aria-pressed={activeFilter === 'sorbets'}
                             onClick={() => setActiveFilter('sorbets')}
                         >
                             {t('category.sorbet')}

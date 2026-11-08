@@ -7,6 +7,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './page.module.css'
 import { useTranslation } from '@/context/LanguageContext'
+import { LOCATIONS } from '@/data/locations'
 
 const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -263,11 +264,31 @@ export default function HomePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <Link href="/nos-glaces" className={styles.goldBtn}>
+                        <Link href="/nos-glaces" className="btn btn--outline-light btn--lg">
                             {t('hero.cta')}
                         </Link>
                     </motion.div>
                 </div>
+
+                {/* Where to find us, straight from the first screen */}
+                <motion.div
+                    className={styles.heroShops}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.8 }}
+                >
+                    <div className={styles.heroShopsInner}>
+                        {Object.values(LOCATIONS).map((loc) => (
+                            <Link key={loc.id} href="/nous-trouver" className={styles.heroShop}>
+                                <span className={styles.heroShopCity}>{loc.shortName}</span>
+                                <span className={styles.heroShopAddress}>{loc.address}</span>
+                            </Link>
+                        ))}
+                        <Link href="/nous-trouver" className={styles.heroShopsLink}>
+                            {t('findus.title')}
+                        </Link>
+                    </div>
+                </motion.div>
 
             </section>
 
@@ -330,6 +351,9 @@ export default function HomePage() {
                                         </div>
                                         <div className={styles.productContent}>
                                             <h3 className={styles.productName}>{t('flavor.' + product.id + '.name')}</h3>
+                                            <span className={styles.productKind}>
+                                                {t(product.category === 'Crème glacée' ? 'category.cream' : 'category.sorbet')}
+                                            </span>
                                         </div>
                                     </article>
                                 </div>
@@ -338,7 +362,7 @@ export default function HomePage() {
                     </div>
 
                     <div className={styles.featuredCta}>
-                        <Link href="/nos-glaces" className="btn">
+                        <Link href="/nos-glaces" className="btn btn--outline-dark">
                             {t('section.flavors.cta')}
                         </Link>
                     </div>
@@ -379,25 +403,16 @@ export default function HomePage() {
                         <div className={styles.sliderTrack} ref={creationsSlider.ref} onScroll={creationsSlider.update}>
                             {featuredCreations.map((product: any) => (
                                 <div key={product.id} className={styles.sliderItem}>
-                                <article 
-                                        className={styles.productCard}
+                                    <article
+                                        className={`${styles.productCard} ${product.isUnavailable ? styles.productCardUnavailable : ''}`}
                                         onClick={product.isUnavailable ? undefined : () => setSelectedFlavor(product)}
-                                        style={{ cursor: product.isUnavailable ? 'default' : 'pointer' }}
+                                        onKeyDown={product.isUnavailable ? undefined : (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedFlavor(product) } }}
+                                        role={product.isUnavailable ? undefined : 'button'}
+                                        tabIndex={product.isUnavailable ? undefined : 0}
                                     >
-                                        <div className={styles.productImage} style={product.isUnavailable ? { display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-warm-white, #faf7f2)', border: '1px dashed rgba(0,0,0,0.15)', borderRadius: '12px', width: '100%', aspectRatio: '1' } : undefined}>
+                                        <div className={styles.productImage}>
                                             {product.isUnavailable ? (
-                                                <div style={{
-                                                    display: 'flex',
-                                                    flexDirection: 'column',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    padding: '1.5rem',
-                                                    color: 'var(--color-accent, #c89b3c)',
-                                                    fontStyle: 'italic',
-                                                    fontWeight: 500,
-                                                    fontSize: '1.05rem',
-                                                    textAlign: 'center'
-                                                }}>
+                                                <div className={styles.comingSoon}>
                                                     {t('creations.buchette.comingSoon')}
                                                 </div>
                                             ) : (
@@ -415,8 +430,8 @@ export default function HomePage() {
                                             )}
                                         </div>
                                         <div className={styles.productContent}>
-                                            <span style={{ fontSize: '0.7rem', color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700 }}>{t('creations.' + product.categoryKey)}</span>
-                                            <h3 className={styles.productName} style={{ marginTop: '0.5rem' }}>{t('creation.' + product.id + '.name')}</h3>
+                                            <h3 className={styles.productName}>{t('creation.' + product.id + '.name')}</h3>
+                                            <span className={styles.productKind}>{t('creations.' + product.categoryKey)}</span>
                                         </div>
                                     </article>
                                 </div>
@@ -425,7 +440,7 @@ export default function HomePage() {
                     </div>
 
                     <div className={styles.featuredCta}>
-                        <Link href="/creations" className="btn">
+                        <Link href="/creations" className="btn btn--outline-dark">
                             {t('section.creations.cta')}
                         </Link>
                     </div>
@@ -441,7 +456,7 @@ export default function HomePage() {
                             <h2 className={styles.promoTitle}>{t('promo.title')}</h2>
                             <p className={styles.promoDesc}>{t('promo.desc')}</p>
                             <div className={styles.promoCta}>
-                                <Link href="/contact" className={styles.goldBtn} style={{ padding: '14px 32px' }}>
+                                <Link href="/nous-trouver" className="btn btn--primary">
                                     {t('promo.cta')}
                                 </Link>
                             </div>

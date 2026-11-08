@@ -34,8 +34,8 @@
   --color-border-accent: rgba(200, 155, 60, 0.35);
 
   /* Typography - Fontes Premium */
-  --font-display: 'Cormorant Garamond', serif;
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-body: var(--font-dm-sans), 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   --text-xs: clamp(0.7rem, 0.68rem + 0.15vw, 0.78rem);
   --text-sm: clamp(0.82rem, 0.8rem + 0.25vw, 0.92rem);
@@ -73,6 +73,7 @@
   --transition-fast: 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-base: 400ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Shadows — softer, more diffuse */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -323,7 +324,8 @@ p {
 }
 
 /* --------------------------------------------------------------------------
-   Buttons — refined, elegant
+   Buttons — one shape for the whole site: square corners, hairline border,
+   gold fill sweeping in from the left on hover (the hero CTA's gesture)
    -------------------------------------------------------------------------- */
 
 .btn {
@@ -331,86 +333,96 @@ p {
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: 1rem 2.5rem;
+  padding: 1.05rem 2.4rem;
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  border-radius: var(--border-radius-full);
-  transition: all var(--transition-base);
+  line-height: 1.2;
+  border-radius: 0;
+  border: 1px solid transparent;
   position: relative;
   overflow: hidden;
-  border: 1.5px solid transparent;
+  isolation: isolate;
+  transition: color 0.5s var(--ease-out-expo), border-color 0.5s var(--ease-out-expo), background-color 0.5s var(--ease-out-expo);
 }
 
 .btn::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-  transition: left 0.6s ease;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--ease-out-expo);
 }
 
-.btn:hover::before {
-  left: 100%;
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
+.btn:hover,
+.btn:focus-visible {
+  color: var(--color-primary);
+  border-color: var(--color-accent);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Solid black: for light backgrounds */
 .btn--primary {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-  color: var(--color-text-inverse);
-  border: none;
-  box-shadow: var(--shadow-md);
-}
-
-.btn--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.btn--accent {
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
-  color: var(--color-primary);
-  border: none;
-  box-shadow: var(--shadow-accent);
-}
-
-.btn--accent:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(200, 155, 60, 0.3);
-}
-
-.btn--outline {
-  background: transparent;
-  color: var(--color-primary);
-  border: 1.5px solid var(--color-border-accent);
-}
-
-.btn--outline:hover {
-  background: var(--color-primary);
+  background-color: var(--color-primary);
   color: var(--color-text);
   border-color: var(--color-primary);
-  transform: translateY(-2px);
+}
+
+/* Solid gold: the single strongest action on a page */
+.btn--accent {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  border-color: var(--color-accent);
+}
+
+.btn--accent::before {
+  background: var(--color-accent-light);
+}
+
+.btn--accent:hover,
+.btn--accent:focus-visible {
+  border-color: var(--color-accent-light);
+}
+
+/* Hairline outlines */
+.btn--outline,
+.btn--outline-dark {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: rgba(14, 14, 16, 0.22);
 }
 
 .btn--outline-light {
   background: transparent;
   color: var(--color-text);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn--outline-light:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn--lg {
-  padding: 1.25rem 3rem;
-  font-size: 0.82rem;
+  padding: 1.2rem 2.8rem;
+}
+
+@media (max-width: 480px) {
+  .btn,
+  .btn--lg {
+    padding: 1rem 1.6rem;
+    letter-spacing: 0.14em;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -646,6 +658,21 @@ p {
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* --------------------------------------------------------------------------

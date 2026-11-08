@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Heart, Mountain, Users, Leaf, Sparkles, MapPin, ArrowDown } from 'lucide-react'
+import { Heart, Mountain, Users, Leaf, Sparkles, MapPin, ArrowDown, Milk, Wheat, IceCreamCone, Bean } from 'lucide-react'
 import { useTranslation } from '@/context/LanguageContext'
 import styles from './page.module.css'
 
@@ -28,10 +28,10 @@ const staggerItem = {
 } as const
 
 const teamMembers = [
-    { name: "Régis", nameKey: "regis", image: "/images/team-regis.png", emoji: "🍦" },
-    { name: "Anaïs", nameKey: "anais", image: "/images/team-anais.png", emoji: "🎨" },
-    { name: "Clara", nameKey: "clara", image: "/images/team-clara.png", emoji: "✨" },
-    { name: "Victor", nameKey: "victor", image: "/images/team-victor.png", emoji: "🏔️" }
+    { name: "Régis", nameKey: "regis", image: "/images/team-regis.png" },
+    { name: "Anaïs", nameKey: "anais", image: "/images/team-anais.png" },
+    { name: "Clara", nameKey: "clara", image: "/images/team-clara.png" },
+    { name: "Victor", nameKey: "victor", image: "/images/team-victor.png" }
 ]
 
 const valueEntries = [
@@ -41,11 +41,12 @@ const valueEntries = [
     { icon: Users, key: 'proximity' }
 ]
 
+// Same gold line icons as the values section below, rather than emoji
 const originItems = [
-    { emoji: '🥛', key: 'milk' },
-    { emoji: '🥞', key: 'crepes' },
-    { emoji: '🍦', key: 'chantilly' },
-    { emoji: '🍫', key: 'choco' }
+    { icon: Milk, key: 'milk' },
+    { icon: Wheat, key: 'crepes' },
+    { icon: IceCreamCone, key: 'chantilly' },
+    { icon: Bean, key: 'choco' }
 ]
 
 export default function AProposPage() {
@@ -153,7 +154,9 @@ export default function AProposPage() {
                         {originItems.map((item) => (
                             <motion.div key={item.key} className={styles.originCard} variants={staggerItem}>
                                 <div className={styles.originIconWrapper}>
-                                    <span className={styles.originIcon}>{item.emoji}</span>
+                                    <span className={styles.originIcon}>
+                                        <item.icon size={26} strokeWidth={1.4} aria-hidden="true" />
+                                    </span>
                                 </div>
                                 <h3 className={styles.originCardTitle}>{t(`about.origin.${item.key}.title`)}</h3>
                                 <p className={styles.originCardText}>{t(`about.origin.${item.key}.desc`)}</p>
@@ -185,7 +188,7 @@ export default function AProposPage() {
                                 <div className={styles.teamPortraitWrapper}>
                                     <div className={styles.teamPortraitRing}>
                                         <div className={styles.teamPortrait}>
-                                            <Image
+                                                            <Image
                                                 src={member.image}
                                                 alt={member.name}
                                                 fill
@@ -248,7 +251,7 @@ export default function AProposPage() {
                         <Sparkles size={28} className={styles.ctaIcon} />
                         <h2 className={styles.ctaTitle}>{t('about.cta.title')}</h2>
                         <p className={styles.ctaText}>{t('about.cta.text')}</p>
-                        <Link href="/nos-glaces" className={styles.ctaBtn}>
+                        <Link href="/nos-glaces" className="btn btn--outline-dark">
                             {t('about.cta.btn')}
                         </Link>
                     </motion.div>
