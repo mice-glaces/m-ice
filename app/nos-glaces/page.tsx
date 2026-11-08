@@ -7,7 +7,6 @@ import { ArrowRight, X } from 'lucide-react'
 import PageHero from '@/components/PageHero'
 import styles from './page.module.css'
 import { useTranslation } from '@/context/LanguageContext'
-import { scoopStyle } from '@/data/scoopTone'
 
 const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -66,7 +65,7 @@ const flavors = [
         name: 'Café',
         description: 'Un goût intense',
         category: 'glaces',
-        image: '/images/coffee_scoop.png',
+        image: '/images/boules/coffee.png',
         price: '3,00€ la boule',
     },
     {
@@ -91,7 +90,7 @@ const flavors = [
         name: 'Caramel beurre salé',
         description: 'Un caramel fait maison',
         category: 'glaces',
-        image: '/images/caramel_scoop.png',
+        image: '/images/boules/caramel.png',
         price: '3,00€ la boule',
     },
     {
@@ -141,7 +140,7 @@ const flavors = [
         name: 'Menthe chocolat',
         description: 'Alliance fraîche de feuilles de menthe et éclats de chocolat',
         category: 'glaces',
-        image: '/images/mint_choc_scoop.png',
+        image: '/images/boules/mint_choc.png',
         price: '3,00€ la boule',
     },
 
@@ -160,7 +159,7 @@ const flavors = [
         name: 'Fraise',
         description: "Le bon goût de l'été",
         category: 'sorbets',
-        image: '/images/strawberry_scoop.png',
+        image: '/images/boules/strawberry.png',
         price: '3,00€ la boule',
     },
     {
@@ -177,7 +176,7 @@ const flavors = [
         name: 'Myrtille',
         description: 'Un parfum fruité et rafraîchissant',
         category: 'sorbets',
-        image: '/images/blueberry_scoop.png',
+        image: '/images/boules/blueberry.png',
         price: '3,00€ la boule',
     },
     {
@@ -211,7 +210,7 @@ const flavors = [
         name: 'Argousier',
         description: 'Baie typique des montagnes',
         category: 'sorbets',
-        image: '/images/sea_buckthorn_scoop.png',
+        image: '/images/boules/sea_buckthorn.png',
         price: '3,00€ la boule',
     },
     {
@@ -244,7 +243,7 @@ const flavors = [
         name: 'Banane',
         description: 'Douceur veloutée et parfum gourmand',
         category: 'sorbets',
-        image: '/images/banana_scoop.png',
+        image: '/images/boules/banana.png',
         price: '3,00€ la boule',
     },
     {
@@ -260,7 +259,7 @@ const flavors = [
         name: 'Lavande',
         description: 'Parfum floral délicat typique de la Provence',
         category: 'glaces',
-        image: '/images/lavender_scoop.png',
+        image: '/images/boules/lavender.png',
         price: '3,00€ la boule',
     },
     {
@@ -391,7 +390,7 @@ export default function NosGlacesPage() {
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                         className={styles.flavorImg}
-                                        style={scoopStyle(flavor.image, flavor.scale)}
+                                        style={flavor.scale ? { scale: flavor.scale } : undefined}
                                     />
                                     {flavor.isSeasonal && (
                                         <span className={styles.flavorBadge}>Limitée</span>
@@ -442,7 +441,7 @@ export default function NosGlacesPage() {
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         className={styles.modalImg}
-                                        style={scoopStyle(selectedFlavor.image, selectedFlavor.scale)}
+                                        style={selectedFlavor.scale ? { scale: selectedFlavor.scale } : undefined}
                                     />
                                     
                                     {/* SVG Drawing Layer covering the entire image box! */}

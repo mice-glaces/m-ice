@@ -7,7 +7,6 @@ import { ArrowRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './page.module.css'
 import { useTranslation } from '@/context/LanguageContext'
-import { scoopStyle } from '@/data/scoopTone'
 import { LOCATIONS } from '@/data/locations'
 
 const fadeInUp = {
@@ -55,7 +54,7 @@ const featuredProducts = [
         name: 'Caramel beurre salé',
         description: 'Caramel maison au sel de Guérande',
         category: 'Crème glacée',
-        image: '/images/caramel_scoop.png',
+        image: '/images/boules/caramel.png',
     },
     {
         id: 13,
@@ -69,7 +68,7 @@ const featuredProducts = [
         name: 'Menthe chocolat',
         description: 'Alliance fraîche de menthe et pépites de cacao',
         category: 'Crème glacée',
-        image: '/images/mint_choc_scoop.png',
+        image: '/images/boules/mint_choc.png',
         scale: 0.8,
     },
     {
@@ -85,14 +84,14 @@ const featuredProducts = [
         name: 'Fraise',
         description: 'Le goût authentique des fraises d\'été',
         category: 'Sorbet Plein Fruit',
-        image: '/images/strawberry_scoop.png',
+        image: '/images/boules/strawberry.png',
     },
     {
         id: 19,
         name: 'Myrtille',
         description: 'Éclat de fruits des bois au sommet des Alpes',
         category: 'Sorbet Plein Fruit',
-        image: '/images/blueberry_scoop.png',
+        image: '/images/boules/blueberry.png',
         scale: 0.65,
     },
     {
@@ -100,7 +99,7 @@ const featuredProducts = [
         name: 'Argousier',
         description: 'Baies sauvages riches en vitamines, acidité unique',
         category: 'Sorbet Plein Fruit',
-        image: '/images/sea_buckthorn_scoop.png',
+        image: '/images/boules/sea_buckthorn.png',
     },
     {
         id: 25,
@@ -344,7 +343,7 @@ export default function HomePage() {
                                                 fill
                                                 sizes="(max-width: 768px) 100vw, 33vw"
                                                 className={styles.productImg}
-                                                style={scoopStyle(product.image, product.scale)}
+                                                style={product.scale ? { scale: product.scale } : undefined}
                                             />
                                             {product.isSeasonal && (
                                                 <span className={styles.productBadge}>{t('product.seasonal')}</span>
@@ -514,7 +513,7 @@ export default function HomePage() {
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         className={styles.modalImg}
-                                        style={scoopStyle(selectedFlavor.image, selectedFlavor.scale)}
+                                        style={selectedFlavor.scale ? { scale: selectedFlavor.scale } : undefined}
                                     />
                                     
                                     {/* SVG Drawing Layer */}
