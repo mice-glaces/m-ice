@@ -26,7 +26,6 @@ const flavors = [
     // Crèmes glacées
     {
         id: 1,
-        scale: 0.7,
         name: 'Vanille',
         description: 'Onctueuse aux gousses de vanille d\'Indonésie',
         category: 'glaces',
@@ -36,20 +35,18 @@ const flavors = [
     },
     {
         id: 2,
-        scale: 0.7,
         name: 'Chocolat',
         description: 'Grand cru de cacao, saveur intense',
         category: 'glaces',
-        image: '/images/chocolat.png',
+        image: '/images/boules/chocolat.png',
         price: '3,00€ la boule',
     },
     {
         id: 3,
-        scale: 1.15,
         name: 'Pistache',
         description: 'Pistache torréfiée, goût authentique',
         category: 'glaces',
-        image: '/images/pistachio_scoop.png',
+        image: '/images/boules/pistachio.png',
         price: '3,00€ la boule',
     },
     {
@@ -57,7 +54,7 @@ const flavors = [
         name: 'Noisette',
         description: 'Noisettes torréfiées',
         category: 'glaces',
-        image: '/images/hazelnut_scoop.png',
+        image: '/images/boules/hazelnut.png',
         price: '3,00€ la boule',
     },
     {
@@ -114,7 +111,7 @@ const flavors = [
         name: 'Rhum raisins',
         description: 'Raisins macérés au rhum vieux des Caraïbes',
         category: 'glaces',
-        image: '/images/rum_raisin_scoop.png',
+        image: '/images/boules/rum_raisin.png',
         price: '3,00€ la boule',
     },
     {
@@ -127,16 +124,14 @@ const flavors = [
     },
     {
         id: 14,
-        scale: 0.6,
         name: 'Miel',
         description: 'Douceur locale issue des ruches de la miellerie Chalet',
         category: 'glaces',
-        image: '/images/honey_scoop.png',
+        image: '/images/boules/honey.png',
         price: '3,00€ la boule',
     },
     {
         id: 15,
-        scale: 0.8,
         name: 'Menthe chocolat',
         description: 'Alliance fraîche de feuilles de menthe et éclats de chocolat',
         category: 'glaces',
@@ -147,11 +142,10 @@ const flavors = [
     // Sorbets
     {
         id: 16,
-        scale: 0.6,
         name: 'Framboise',
         description: 'Gourmand et acidulé',
         category: 'sorbets',
-        image: '/images/framboise.png',
+        image: '/images/boules/framboise.png',
         price: '3,00€ la boule',
     },
     {
@@ -167,12 +161,11 @@ const flavors = [
         name: 'Cassis',
         description: 'Intensité des baies noires',
         category: 'sorbets',
-        image: '/images/blackcurrant_scoop.png',
+        image: '/images/boules/blackcurrant.png',
         price: '3,00€ la boule',
     },
     {
         id: 19,
-        scale: 0.65,
         name: 'Myrtille',
         description: 'Un parfum fruité et rafraîchissant',
         category: 'sorbets',
@@ -189,16 +182,14 @@ const flavors = [
     },
     {
         id: 21,
-        scale: 0.65,
         name: 'Poire',
         description: 'Finesse de la poire Williams, fraîche et douce',
         category: 'sorbets',
-        image: '/images/pear_scoop.png',
+        image: '/images/boules/pear.png',
         price: '3,00€ la boule',
     },
     {
         id: 22,
-        scale: 0.65,
         name: 'Citron',
         description: "Fraîcheur acidulée",
         category: 'sorbets',
@@ -226,12 +217,11 @@ const flavors = [
         name: 'Mangue',
         description: "L'onctuosité de la mangue",
         category: 'sorbets',
-        image: '/images/mango_scoop.png',
+        image: '/images/boules/mango.png',
         price: '3,00€ la boule',
     },
     {
         id: 26,
-        scale: 0.65,
         name: 'Passion',
         description: 'Explosion de saveurs',
         category: 'sorbets',
@@ -264,7 +254,6 @@ const flavors = [
     },
     {
         id: 30,
-        scale: 0.65,
         name: 'Thym',
         description: 'Une touche aromatique',
         category: 'glaces',
@@ -273,20 +262,18 @@ const flavors = [
     },
     {
         id: 32,
-        scale: 0.65,
         name: 'Citron Menthe',
         description: "Rafraîchissante",
         category: 'sorbets',
-        image: '/images/lemon_mint_scoop.png',
+        image: '/images/boules/lemon_mint.png',
         price: '3,00€ la boule',
     },
     {
         id: 33,
-        scale: 0.65,
         name: 'Abricot Thym',
         description: "Oser l'originalité",
         category: 'sorbets',
-        image: '/images/apricot_thyme_scoop.png',
+        image: '/images/boules/apricot_thyme.png',
         price: '3,00€ la boule',
     },
     {
@@ -390,7 +377,6 @@ export default function NosGlacesPage() {
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                         className={styles.flavorImg}
-                                        style={flavor.scale ? { scale: flavor.scale } : undefined}
                                     />
                                     {flavor.isSeasonal && (
                                         <span className={styles.flavorBadge}>Limitée</span>
@@ -441,7 +427,6 @@ export default function NosGlacesPage() {
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         className={styles.modalImg}
-                                        style={selectedFlavor.scale ? { scale: selectedFlavor.scale } : undefined}
                                     />
                                     
                                     {/* SVG Drawing Layer covering the entire image box! */}

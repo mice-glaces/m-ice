@@ -31,23 +31,20 @@ const featuredProducts = [
         category: 'Crème glacée',
         image: '/images/boules/vanille.png',
         isSeasonal: false,
-        scale: 0.7,
     },
     {
         id: 2,
         name: 'Chocolat',
         description: 'Grand cru de cacao, saveur intense',
         category: 'Crème glacée',
-        image: '/images/chocolat.png',
-        scale: 0.7,
+        image: '/images/boules/chocolat.png',
     },
     {
         id: 3,
         name: 'Pistache',
         description: 'Pistache torréfiée, goût authentique',
         category: 'Crème glacée',
-        image: '/images/pistachio_scoop.png',
-        scale: 1.15,
+        image: '/images/boules/pistachio.png',
     },
     {
         id: 9,
@@ -69,15 +66,13 @@ const featuredProducts = [
         description: 'Alliance fraîche de menthe et pépites de cacao',
         category: 'Crème glacée',
         image: '/images/boules/mint_choc.png',
-        scale: 0.8,
     },
     {
         id: 16,
         name: 'Framboise',
         description: 'Pureté du fruit, acidulé et éclatant',
         category: 'Sorbet Plein Fruit',
-        image: '/images/framboise.png',
-        scale: 0.6,
+        image: '/images/boules/framboise.png',
     },
     {
         id: 17,
@@ -92,7 +87,6 @@ const featuredProducts = [
         description: 'Éclat de fruits des bois au sommet des Alpes',
         category: 'Sorbet Plein Fruit',
         image: '/images/boules/blueberry.png',
-        scale: 0.65,
     },
     {
         id: 23,
@@ -106,7 +100,7 @@ const featuredProducts = [
         name: 'Mangue',
         description: 'Onctuosité de la mangue Alphonso mûre',
         category: 'Sorbet Plein Fruit',
-        image: '/images/mango_scoop.png',
+        image: '/images/boules/mango.png',
     },
     {
         id: 28,
@@ -343,7 +337,6 @@ export default function HomePage() {
                                                 fill
                                                 sizes="(max-width: 768px) 100vw, 33vw"
                                                 className={styles.productImg}
-                                                style={product.scale ? { scale: product.scale } : undefined}
                                             />
                                             {product.isSeasonal && (
                                                 <span className={styles.productBadge}>{t('product.seasonal')}</span>
