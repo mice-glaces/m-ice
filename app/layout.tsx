@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         default: "M'Ice | Glacier Artisanal - La Garenne & Embrun",
         template: "%s | M'Ice, glacier artisanal",
     },
-    description: "Découvrez M'Ice, glacier artisanal à La Garenne (Saint-Jean-Saint-Nicolas) et à Embrun. Glaces, sorbets, gaufres, crêpes et créations glacées sur mesure, élaborés avec passion et des ingrédients de qualité.",
+    description: "Glacier artisanal à La Garenne (Saint-Jean-Saint-Nicolas) et à Embrun : glaces, sorbets, crêpes, gaufres et créations glacées faits maison.",
     keywords: ['glacier', 'artisanal', 'glace', 'sorbet', 'La Garenne', 'Saint-Jean-Saint-Nicolas', 'Embrun', 'Champsaur', 'Hautes-Alpes', 'gâteau glacé', 'bûche glacée'],
     authors: [{ name: SITE_NAME }],
     alternates: { canonical: '/' },

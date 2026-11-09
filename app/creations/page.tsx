@@ -113,7 +113,7 @@ export default function NosCreations() {
                                 variants={staggerVariants}
                             >
                                 {group.items.map((item) => (
-                                    <motion.article
+                                    <motion.div
                                         key={item.id}
                                         className={styles.creationCard}
                                         variants={fadeInUp}
@@ -138,7 +138,7 @@ export default function NosCreations() {
                                         <div className={styles.creationContent}>
                                             <h3 className={styles.creationName}>{t('creation.' + item.id + '.name')}</h3>
                                         </div>
-                                    </motion.article>
+                                    </motion.div>
                                 ))}
                             </motion.div>
                         </div>

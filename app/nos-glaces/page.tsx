@@ -360,7 +360,7 @@ export default function NosGlacesPage() {
                         key={activeFilter}
                     >
                         {filteredFlavors.map((flavor) => (
-                            <motion.article
+                            <motion.div
                                 key={flavor.id}
                                 className={styles.flavorCard}
                                 variants={fadeInUp}
@@ -385,7 +385,7 @@ export default function NosGlacesPage() {
                                 <div className={styles.flavorContent}>
                                     <h3 className={styles.flavorName}>{t(`flavor.${flavor.id}.name`)}</h3>
                                 </div>
-                            </motion.article>
+                            </motion.div>
                         ))}
                     </motion.div>
                 </div>

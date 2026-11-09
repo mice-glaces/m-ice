@@ -52,7 +52,7 @@ export default function Footer() {
 
                     {/* Navigation */}
                     <div className={styles.column}>
-                        <h4 className={styles.columnTitle}>{t('footer.nav')}</h4>
+                        <h2 className={styles.columnTitle}>{t('footer.nav')}</h2>
                         <ul className={styles.linkList}>
                             {quickLinks.map((link) => (
                                 <li key={link.href}>
@@ -66,7 +66,7 @@ export default function Footer() {
 
                     {/* Contact — dynamic based on location */}
                     <div className={styles.column}>
-                        <h4 className={styles.columnTitle}>{currentLocation.shortName.toUpperCase()}</h4>
+                        <h2 className={styles.columnTitle}>{currentLocation.shortName.toUpperCase()}</h2>
                         <div className={styles.contactList}>
                             <div className={styles.contactItem}>
                                 <MapPin size={16} className={styles.contactIcon} />
@@ -85,7 +85,7 @@ export default function Footer() {
 
                     {/* Legal */}
                     <div className={styles.column}>
-                        <h4 className={styles.columnTitle}>{t('footer.legal')}</h4>
+                        <h2 className={styles.columnTitle}>{t('footer.legal')}</h2>
                         <ul className={styles.linkList}>
                             {legalLinks.map((link) => (
                                 <li key={link.href}>

@@ -243,7 +243,7 @@ export default function HomePage() {
                         animate={{ y: 0 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        {t('hero.title.line1')}<br/>{t('hero.title.line2')}
+                        {t('hero.title.line1')}{' '}<br/>{t('hero.title.line2')}
                     </motion.h1>
                     
                     <motion.p 
@@ -324,7 +324,7 @@ export default function HomePage() {
                         <div className={styles.sliderTrack} ref={flavorsSlider.ref} onScroll={flavorsSlider.update}>
                             {featuredProducts.map((product: any) => (
                                 <div key={product.id} className={styles.sliderItem}>
-                                    <article
+                                    <div
                                         className={styles.productCard}
                                         onClick={() => setSelectedFlavor(product)}
                                         onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedFlavor(product) } }}
@@ -350,7 +350,7 @@ export default function HomePage() {
                                                 {t(product.category === 'Crème glacée' ? 'category.cream' : 'category.sorbet')}
                                             </span>
                                         </div>
-                                    </article>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -398,7 +398,7 @@ export default function HomePage() {
                         <div className={styles.sliderTrack} ref={creationsSlider.ref} onScroll={creationsSlider.update}>
                             {featuredCreations.map((product: any) => (
                                 <div key={product.id} className={styles.sliderItem}>
-                                    <article
+                                    <div
                                         className={`${styles.productCard} ${product.isUnavailable ? styles.productCardUnavailable : ''}`}
                                         onClick={product.isUnavailable ? undefined : () => setSelectedFlavor(product)}
                                         onKeyDown={product.isUnavailable ? undefined : (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedFlavor(product) } }}
@@ -428,7 +428,7 @@ export default function HomePage() {
                                             <h3 className={styles.productName}>{t('creation.' + product.id + '.name')}</h3>
                                             <span className={styles.productKind}>{t('creations.' + product.categoryKey)}</span>
                                         </div>
-                                    </article>
+                                    </div>
                                 </div>
                             ))}
                         </div>
