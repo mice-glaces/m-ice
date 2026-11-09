@@ -235,7 +235,7 @@
 }
 
 .sidebarLink:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-dark);
 }
 
 .sidebarAddress {
@@ -255,7 +255,7 @@
 }
 
 .socialLink:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-dark);
     transform: translateX(4px);
 }
 

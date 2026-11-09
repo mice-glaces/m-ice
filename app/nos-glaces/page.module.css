@@ -20,7 +20,16 @@
     color: var(--color-primary);
 }
 
-.whiteBg .filterBtnActive {
+/* Hover on the light background: dark text on a light gold wash (gold text was
+   unreadable, and on the active gold button it vanished completely) */
+.whiteBg .filterBtn:hover {
+    background: rgba(200, 155, 60, 0.1);
+    border-color: var(--color-accent-dark);
+    color: var(--color-primary);
+}
+
+.whiteBg .filterBtnActive,
+.whiteBg .filterBtnActive:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
     color: var(--color-primary);
@@ -81,7 +90,8 @@
     color: var(--color-accent);
 }
 
-.filterBtnActive {
+.filterBtnActive,
+.filterBtnActive:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
     color: var(--color-primary);
