@@ -38,6 +38,9 @@ const CONTENT = {
                             <li>
                                 <strong>Données de navigation (Cookies) :</strong> Ce site n&apos;utilise aucun cookie de traçage publicitaire, de ciblage ou de réseaux sociaux. Nous utilisons uniquement des cookies techniques et locaux pour mémoriser vos préférences de navigation (comme le glacier sélectionné et votre langue de préférence) afin d&apos;optimiser votre expérience utilisateur.
                             </li>
+                            <li>
+                                <strong>Mesure d&apos;audience :</strong> Nous mesurons la fréquentation du site avec Vercel Web Analytics, de façon anonyme et sans cookie. Seules des statistiques globales sont collectées (pages consultées, site de provenance, type d&apos;appareil, pays), sans conservation d&apos;adresse IP ni identification des visiteurs.
+                            </li>
                         </ul>
                         <p>
                             La base légale de ce traitement est votre consentement (lorsque vous soumettez le formulaire) ainsi que notre intérêt légitime à vous répondre.
@@ -129,6 +132,9 @@ const CONTENT = {
                             </li>
                             <li>
                                 <strong>Navigation Data (Cookies):</strong> This site does not use any advertising tracking, targeting, or social media cookies. We only use technical and local cookies to remember your browsing preferences (such as the selected ice cream parlor and your preferred language) in order to optimize your user experience.
+                            </li>
+                            <li>
+                                <strong>Audience measurement:</strong> We measure site traffic with Vercel Web Analytics, anonymously and without cookies. Only aggregate statistics are collected (pages viewed, referring site, device type, country), without storing IP addresses or identifying visitors.
                             </li>
                         </ul>
                         <p>
@@ -222,6 +228,9 @@ const CONTENT = {
                             <li>
                                 <strong>Datos de Navegación (Cookies):</strong> Este sitio no utiliza cookies de seguimiento publicitario, de orientación o de redes sociales. Solo utilizamos cookies técnicas y locales para recordar sus preferencias de navegación (como la heladería seleccionada y su idioma de preferencia) a fin de optimizar su experiencia de usuario.
                             </li>
+                            <li>
+                                <strong>Medición de audiencia:</strong> Medimos el tráfico del sitio con Vercel Web Analytics, de forma anónima y sin cookies. Solo se recopilan estadísticas globales (páginas visitadas, sitio de procedencia, tipo de dispositivo, país), sin conservar direcciones IP ni identificar a los visitantes.
+                            </li>
                         </ul>
                         <p>
                             La base jurídica de este tratamiento es su consentimiento (cuando envía el formulario) así como nuestro interés legítimo en responderle.
@@ -313,6 +322,9 @@ const CONTENT = {
                             </li>
                             <li>
                                 <strong>Dati di Navigazione (Cookie):</strong> Questo sito non utilizza alcun cookie di tracciamento pubblicitario, di targeting o di social network. Utilizziamo solo cookie tecnici e locali per memorizzare le tue preferenze di navigazione (come la gelateria selezionata e la lingua preferita) per ottimizzare la tua esperienza utente.
+                            </li>
+                            <li>
+                                <strong>Misurazione dell&apos;audience:</strong> Misuriamo il traffico del sito con Vercel Web Analytics, in forma anonima e senza cookie. Vengono raccolte solo statistiche aggregate (pagine visitate, sito di provenienza, tipo di dispositivo, paese), senza conservare indirizzi IP né identificare i visitatori.
                             </li>
                         </ul>
                         <p>

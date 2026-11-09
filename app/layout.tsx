@@ -1,6 +1,7 @@
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 import './globals.css'
 import Providers from '@/components/Providers'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { LOCATIONS } from '@/data/locations'
 import { SITE_URL, SITE_NAME, INSTAGRAM_URL } from '@/data/site'
@@ -91,6 +92,8 @@ export default function RootLayout({
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
                 <Providers>{children}</Providers>
+                {/* Cookie-less audience measurement (Vercel Web Analytics) */}
+                <Analytics />
             </body>
         </html>
     )
