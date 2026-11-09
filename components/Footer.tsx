@@ -16,7 +16,6 @@ export default function Footer() {
         { href: '/', labelKey: 'nav.home' },
         { href: '/nos-glaces', labelKey: 'nav.flavors' },
         { href: '/creations', labelKey: 'nav.creations' },
-        { href: '/collaborateurs', labelKey: 'collab.title' },
         { href: '/nous-trouver', labelKey: 'findus.title' },
         { href: '/faq', labelKey: 'nav.faq' },
     ]

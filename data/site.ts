@@ -15,7 +15,6 @@ export const ROUTES = [
     '/nos-glaces',
     '/creations',
     '/a-propos',
-    '/collaborateurs',
     '/nous-trouver',
     '/contact',
     '/faq',
