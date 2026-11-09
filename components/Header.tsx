@@ -28,9 +28,13 @@ export default function Header() {
             setIsScrolled(window.scrollY > 50)
         }
 
-        handleScroll()
+        // read the scroll position on the next frame, not while the page is still laying out
+        const frame = requestAnimationFrame(handleScroll)
         window.addEventListener('scroll', handleScroll, { passive: true })
-        return () => window.removeEventListener('scroll', handleScroll)
+        return () => {
+            cancelAnimationFrame(frame)
+            window.removeEventListener('scroll', handleScroll)
+        }
     }, [])
 
     // Mobile menu: close on navigation, lock page scroll, close with Escape
@@ -60,6 +64,7 @@ export default function Header() {
                             alt="M'Ice"
                             width={480}
                             height={310}
+                            sizes="100px"
                             priority
                             className={styles.logoImg}
                         />

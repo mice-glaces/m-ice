@@ -375,7 +375,7 @@ export default function NosGlacesPage() {
                                         src={flavor.image}
                                         alt={flavor.name}
                                         fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                        sizes="(max-width: 600px) 45vw, 220px"
                                         className={styles.flavorImg}
                                     />
                                     {flavor.isSeasonal && (
@@ -425,7 +425,7 @@ export default function NosGlacesPage() {
                                         src={selectedFlavor.image}
                                         alt={t(`flavor.${selectedFlavor.id}.name`)}
                                         fill
-                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        sizes="(max-width: 768px) 220px, 350px"
                                         className={styles.modalImg}
                                     />
                                     

@@ -184,9 +184,13 @@ function useSlider() {
     }, [])
 
     useEffect(() => {
-        update()
+        // measure on the next frame to avoid forcing a layout during hydration
+        const frame = requestAnimationFrame(update)
         window.addEventListener('resize', update)
-        return () => window.removeEventListener('resize', update)
+        return () => {
+            cancelAnimationFrame(frame)
+            window.removeEventListener('resize', update)
+        }
     }, [update])
 
     const scroll = (direction: 1 | -1) => {
@@ -229,6 +233,8 @@ export default function HomePage() {
                         fill
                         priority
                         sizes="100vw"
+                        // darkened by the overlay: a lighter encode is invisible and halves the bytes
+                        quality={60}
                         className={styles.heroImage}
                     />
                     <div className={styles.heroOverlay} />
@@ -239,26 +245,26 @@ export default function HomePage() {
                         className={styles.heroTitle}
                         // no fade from invisible: the title is the page's largest
                         // element and must paint with the first frame
-                        initial={{ y: 24 }}
+                        initial={{ y: 20 }}
                         animate={{ y: 0 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     >
                         {t('hero.title.line1')}{' '}<br/>{t('hero.title.line2')}
                     </motion.h1>
                     
                     <motion.p 
                         className={styles.heroDescription}
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        initial={{ y: 14 }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
                         dangerouslySetInnerHTML={{ __html: t('hero.description').replace(/\n/g, '<br />') }}
                     />
                     
                     <motion.div 
                         className={styles.heroCta}
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        initial={{ y: 14 }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <Link href="/nos-glaces" className="btn btn--outline-light btn--lg">
                             {t('hero.cta')}
@@ -267,12 +273,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Where to find us, straight from the first screen */}
-                <motion.div
-                    className={styles.heroShops}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.8 }}
-                >
+                <div className={styles.heroShops}>
                     <div className={styles.heroShopsInner}>
                         {Object.values(LOCATIONS).map((loc) => (
                             <Link key={loc.id} href="/nous-trouver" className={styles.heroShop}>
@@ -284,7 +285,7 @@ export default function HomePage() {
                             {t('findus.title')}
                         </Link>
                     </div>
-                </motion.div>
+                </div>
 
             </section>
 
@@ -337,7 +338,7 @@ export default function HomePage() {
                                                 src={product.image}
                                                 alt={t('flavor.' + product.id + '.name')}
                                                 fill
-                                                sizes="(max-width: 768px) 100vw, 33vw"
+                                                sizes="(max-width: 768px) 85vw, 280px"
                                                 className={styles.productImg}
                                             />
                                             {product.isSeasonal && (
@@ -415,7 +416,7 @@ export default function HomePage() {
                                                     src={product.image}
                                                     alt={t('creation.' + product.id + '.name')}
                                                     fill
-                                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                                    sizes="(max-width: 768px) 85vw, 280px"
                                                     className={styles.productImg}
                                                     style={{ 
                                                         transform: `scale(${product.scale || 1}) translate(${product.xOffset || 0}px, ${product.yOffset || 0}px)`,
@@ -462,7 +463,7 @@ export default function HomePage() {
                                     src="/images/original/crepes-gauffres.jpg"
                                     alt={t('promo.title')}
                                     fill
-                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    sizes="(max-width: 768px) 100vw, 400px"
                                     className={styles.promoImg}
                                 />
                                 <div className={styles.promoBadge}>
@@ -506,7 +507,7 @@ export default function HomePage() {
                                         src={selectedFlavor.image}
                                         alt={t(nameKey)}
                                         fill
-                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        sizes="(max-width: 768px) 220px, 320px"
                                         className={styles.modalImg}
                                         style={selectedFlavor.scale ? { scale: selectedFlavor.scale } : undefined}
                                     />

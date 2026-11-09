@@ -127,7 +127,7 @@ export default function NosCreations() {
                                                 src={item.image}
                                                 alt={t('creation.' + item.id + '.name')}
                                                 fill
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                                sizes="(max-width: 600px) 45vw, 350px"
                                                 className={styles.creationImg}
                                                 style={{ 
                                                     transform: `scale(${item.scale || 1}) translate(${item.xOffset || 0}px, ${item.yOffset || 0}px)`,
@@ -177,7 +177,7 @@ export default function NosCreations() {
                                         src={selectedItem.image}
                                         alt={selectedItem.name}
                                         fill
-                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        sizes="(max-width: 768px) 220px, 350px"
                                         className={styles.modalImg}
                                         style={{ 
                                             transform: `scale(${selectedItem.scale || 1}) translate(${selectedItem.xOffset || 0}px, ${selectedItem.yOffset || 0}px)`,

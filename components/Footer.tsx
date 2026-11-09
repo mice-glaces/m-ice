@@ -37,6 +37,7 @@ export default function Footer() {
                                 alt="M'Ice"
                                 width={480}
                                 height={310}
+                                sizes="160px"
                                 className={styles.logoImg}
                             />
                         </Link>

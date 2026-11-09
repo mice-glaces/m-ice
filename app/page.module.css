@@ -24,22 +24,21 @@
     z-index: 0;
 }
 
-/* The photo settles into place once, while the headline arrives */
+/* The photo settles into place once, while the headline arrives
+   (fully visible from the first frame: no fade, so the page looks complete early) */
 .heroImage {
     object-fit: cover;
     object-position: 65% center;
-    animation: heroSettle 2.6s var(--ease-out-expo) both;
+    animation: heroSettle 1.4s var(--ease-out-expo) both;
 }
 
 @keyframes heroSettle {
     from {
-        transform: scale(1.07);
-        opacity: 0.6;
+        transform: scale(1.04);
     }
 
     to {
         transform: scale(1);
-        opacity: 1;
     }
 }
 

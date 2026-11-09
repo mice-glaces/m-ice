@@ -27,6 +27,8 @@ export default function PageHero({
                     fill
                     priority
                     sizes="100vw"
+                    // sits under a dark overlay: a lighter encode is invisible and halves the bytes
+                    quality={55}
                     className={styles.backgroundImg}
                 />
             )}

@@ -62,6 +62,7 @@ export default function AProposPage() {
                         fill
                         priority
                         sizes="100vw"
+                        quality={60}
                         className={styles.heroImg}
                     />
                     <div className={styles.heroOverlay} />
