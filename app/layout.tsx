@@ -10,9 +10,19 @@ import { SITE_URL, SITE_NAME, INSTAGRAM_URL } from '@/data/site'
 const cormorant = Cormorant_Garamond({
     subsets: ['latin'],
     weight: ['300', '400', '500', '600'],
-    style: ['normal', 'italic'],
     display: 'swap',
     variable: '--font-cormorant',
+})
+
+// The italic only dresses small captions: not preloaded, so it never competes
+// with the hero image and the main fonts on first paint
+const cormorantItalic = Cormorant_Garamond({
+    subsets: ['latin'],
+    weight: '400',
+    style: 'italic',
+    display: 'swap',
+    preload: false,
+    variable: '--font-cormorant-italic',
 })
 
 const dmSans = DM_Sans({
@@ -74,7 +84,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="fr" className={`${cormorant.variable} ${dmSans.variable}`}>
+        <html lang="fr" className={`${cormorant.variable} ${cormorantItalic.variable} ${dmSans.variable}`}>
             <body>
                 <script
                     type="application/ld+json"

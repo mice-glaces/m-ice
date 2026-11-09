@@ -237,8 +237,10 @@ export default function HomePage() {
                 <div className={styles.heroContent}>
                     <motion.h1 
                         className={styles.heroTitle}
-                        initial={{ opacity: 0, y: 24 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        // no fade from invisible: the title is the page's largest
+                        // element and must paint with the first frame
+                        initial={{ y: 24 }}
+                        animate={{ y: 0 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
                         {t('hero.title.line1')}<br/>{t('hero.title.line2')}
