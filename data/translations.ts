@@ -76,6 +76,9 @@ const translations: Record<Locale, TranslationKeys> = {
         'contact.sentMessage': 'Votre messagerie s\'est ouverte avec votre message pré-rempli : il ne vous reste plus qu\'à l\'envoyer. Rien ne s\'est ouvert ? Écrivez-nous directement à l\'adresse indiquée à droite.',
         'contact.shop': 'Glacier concerné',
         'contact.sendAnother': 'Envoyer un autre message',
+        'contact.delivered': 'Message envoyé',
+        'contact.deliveredMessage': 'Merci ! Votre message est bien arrivé chez nous. Nous vous répondrons par email dans les meilleurs délais.',
+        'contact.error': 'L\'envoi n\'a pas abouti. Vérifiez votre connexion et réessayez, ou écrivez-nous directement :',
 
         // General
         'general.phone': 'Téléphone',
@@ -336,6 +339,9 @@ const translations: Record<Locale, TranslationKeys> = {
         'contact.sentMessage': 'Your email app has opened with your message pre-filled: just hit send. Nothing opened? Write to us directly at the address shown on the right.',
         'contact.shop': 'Which shop?',
         'contact.sendAnother': 'Send another message',
+        'contact.delivered': 'Message sent',
+        'contact.deliveredMessage': 'Thank you! Your message has reached us. We will reply by email as soon as possible.',
+        'contact.error': 'Your message could not be sent. Check your connection and try again, or write to us directly:',
 
         'general.phone': 'Phone',
         'general.directLine': 'Direct Line',
@@ -579,6 +585,9 @@ const translations: Record<Locale, TranslationKeys> = {
         'contact.sentMessage': 'Su aplicación de correo se ha abierto con el mensaje ya redactado: solo tiene que enviarlo. ¿No se abrió nada? Escríbanos directamente a la dirección indicada.',
         'contact.shop': 'Heladería',
         'contact.sendAnother': 'Enviar otro mensaje',
+        'contact.delivered': 'Mensaje enviado',
+        'contact.deliveredMessage': '¡Gracias! Hemos recibido su mensaje. Le responderemos por correo lo antes posible.',
+        'contact.error': 'No se pudo enviar el mensaje. Compruebe su conexión e inténtelo de nuevo, o escríbanos directamente:',
 
         'general.phone': 'Teléfono',
         'general.directLine': 'Línea Directa',
@@ -822,6 +831,9 @@ const translations: Record<Locale, TranslationKeys> = {
         'contact.sentMessage': 'Il suo programma di posta si è aperto con il messaggio già compilato: basta inviarlo. Non si è aperto nulla? Ci scriva direttamente all\'indirizzo indicato.',
         'contact.shop': 'Gelateria',
         'contact.sendAnother': 'Invia un altro messaggio',
+        'contact.delivered': 'Messaggio inviato',
+        'contact.deliveredMessage': 'Grazie! Abbiamo ricevuto il suo messaggio. Le risponderemo via email il prima possibile.',
+        'contact.error': 'Invio non riuscito. Controlli la connessione e riprovi, oppure ci scriva direttamente:',
 
         'general.phone': 'Telefono',
         'general.directLine': 'Linea Diretta',

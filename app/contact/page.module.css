@@ -286,3 +286,32 @@
         padding: 6px 0;
     }
 }
+
+/* Hidden spam trap, kept out of view and of the tab order */
+.honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.formError {
+    padding: var(--space-md) var(--space-lg);
+    border-left: 3px solid #b3261e;
+    background: #fdf3f2;
+    color: #8c1d18;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+}
+
+.formError a {
+    color: inherit;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}

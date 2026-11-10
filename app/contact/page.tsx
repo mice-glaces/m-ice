@@ -16,40 +16,91 @@ const fadeInUp = {
 }
 
 type FormType = 'particulier' | 'professionnel'
+type Status = 'idle' | 'sending' | 'delivered' | 'mailto' | 'error'
+
+// Web3Forms access keys, one per shop so each message lands in that shop's inbox.
+// A key is tied to one receiving address and is safe to expose in the browser.
+// Without a key for the chosen shop, the form falls back to opening the visitor's email app.
+const WEB3FORMS_KEYS: Record<string, string | undefined> = {
+    'saint-jean': process.env.NEXT_PUBLIC_WEB3FORMS_KEY_SAINT_JEAN,
+    'embrun': process.env.NEXT_PUBLIC_WEB3FORMS_KEY_EMBRUN,
+}
 
 export default function ContactPage() {
     const [formType, setFormType] = useState<FormType>('particulier')
-    const [isSubmitted, setIsSubmitted] = useState(false)
+    const [status, setStatus] = useState<Status>('idle')
+    const [fallback, setFallback] = useState({ href: '', address: '' })
     const { t } = useTranslation()
     const { currentLocation } = useLocation()
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        if (status === 'sending') return
         const form = e.currentTarget
         const data = new FormData(form)
         const get = (key: string) => String(data.get(key) ?? '').trim()
         const shop = LOCATIONS[get('shop')] ?? currentLocation
         const subjectSelect = form.elements.namedItem('subject') as HTMLSelectElement
         const subjectLabel = subjectSelect.selectedOptions[0]?.text ?? get('subject')
+        const activitySelect = form.elements.namedItem('activity') as HTMLSelectElement | null
+        const activityLabel = activitySelect?.value ? activitySelect.selectedOptions[0]?.text : ''
+        const name = `${get('firstName')} ${get('lastName')}`
+        const subject = `[Site M'Ice] ${subjectLabel} — ${shop.shortName}`
 
-        const lines = [
-            get('message'),
-            '',
-            '—',
-            `${get('firstName')} ${get('lastName')}`,
-            get('email'),
-        ]
+        const lines = [get('message'), '', '—', name, get('email')]
         if (formType === 'professionnel') {
-            lines.push(`${get('company')}${get('activity') ? ` (${get('activity')})` : ''}`)
+            lines.push(`${get('company')}${activityLabel ? ` (${activityLabel})` : ''}`)
+        }
+        const mailto = `mailto:${shop.email.toLowerCase()}`
+            + `?subject=${encodeURIComponent(subject)}`
+            + `&body=${encodeURIComponent(lines.join('\n'))}`
+
+        const accessKey = WEB3FORMS_KEYS[shop.id]
+        if (!accessKey) {
+            window.location.href = mailto
+            setStatus('mailto')
+            return
         }
 
-        // No mail backend yet: open the visitor's email app with everything pre-filled
-        const mailto = `mailto:${shop.email.toLowerCase()}`
-            + `?subject=${encodeURIComponent(`[Site M'Ice] ${subjectLabel}`)}`
-            + `&body=${encodeURIComponent(lines.join('\n'))}`
-        window.location.href = mailto
-        setIsSubmitted(true)
+        // Honeypot: real visitors never fill this hidden field
+        if (get('botcheck')) {
+            setStatus('delivered')
+            return
+        }
+
+        setStatus('sending')
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify({
+                    access_key: accessKey,
+                    subject,
+                    from_name: `Site M'Ice — ${name}`,
+                    replyto: get('email'),
+                    'Nom': name,
+                    'Email': get('email'),
+                    'Type': formType === 'professionnel' ? 'Professionnel' : 'Particulier',
+                    ...(formType === 'professionnel' && {
+                        'Entreprise': get('company'),
+                        'Secteur': activityLabel || '—',
+                    }),
+                    'Glacier': shop.name,
+                    'Objet': subjectLabel,
+                    'Message': get('message'),
+                }),
+            })
+            const json = await res.json().catch(() => null)
+            if (!res.ok || !json?.success) throw new Error(json?.message ?? `HTTP ${res.status}`)
+            form.reset()
+            setStatus('delivered')
+        } catch {
+            setFallback({ href: mailto, address: shop.email.toLowerCase() })
+            setStatus('error')
+        }
     }
+
+    const isDone = status === 'delivered' || status === 'mailto'
 
     return (
         <>
@@ -88,16 +139,16 @@ export default function ContactPage() {
                                 </button>
                             </div>
 
-                            {isSubmitted ? (
-                                <div className={styles.successMessage}>
+                            {isDone ? (
+                                <div className={styles.successMessage} role="status">
                                     <div className={styles.successIcon}>
                                         <Check size={40} />
                                     </div>
-                                    <h3>{t('contact.sent')}</h3>
-                                    <p>{t('contact.sentMessage')}</p>
+                                    <h3>{t(status === 'delivered' ? 'contact.delivered' : 'contact.sent')}</h3>
+                                    <p>{t(status === 'delivered' ? 'contact.deliveredMessage' : 'contact.sentMessage')}</p>
                                     <button
                                         className="btn btn--outline-dark"
-                                        onClick={() => setIsSubmitted(false)}
+                                        onClick={() => setStatus('idle')}
                                     >
                                         {t('contact.sendAnother')}
                                     </button>
@@ -209,11 +260,29 @@ export default function ContactPage() {
                                         />
                                     </div>
 
+                                    <input
+                                        type="checkbox"
+                                        name="botcheck"
+                                        tabIndex={-1}
+                                        autoComplete="off"
+                                        aria-hidden="true"
+                                        className={styles.honeypot}
+                                    />
+
+                                    {status === 'error' && (
+                                        <p className={styles.formError} role="alert">
+                                            {t('contact.error')}{' '}
+                                            <a href={fallback.href}>{fallback.address}</a>
+                                        </p>
+                                    )}
+
                                     <button
                                         type="submit"
                                         className={`btn btn--accent btn--lg ${styles.submitBtn}`}
+                                        disabled={status === 'sending'}
+                                        aria-busy={status === 'sending'}
                                     >
-                                        {t('contact.send')}
+                                        {t(status === 'sending' ? 'contact.sending' : 'contact.send')}
                                         <Send size={18} className="ml-2" />
                                     </button>
                                 </form>
